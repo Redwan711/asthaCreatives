@@ -34,7 +34,7 @@ export const offeringsData = [
       "Brand Voice & Imagery Style",
     ],
     hasPackages: false,
-    learnMoreHref: "/services/creative-design",
+    learnMoreHref: "/services/brand-guidelines",
     quoteHref: "/contact?service=brand-guidelines",
   },
   {
@@ -111,7 +111,7 @@ export const offeringsData = [
         ctaHref: "/contact?service=content-design&package=growth",
       },
     ],
-    learnMoreHref: "/services/social-media-management",
+    learnMoreHref: "/services/content-design",
     quoteHref: "/contact?service=content-design",
   },
   {
@@ -207,7 +207,7 @@ export const offeringsData = [
         ctaHref: "/contact?service=seo&package=growth",
       },
     ],
-    learnMoreHref: "/services/website-development",
+    learnMoreHref: "/services/seo",
     quoteHref: "/contact?service=seo",
   },
   {

@@ -1,127 +1,207 @@
-import heroImage from "@/images/other/social-media-management-hero.jpg";
+import heroImage from "@/images/other/web.jpg";
 
-/** @type {import('@/components/ServicePageTemplate').ServicePageData} */
 const websiteDevelopment = {
-  eyebrow: "Website Development",
+  slug: "website-development",
+  eyebrow: "Website Design & Digital Headquarters",
   heroImage,
-  heroTitle: "Custom Website Development for Exceptional Digital Experiences",
+  heroTitle: "High-Performance Modern Websites Engineered for Conversions",
   heroDescription:
-    "We build lightning-fast, secure, and SEO-optimized websites. From modern single-page apps to complex e-commerce platforms, we design systems that convert visitors into loyal customers.",
+    "We build custom, lightning-fast digital ports—from modern business portals and portfolio showcases to high-converting landing pages built with Next.js, React, GSAP animations, and world-class SEO.",
+  stats: [
+    { label: "Lighthouse Performance", value: "95–100 Score" },
+    { label: "Core Web Vitals", value: "100% Passed" },
+    { label: "Tech Stack", value: "Next.js / GSAP" },
+  ],
 
-  introHeading:
-    "High-performance web development tailored to your brand identity, business logic, and scaling requirements",
-  introDescription:
-    "Your website is your digital storefront—it needs to load fast, look premium, and function flawlessly on every device. Our Website Development services combine cutting-edge technology stacks (like Next.js, React, and Tailwind CSS) with clean, maintainable code to deliver high-converting web applications. We prioritize mobile-responsiveness, speed optimization, and search engine visibility from day one. Whether you need a corporate brand site, a custom Webflow/WordPress build, a robust e-commerce platform, or a bespoke web application, our developers write clean code that is structured for success. We ensure proper security protocols, analytics tracking, and content management systems are set up so you have full control and peace of mind.",
+  strategicContext: {
+    heading: "Your Website is Your Brand's Home Port in the Digital Ocean",
+    paragraph1:
+      "Your website is the single most critical asset in your digital ecosystem. It is where paid advertising traffic lands, organic search visitors evaluate your capabilities, and potential clients decide whether to trust you with their business. Slow loading speeds, broken mobile layouts, and cluttered navigation bleed revenue and destroy ad ROI.",
+    paragraph2:
+      "At Astha Creatives, we engineer web experiences that merge breathtaking visual aesthetics with engineering rigor. Using modern architectures like Next.js, Server-Side Rendering (SSR), Static Site Generation (SSG), Tailwind CSS, and kinetic GSAP micro-interactions, we ensure your site achieves near-instant load times, flawless responsiveness across all devices, and maximum search engine visibility.",
+    keyPoints: [
+      "Sub-second page loading speeds powered by Next.js and edge CDN caching",
+      "Tailored UI/UX architecture optimized for high user engagement and form conversions",
+      "Full technical SEO foundation including automated sitemaps, robots.txt, and OpenGraph meta",
+      "Semantic HTML5 structure and WCAG 2.1 AA accessibility compliance",
+    ],
+  },
+
+  toolsStack: [
+    {
+      name: "Next.js & React",
+      purpose: "Enterprise-grade React framework providing hybrid static & server rendering, fast routing, and SEO mastery.",
+      tag: "Core Framework",
+    },
+    {
+      name: "Tailwind CSS & Vanilla CSS",
+      purpose: "Utility-first and custom design systems delivering ultra-lean production CSS bundles without layout shift.",
+      tag: "Styling & UI",
+    },
+    {
+      name: "GSAP & ScrollTrigger",
+      purpose: "High-performance hardware-accelerated animations, scroll reveals, and micro-interactions.",
+      tag: "Animation Engine",
+    },
+    {
+      name: "Vercel / AWS CloudFront",
+      purpose: "Global edge CDN deployment guaranteeing 99.99% uptime, SSL security, and global sub-100ms latency.",
+      tag: "Cloud Infrastructure",
+    },
+  ],
+
+  methodology: [
+    {
+      step: "01",
+      title: "Information Architecture & Wireframing",
+      description:
+        "We map out your site's user journeys, sitemap hierarchy, conversion funnels, and wireframes to ensure effortless navigation and strategic content flow.",
+      deliverables: ["Interactive Wireframe Prototype", "Sitemap Architecture", "Conversion Funnel Map"],
+    },
+    {
+      step: "02",
+      title: "High-Fidelity UI/UX & Interaction Design",
+      description:
+        "We design high-fidelity desktop and mobile viewports in Figma, incorporating your brand design tokens, kinetic micro-interactions, and visual assets.",
+      deliverables: ["Figma Interactive Prototype", "Design System UI Components", "Asset Master Library"],
+    },
+    {
+      step: "03",
+      title: "Frontend Engineering & GSAP Choreography",
+      description:
+        "We write clean, modular React components, integrate GSAP scroll-triggered animations, and wire up contact forms, CRM webhooks, and analytics tracking.",
+      deliverables: ["Production Next.js Source Code", "Responsive Layout Engine", "Form & Webhook Integration"],
+    },
+    {
+      step: "04",
+      title: "Performance Optimization, SEO & Launch",
+      description:
+        "We benchmark Core Web Vitals, implement structured JSON-LD schemas, test across iOS/Android/Chrome/Safari, and deploy to your custom domain with SSL.",
+      deliverables: ["Lighthouse 95+ Audit Report", "Production Domain Deployment", "CMS & Admin Handoff Video"],
+    },
+  ],
+
+  qualityStandards: [
+    {
+      title: "Lighthouse Performance Standard",
+      description: "Every website build is audited against Google Lighthouse metrics to guarantee scores above 95 in Performance, Accessibility, and SEO.",
+      metric: "95+ Across All Metrics",
+    },
+    {
+      title: "Zero Cumulative Layout Shift (CLS)",
+      description: "All media, fonts, and dynamic components are pre-calculated to prevent jarring visual shifts during page rendering.",
+      metric: "CLS < 0.05 Benchmark",
+    },
+    {
+      title: "Cross-Browser & Multi-Device Testing",
+      description: "Rigorous testing across Safari iOS, Chrome Android, Firefox, Edge, and ultra-wide desktop monitors.",
+      metric: "100% Cross-Device Parity",
+    },
+  ],
 
   tiers: [
     {
-      name: "Essential",
-      description:
-        "Perfect for startups, new projects, and small businesses needing a high-quality, high-converting single-page landing site.",
+      name: "High-Converting Landing Page",
+      badge: "Lead Generator",
+      description: "A focused, ultra-fast single-page web experience designed specifically to convert paid advertising or product launch traffic.",
       features: [
-        "Single-Page Responsive Layout",
-        "Custom Modern UI / UX Design",
-        "Speed & Performance Optimization",
-        "Basic SEO Setup & Tags Structure",
-        "Contact Form & Lead Capture Integration",
-        "Social Media Links Integration",
-        "1-Month Post-Launch Maintenance Support",
-        "Deployment & Domain Hosting Setup",
+        "1 Custom Multi-Section Landing Page",
+        "Conversion-Focused Hero & Value Proposition",
+        "Product / Service Feature Breakdown",
+        "Client Testimonial & Social Proof Section",
+        "Lead Capture Form with Email / CRM Routing",
+        "Interactive GSAP Scroll Entrance Animations",
+        "Complete Technical SEO & OpenGraph Setup",
+        "Mobile-First Responsive Layout (iOS/Android)",
+        "Turnaround in 5–7 Business Days",
       ],
-      ctaLabel: "Ask for Quotation",
-      ctaHref: "/contact?service=website-development&package=essential",
+      ctaLabel: "Get Landing Page Quote",
+      ctaHref: "/contact?service=website-design&package=landing-page",
     },
     {
-      name: "Growth",
-      description:
-        "For businesses requiring a comprehensive corporate website, product showcase, or content-rich platforms.",
-      features: [
-        "Up to 5 Pages Responsive Layout",
-        "Fully Custom Visual Design (No Templates)",
-        "Content Management System (CMS) Integration",
-        "Advanced Search Engine Optimization (SEO)",
-        "Interactive Components & Micro-Animations",
-        "Google Analytics & tracking codes setup",
-        "3-Months Post-Launch Maintenance Support",
-        "Domain & Hosting Assistance",
-        "1x Mid-Project Alignment Meeting",
-      ],
-      ctaLabel: "Ask for Quotation",
-      ctaHref: "/contact?service=website-development&package=growth",
-    },
-    {
-      name: "Authority",
+      name: "Full Company Portal & Portfolio",
+      badge: "Most Popular",
       highlighted: true,
-      description:
-        "For custom web applications, complex e-commerce systems, booking systems, and large-scale web operations.",
+      description: "A comprehensive multi-page corporate website or digital portfolio built to showcase authority, services, and case studies.",
       features: [
-        "Unlimited Pages & Sub-pages Support",
-        "E-commerce Platform or Custom Web Application",
-        "Payment Gateway & Billing Integration",
-        "Custom API & Database Integration (Secure)",
-        "Premium Animations & High-End Interactions",
-        "Full Technical SEO & Accessibility (a11y) Audit",
-        "1-Year Priority Support & SLA Maintenance",
-        "Dedicated Technical Project Manager",
-        "Bi-weekly Development Progress Meetings",
+        "Up to 6 Bespoke Pages (Home, About, Services, Portfolio, Blog, Contact)",
+        "Dynamic Portfolio Case Study Showcase",
+        "Filterable Service & Package Modules",
+        "Interactive GSAP Choreography & Micro-Animations",
+        "Interactive Contact & Lead Booking Funnels",
+        "Full On-Page & Technical SEO Optimization",
+        "Dynamic XML Sitemap & Robots.txt Config",
+        "Google Analytics 4 & Meta Pixel Integration",
+        "30 Days of Post-Launch Warranty & Support",
       ],
-      ctaLabel: "Ask for Quotation",
-      ctaHref: "/contact?service=website-development&package=authority",
+      ctaLabel: "Get Portal Quote",
+      ctaHref: "/contact?service=website-design&package=corporate-portal",
+    },
+    {
+      name: "Custom Enterprise Web Platform",
+      badge: "Bespoke Scale",
+      description: "For established enterprises requiring complex headless CMS integrations, dynamic databases, multi-language support, and custom APIs.",
+      features: [
+        "Unlimited Custom Pages & Content Types",
+        "Headless CMS Integration (Sanity / Strapi / WordPress)",
+        "Dynamic Database & Custom REST/GraphQL API Hooks",
+        "Multi-Language / Localization Architecture",
+        "Advanced WebGL / 3D Canvas / Complex GSAP Timelines",
+        "Enterprise Security, RBAC & SOC-2 Compliance Ready",
+        "High-Concurrency Edge CDN & Cloud Architecture",
+        "Full Source Code Git Repository Ownership",
+        "Dedicated Senior Solutions Architect & SLA Support",
+      ],
+      ctaLabel: "Get Enterprise Quote",
+      ctaHref: "/contact?service=website-design&package=enterprise-platform",
     },
   ],
 
   comparison: {
     rows: [
-      {
-        feature: "Page Count Limit",
-        values: ["1 Page (Landing)", "Up to 5 Pages", "Unlimited Pages"],
-      },
-      {
-        feature: "UI/UX Visual Design",
-        values: [
-          "Custom Layout",
-          "Fully Custom Visuals",
-          "Bespoke Premium Design",
-        ],
-      },
-      { feature: "Content Management (CMS)", values: [false, true, true] },
-      { feature: "E-commerce & Payments", values: [false, false, true] },
-      {
-        feature: "Database & API integrations",
-        values: [false, false, "Secure Custom Integrations"],
-      },
-      {
-        feature: "Speed & Load Optimization",
-        values: [
-          "Basic Optimization",
-          "Advanced Core Web Vitals",
-          "Enterprise-Level Optimization",
-        ],
-      },
-      { feature: "Analytics & Tracking Codes", values: [false, true, true] },
-      {
-        feature: "SEO Implementation",
-        values: [
-          "Basic Setup",
-          "Advanced On-Page",
-          "Full Technical & Schema SEO",
-        ],
-      },
-      {
-        feature: "Post-Launch Support",
-        values: ["1 Month", "3 Months", "1 Year Priority Support"],
-      },
-      { feature: "Dedicated Project Manager", values: [false, false, true] },
+      { feature: "Page Scope", values: ["1 Single Page", "Up to 6 Pages", "Unlimited Custom Pages"] },
+      { feature: "Mobile-First Responsive Design", values: [true, true, true] },
+      { feature: "GSAP Animation Choreography", values: ["Standard Animations", "Advanced ScrollTrigger", "Complex Kinetic / WebGL"] },
+      { feature: "Lead Capture & Form Automation", values: [true, true, true] },
+      { feature: "Portfolio & Case Study System", values: [false, true, true] },
+      { feature: "Headless CMS Integration", values: [false, "Optional Add-on", true] },
+      { feature: "Multi-Language Localization", values: [false, false, true] },
+      { feature: "Core Web Vitals 95+ Guarantee", values: [true, true, true] },
+      { feature: "Post-Launch Warranty Support", values: ["14 Days", "30 Days", "90 Days Dedicated SLA"] },
+      { feature: "Full Source Code Ownership", values: [true, true, true] },
     ],
   },
 
+  faqs: [
+    {
+      question: "Why do you use Next.js and React instead of standard WordPress?",
+      answer:
+        "Next.js delivers significant performance, security, and scalability advantages over traditional WordPress. With server-side rendering and static pre-rendering, Next.js sites load in milliseconds, have zero plugin vulnerability security risks, achieve perfect Google Lighthouse scores, and provide effortless custom animation capabilities via GSAP.",
+    },
+    {
+      question: "Can I update the content on the website myself after launch?",
+      answer:
+        "Yes! For clients who require regular content updates (e.g., publishing blog posts, new case studies, team members), we integrate modern Headless CMS solutions like Sanity, Strapi, or Headless WordPress, giving you an intuitive visual admin dashboard.",
+    },
+    {
+      question: "How long does a full website build take from start to finish?",
+      answer:
+        "A high-converting landing page takes 5–7 business days, a standard multi-page corporate website takes 2–3 weeks, and an enterprise web platform takes 4–6 weeks, depending on scope and feature complexity.",
+    },
+    {
+      question: "Will our new website be optimized for mobile phones and tablets?",
+      answer:
+        "100%. We employ a strict mobile-first design and engineering process. Every component is rigorously tested across iPhones, iPads, Android smartphones, laptops, and 4K desktop screens.",
+    },
+  ],
+
   closingCta: {
-    heading: "Need Custom Web Functionality?",
-    text: "From SaaS products to specialized API integrations, we can build whatever custom logic your business operations demand.",
-    linkText: "Let's connect for a 15-minute scoping call.",
-    linkHref: "/contact",
-    buttonLabel: "Book a Development Call",
-    buttonHref: "/contact",
+    heading: "Establish Your Brand's Digital Port With Confidence",
+    text: "Stop losing valuable leads to slow, outdated websites. Let's engineer a fast, modern digital headquarters.",
+    linkText: "Schedule a 15-minute technical roadmap call.",
+    linkHref: "/contact?subject=web-development-inquiry",
+    buttonLabel: "Request Web Development Quote",
+    buttonHref: "/contact?service=website-design",
   },
 };
 

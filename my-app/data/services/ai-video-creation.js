@@ -1,119 +1,204 @@
-import heroImage from "@/images/other/social-media-management-hero.jpg";
+import heroImage from "@/images/other/why-choose-us.jpg";
 
-/** @type {import('@/components/ServicePageTemplate').ServicePageData} */
 const aiVideoCreation = {
-  eyebrow: "AI Video Creation",
+  slug: "ai-video-creation",
+  eyebrow: "Generative AI Video Production",
   heroImage,
-  heroTitle: "Scale Video Content Rapidly with Advanced AI Video Creation",
+  heroTitle: "Cinematic Generative AI Video Production for Next-Gen Brands",
   heroDescription:
-    "Harness the power of cutting-edge AI avatars, realistic voice synthesis, and dynamic scriptwriting to generate high-quality, professional video content at a fraction of the time and cost.",
+    "We harness state-of-the-art generative video models, synthetic voiceovers, and photorealistic virtual avatars to produce cinematic commercials, product teasers, and futuristic storytelling at unmatched speed.",
+  stats: [
+    { label: "Production Speed", value: "3x Faster" },
+    { label: "Cost Efficiency", value: "Up to 70% Less" },
+    { label: "Resolution", value: "4K UHD Export" },
+  ],
 
-  introHeading:
-    "Smart, automated, and hyper-realistic AI video solutions engineered for modern marketing, training, and outreach",
-  introDescription:
-    "In today’s fast-paced digital landscape, video is the most engaging content medium, but traditional production can be slow and expensive. Our AI Video Creation services enable your business to scale its video marketing strategy effortlessly. We leverage state-of-the-art generative AI tools, neural text-to-speech, and photorealistic digital presenters to construct highly engaging marketing videos, product explainers, social media reels, and onboarding presentations. Each video is optimized for maximum retention, featuring automated yet human-curated transitions, dynamic styling, and perfectly matched visual assets. Whether you need multilingual video localization, personalized outreach campaigns at scale, or consistent short-form content for social platforms, our premium AI video services combine efficiency with human creative control to deliver results.",
+  strategicContext: {
+    heading: "The Future of Video: Unleashing Infinite Imagination Through Generative AI",
+    paragraph1:
+      "Traditional video commercial shoots require location scouting, expensive camera equipment, actors, lighting crews, and weeks of scheduling. For most modern campaigns, this legacy model is too slow and cost-prohibitive. Generative AI video transforms this paradigm by enabling hyper-realistic visuals, impossible camera movements, and futuristic scenes that can be produced in days instead of months.",
+    paragraph2:
+      "At Astha Creatives, our AI video studio combines advanced neural prompt engineering, consistent seed management, and post-production cinema grading. We use world-class models like Midjourney, Runway Gen-2, Pika, and ElevenLabs to create thumb-stopping product teasers, surreal brand commercials, localized multi-language avatars, and dynamic social ads that command extraordinary engagement.",
+    keyPoints: [
+      "Photorealistic AI visuals with zero physical studio production overhead",
+      "Multilingual synthetic voiceover generation and human-like speech cadence",
+      "Multi-aspect ratio exports ready for 9:16 TikTok/Reels, 16:9 YouTube, and 1:1 feeds",
+      "Full post-production color grade, SFX sound design, and kinetic typography overlays",
+    ],
+  },
+
+  toolsStack: [
+    {
+      name: "Midjourney v6 & DALL-E 3",
+      purpose: "Precision keyframe generation, concept styling, and cinematic visual staging.",
+      tag: "Concept & Staging",
+    },
+    {
+      name: "Runway Gen-2 & Kling AI",
+      purpose: "Temporal consistency video synthesis, camera motion control, and hyper-realistic physics.",
+      tag: "Video Synthesis",
+    },
+    {
+      name: "ElevenLabs AI Audio",
+      purpose: "Human-grade neural voice synthesis, emotion tuning, voice cloning, and multilingual localization.",
+      tag: "Voice & Audio",
+    },
+    {
+      name: "Premiere Pro & After Effects",
+      purpose: "Editorial pacing, motion tracking, audio mastering, and composite visual polish.",
+      tag: "Cinema Post-Production",
+    },
+  ],
+
+  methodology: [
+    {
+      step: "01",
+      title: "Scriptwriting & Visual Storyboarding",
+      description:
+        "We draft an engaging narrative script, define the visual aesthetic moodboard, and design keyframe storyboards for each scene.",
+      deliverables: ["Commercial Narrative Script", "Style Moodboard", "Keyframe Storyboard Deck"],
+    },
+    {
+      step: "02",
+      title: "Generative Generation & Seed Iteration",
+      description:
+        "Our prompt engineers generate hundreds of high-resolution video variations, controlling camera pans, focal lengths, and character consistency.",
+      deliverables: ["Raw AI Scene Generative Clips", "Neural Voiceover Audio Track", "Pacing Rough-Cut"],
+    },
+    {
+      step: "03",
+      title: "Post-Production, Sound Design & Color Grading",
+      description:
+        "We take the best AI generations into Premiere and After Effects to composite text overlays, cinematic LUTs, foley sound effects, and background scores.",
+      deliverables: ["Composited Master Video", "Spatial Sound Design & Mix", "Motion Graphics Overlays"],
+    },
+    {
+      step: "04",
+      title: "4K Upscaling & Multi-Format Delivery",
+      description:
+        "We upscale all footage using AI super-resolution algorithms to crisp 4K UHD and export in vertical (9:16), horizontal (16:9), and square (1:1) formats.",
+      deliverables: ["4K Master Commercial (MP4/ProRes)", "Social Cutdowns (Reels/Shorts)", "Full Commercial Rights Release"],
+    },
+  ],
+
+  qualityStandards: [
+    {
+      title: "Temporal Coherence Benchmark",
+      description: "Every AI scene is inspected frame-by-frame to eliminate morphing artifacts, flickering, or uncanny anatomical distortions.",
+      metric: "Artifact-Free Quality",
+    },
+    {
+      title: "Broadcast Audio Mastering",
+      description: "Voice tracks and musical scores are balanced to -14 LUFS standard with crisp frequency equalization and zero synthetic distortion.",
+      metric: "-14 LUFS Broadcast Standard",
+    },
+    {
+      title: "AI Super-Resolution 4K Upscaling",
+      description: "Footage is enhanced with neural super-sampling to deliver razor-sharp clarity on retina screens and large 4K displays.",
+      metric: "True 4K UHD 60fps",
+    },
+  ],
 
   tiers: [
     {
-      name: "Essential",
-      description:
-        "Perfect for content creators or small businesses starting to explore AI-generated video content and automated presenting.",
+      name: "AI Concept Teaser",
+      badge: "Fast Turnaround",
+      description: "Ideal for product teasers, startup announcements, and high-impact social media hook videos.",
       features: [
-        "3 AI-Generated Videos per Month",
-        "Maximum 1 Minute per Video",
-        "1 Standard AI Avatar Selection",
-        "Standard English Voiceovers",
-        "Basic Captions & Subtitles",
-        "Royalty-Free Background Music",
-        "1 Revision Round per Video",
-        "HD 1080p Export",
+        "1 Custom AI Video Commercial (15–30 Seconds)",
+        "Scriptwriting & Storyboard Concepting",
+        "Generative Photorealistic AI Visuals",
+        "Studio-Quality Neural AI Voiceover",
+        "Licensed Background Score & Sound Effects",
+        "Kinetic Subtitles & Brand Logo Outro",
+        "2 Revision Rounds Included",
+        "Delivered in 9:16 (Reels) or 16:9 (YouTube)",
       ],
-      ctaLabel: "Ask for Quotation",
-      ctaHref: "/contact?service=ai-video-creation&package=essential",
+      ctaLabel: "Get Teaser Quote",
+      ctaHref: "/contact?service=ai-video-creation&package=teaser",
     },
     {
-      name: "Growth",
-      description:
-        "For active brands requiring consistent monthly video content, multilingual outreach, and custom brand assets.",
-      features: [
-        "10 AI-Generated Videos per Month",
-        "Maximum 3 Minutes per Video",
-        "3 Premium AI Avatar Selections",
-        "Multilingual Voiceovers (5+ Languages)",
-        "Dynamic Transitions & Captions Styling",
-        "Brand Asset Integration (Logos, Fonts)",
-        "2 Revision Rounds per Video",
-        "Platform-Specific Exports (16:9 & 9:16)",
-        "1x Video Strategy Consultation",
-      ],
-      ctaLabel: "Ask for Quotation",
-      ctaHref: "/contact?service=ai-video-creation&package=growth",
-    },
-    {
-      name: "Authority",
+      name: "Cinematic Brand Commercial",
+      badge: "Most Popular",
       highlighted: true,
-      description:
-        "For enterprise-level brands requiring custom avatar replication, custom voice cloning, and high-volume output.",
+      description: "Our flagship generative video package delivering cinematic storytelling, custom avatars, and multi-format distribution assets.",
       features: [
-        "Custom AI Avatar Setup (Clone)",
-        "Unlimited AI Videos per Month",
-        "Custom Voice Cloning Setup",
-        "20+ Languages & Accent Profiles",
-        "Premium Sound Design & Foley Effects",
-        "Advanced Custom AI Scriptwriting",
-        "Unlimited Revisions",
-        "Ultra HD 4K Render Resolution",
-        "Dedicated Video Production Manager",
-        "Priority Processing & Custom Integrations",
+        "1 Full Cinematic Commercial (30–60 Seconds)",
+        "3 Short-Form Hook Cutdowns (10–15s Each for Ads)",
+        "Advanced Character & Environment Consistency",
+        "Multilingual Voiceover Options (2 Languages)",
+        "Advanced Motion Graphics & 3D Typography",
+        "Custom Sound Design & Foley Mixing",
+        "Multi-Format Master Deliverables (9:16, 16:9, 1:1)",
+        "Unlimited Concept Iterations during storyboard phase",
+        "Master 4K UHD ProRes & MP4 Video Files",
       ],
-      ctaLabel: "Ask for Quotation",
-      ctaHref: "/contact?service=ai-video-creation&package=authority",
+      ctaLabel: "Get Cinematic Commercial Quote",
+      ctaHref: "/contact?service=ai-video-creation&package=cinematic",
+    },
+    {
+      name: "Enterprise AI Content Suite",
+      badge: "Full Campaign",
+      description: "For corporate brands requiring a full monthly campaign of generative video ads, recurring avatar explainers, and localized variations.",
+      features: [
+        "4 Full-Length AI Commercials per Month",
+        "12 High-Converting Short-Form Video Ad Variations",
+        "Custom Digital Human Avatar Cloned to Your Brand",
+        "Localization into 5+ Global Languages with Lip-Sync",
+        "Dedicated Prompt Director & Post-Production Lead",
+        "Full Paid Ad Performance Hook Testing Variants",
+        "24-Hour Express Emergency Turnaround Option",
+        "Full Global Commercial & Broadcast Licensing",
+      ],
+      ctaLabel: "Get Enterprise Suite Quote",
+      ctaHref: "/contact?service=ai-video-creation&package=enterprise-suite",
     },
   ],
 
   comparison: {
     rows: [
-      {
-        feature: "Videos per Month",
-        values: ["3 Videos", "10 Videos", "Unlimited"],
-      },
-      {
-        feature: "Max Duration per Video",
-        values: ["1 Minute", "3 Minutes", "Uncapped"],
-      },
-      {
-        feature: "Avatars & Presenters",
-        values: ["1 Standard", "3 Premium", "Custom Clone"],
-      },
-      {
-        feature: "Supported Languages",
-        values: ["English only", "5+ Languages", "20+ / Voice Cloning"],
-      },
-      {
-        feature: "Transitions & Captions",
-        values: ["Basic Static", "Dynamic Styled", "Bespoke Custom"],
-      },
-      { feature: "Brand Integration", values: [false, true, true] },
-      { feature: "Scriptwriting Assistance", values: [false, true, true] },
-      {
-        feature: "Resolutions",
-        values: ["1080p", "1080p / Vertical", "4K Ultra HD"],
-      },
-      {
-        feature: "Revision Rounds",
-        values: ["1 Round", "2 Rounds", "Unlimited"],
-      },
-      { feature: "Dedicated Manager", values: [false, false, true] },
+      { feature: "Video Duration", values: ["15–30 Seconds", "30–60 Seconds", "Up to 4 Videos/Mo"] },
+      { feature: "Ad Cutdown Variations", values: [false, "3 Hook Cutdowns", "12 Ad Variants"] },
+      { feature: "Character & Seed Consistency", values: ["Standard", "High Precision", "Custom Cloned Avatar"] },
+      { feature: "Multilingual Voiceover", values: ["1 Language", "2 Languages", "5+ Languages with Lip-Sync"] },
+      { feature: "Multi-Format Aspect Ratios (9:16, 16:9)", values: ["1 Format", "All Formats (9:16, 16:9, 1:1)", "All Formats + Raw Clips"] },
+      { feature: "4K Super-Resolution Upscale", values: [true, true, true] },
+      { feature: "Sound Design & Licensed Music", values: [true, true, true] },
+      { feature: "Turnaround Time", values: ["3–5 Days", "5–7 Days", "Dedicated Weekly Cadence"] },
+      { feature: "Commercial Broadcast Rights", values: [true, true, true] },
     ],
   },
 
+  faqs: [
+    {
+      question: "How realistic do generative AI videos look?",
+      answer:
+        "With our state-of-the-art workflow combining Midjourney v6, Runway Gen-2, and custom neural post-processing, the visuals are cinematic, fluid, and photorealistic. We carefully curate and filter out any synthetic distortions before delivering your final assets.",
+    },
+    {
+      question: "Can you create a custom AI avatar or spokesperson for our brand?",
+      answer:
+        "Yes! In our Cinematic and Enterprise tiers, we can generate hyper-realistic digital brand avatars or clone your company founder's voice and likeness for consistent recurring video updates.",
+    },
+    {
+      question: "Can AI video commercials be used for paid advertising on Meta and YouTube?",
+      answer:
+        "Yes, absolutely. AI video ads frequently outperform standard static creatives by 200–400% in click-through rates due to their surreal, thumb-stopping visual hooks.",
+    },
+    {
+      question: "Do I have full commercial ownership to use the videos anywhere?",
+      answer:
+        "100%. All videos produced by Astha Creatives include full commercial copyright release for social media, YouTube, television broadcast, trade shows, and paid advertising campaigns.",
+    },
+  ],
+
   closingCta: {
-    heading: "Looking for a Custom Avatar?",
-    text: "Build trust with your audience by cloning your own speaker avatar and voice. We provide end-to-end custom setups.",
-    linkText: "Let's discuss details in a 15-minute call.",
-    linkHref: "/contact",
-    buttonLabel: "Book an AI Video Call",
-    buttonHref: "/contact",
+    heading: "Bring Impossible Visual Ideas to Life With Generative AI",
+    text: "Experience the speed and cinematic power of modern AI video production for your next product launch.",
+    linkText: "Explore our AI video showcase on a quick consultation.",
+    linkHref: "/contact?subject=ai-video-inquiry",
+    buttonLabel: "Get AI Video Production Quote",
+    buttonHref: "/contact?service=ai-video-creation",
   },
 };
 

@@ -7,8 +7,14 @@ export default function sitemap() {
     { url: "/about", changefreq: "monthly", priority: 0.8 },
     { url: "/contact", changefreq: "monthly", priority: 0.8 },
     { url: "/services/creative-design", changefreq: "monthly", priority: 0.8 },
+    { url: "/services/brand-guidelines", changefreq: "monthly", priority: 0.8 },
     {
       url: "/services/social-media-management",
+      changefreq: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "/services/content-design",
       changefreq: "monthly",
       priority: 0.8,
     },
@@ -23,6 +29,7 @@ export default function sitemap() {
       changefreq: "monthly",
       priority: 0.8,
     },
+    { url: "/services/seo", changefreq: "monthly", priority: 0.8 },
     { url: "/services/data-analytics", changefreq: "monthly", priority: 0.8 },
   ];
 

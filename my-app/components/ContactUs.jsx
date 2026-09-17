@@ -58,6 +58,7 @@ export default function ContactUs() {
   return (
     <div
       ref={containerRef}
+      data-theme="dark"
       className="bg-gray-950 min-h-screen text-white selection:bg-brand selection:text-white pb-24"
     >
       {/* --- HERO SECTION KEEPS EXACTLY AS IS --- */}

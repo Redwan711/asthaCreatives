@@ -7,6 +7,7 @@ const aiVideoCreation = {
   heroTitle: "Cinematic Generative AI Video Production for Next-Gen Brands",
   heroDescription:
     "We harness state-of-the-art generative video models, synthetic voiceovers, and photorealistic virtual avatars to produce cinematic commercials, product teasers, and futuristic storytelling at unmatched speed.",
+  hasPackages: false,
   stats: [
     { label: "Production Speed", value: "3x Faster" },
     { label: "Cost Efficiency", value: "Up to 70% Less" },
@@ -24,6 +25,96 @@ const aiVideoCreation = {
       "Multilingual synthetic voiceover generation and human-like speech cadence",
       "Multi-aspect ratio exports ready for 9:16 TikTok/Reels, 16:9 YouTube, and 1:1 feeds",
       "Full post-production color grade, SFX sound design, and kinetic typography overlays",
+    ],
+  },
+
+  deepDivePillars: {
+    badge: "Next-Gen Workflows",
+    heading: "The Architecture of Studio-Grade Generative Video",
+    subheading:
+      "Generative AI video only succeeds when paired with rigorous directorial craft and post-production engineering. Here is how we turn raw AI models into broadcast-caliber cinema.",
+    pillars: [
+      {
+        tag: "Visual Stability",
+        title: "Temporal Consistency & Subject Preservation",
+        description:
+          "The biggest challenge in amateur AI video is 'morphing' and facial warping between cuts. We solve this using advanced seed locking, multi-camera angle control, and LoRA character embeddings to ensure your product, actor, or mascot remains 100% consistent across every shot.",
+        keyTakeaways: [
+          "Zero uncanny facial distortion or accidental wardrobe changes",
+          "Calculated camera motion controls (dolly, crane, tracking, zoom)",
+          "Frame-by-frame interpolation ensuring fluid 60fps cinematic motion",
+        ],
+        stat: { label: "Character Stability", value: "99% Visual Cohesion" },
+      },
+      {
+        tag: "Audio Synthesis",
+        title: "Neural Voiceover & Multilingual Global Scaling",
+        description:
+          "Using enterprise neural audio synthesis from ElevenLabs, we create human-like voiceovers with emotional nuances, natural breathing cadences, and flawless pronunciation. We can instantly localize your commercial into 25+ languages with native cultural accents.",
+        keyTakeaways: [
+          "Elimination of expensive voice actor booking delays and studio fees",
+          "Instant multi-language localization without changing the visual narrative",
+          "Full commercial rights and intellectual property clearance on synthetic voices",
+        ],
+        stat: { label: "Language Reach", value: "25+ Languages Supported" },
+      },
+      {
+        tag: "Cinema Polish",
+        title: "Hybrid Human-in-the-Loop Post-Production",
+        description:
+          "We do not output raw AI video and call it a day. Every AI-generated clip is imported into professional editing suites (DaVinci Resolve and After Effects) for studio color grading, cinematic sound design (SFX & Foley), motion tracking, and kinetic typographic lower-thirds.",
+        keyTakeaways: [
+          "Multi-layered ambient soundscapes, riser drops, and sub-bass impacts",
+          "Professional Rec.709 color balancing eliminating washed-out AI hues",
+          "Branded graphic overlays, logos, and clear visual conversion calls to action",
+        ],
+        stat: { label: "Production Finish", value: "Broadcast 4K Standard" },
+      },
+      {
+        tag: "Commercial Safety",
+        title: "IP Safety & Full Commercial Licensing",
+        description:
+          "We operate strictly within enterprise-grade, commercially cleared AI platforms that respect copyright governance. All video, audio, and visual assets delivered to your business come with complete commercial usage indemnification and source archives.",
+        keyTakeaways: [
+          "Full commercial clearance for global television, web, and paid advertising",
+          "No risk of copyright strikes or DMCA claims on YouTube or Meta",
+          "Permanent source file archive stored in our enterprise studio vault",
+        ],
+        stat: { label: "Legal Safety", value: "100% Commercial Clearance" },
+      },
+    ],
+  },
+
+  industryUseCases: {
+    badge: "AI in Action",
+    heading: "Commercial Deployments Across High-Growth Verticals",
+    subheading:
+      "Explore how ambitious brands leverage generative AI video to outperform traditional film budgets.",
+    cases: [
+      {
+        industry: "Hardware & Tech Startups",
+        title: "Futuristic 3D Concept Commercials",
+        solution: "Visualizes hardware, semiconductors, and software interfaces in cinematic sci-fi environments before physical manufacturing.",
+        impact: "Saved $40,000+ in Traditional Physical CGI Production Costs",
+      },
+      {
+        industry: "Gaming & Entertainment",
+        title: "Cinematic Lore Teasers & Worldbuilding",
+        solution: "Rich narrative teasers, character introductions, and atmospheric concept reels that build massive viral anticipation.",
+        impact: "Over 1.2M Organic Impressions Across TikTok and YouTube",
+      },
+      {
+        industry: "E-Commerce & Fashion",
+        title: "Virtual Fashion Showcases & Avatars",
+        solution: "Hyper-realistic virtual models and surreal apparel physics shot in impossible architectural locations.",
+        impact: "+42% Return on Ad Spend (ROAS) on Meta Paid Campaigns",
+      },
+      {
+        industry: "B2B SaaS & Education",
+        title: "Multilingual Global Explainer Series",
+        solution: "A single master video translated and voice-localized across 8 languages for international product rollouts.",
+        impact: "Accelerated Global Market Entry by 4 Months",
+      },
     ],
   },
 
@@ -99,91 +190,16 @@ const aiVideoCreation = {
     },
   ],
 
-  tiers: [
-    {
-      name: "AI Concept Teaser",
-      badge: "Fast Turnaround",
-      description: "Ideal for product teasers, startup announcements, and high-impact social media hook videos.",
-      features: [
-        "1 Custom AI Video Commercial (15–30 Seconds)",
-        "Scriptwriting & Storyboard Concepting",
-        "Generative Photorealistic AI Visuals",
-        "Studio-Quality Neural AI Voiceover",
-        "Licensed Background Score & Sound Effects",
-        "Kinetic Subtitles & Brand Logo Outro",
-        "2 Revision Rounds Included",
-        "Delivered in 9:16 (Reels) or 16:9 (YouTube)",
-      ],
-      ctaLabel: "Get Teaser Quote",
-      ctaHref: "/contact?service=ai-video-creation&package=teaser",
-    },
-    {
-      name: "Cinematic Brand Commercial",
-      badge: "Most Popular",
-      highlighted: true,
-      description: "Our flagship generative video package delivering cinematic storytelling, custom avatars, and multi-format distribution assets.",
-      features: [
-        "1 Full Cinematic Commercial (30–60 Seconds)",
-        "3 Short-Form Hook Cutdowns (10–15s Each for Ads)",
-        "Advanced Character & Environment Consistency",
-        "Multilingual Voiceover Options (2 Languages)",
-        "Advanced Motion Graphics & 3D Typography",
-        "Custom Sound Design & Foley Mixing",
-        "Multi-Format Master Deliverables (9:16, 16:9, 1:1)",
-        "Unlimited Concept Iterations during storyboard phase",
-        "Master 4K UHD ProRes & MP4 Video Files",
-      ],
-      ctaLabel: "Get Cinematic Commercial Quote",
-      ctaHref: "/contact?service=ai-video-creation&package=cinematic",
-    },
-    {
-      name: "Enterprise AI Content Suite",
-      badge: "Full Campaign",
-      description: "For corporate brands requiring a full monthly campaign of generative video ads, recurring avatar explainers, and localized variations.",
-      features: [
-        "4 Full-Length AI Commercials per Month",
-        "12 High-Converting Short-Form Video Ad Variations",
-        "Custom Digital Human Avatar Cloned to Your Brand",
-        "Localization into 5+ Global Languages with Lip-Sync",
-        "Dedicated Prompt Director & Post-Production Lead",
-        "Full Paid Ad Performance Hook Testing Variants",
-        "24-Hour Express Emergency Turnaround Option",
-        "Full Global Commercial & Broadcast Licensing",
-      ],
-      ctaLabel: "Get Enterprise Suite Quote",
-      ctaHref: "/contact?service=ai-video-creation&package=enterprise-suite",
-    },
-  ],
-
-  comparison: {
-    rows: [
-      { feature: "Video Duration", values: ["15–30 Seconds", "30–60 Seconds", "Up to 4 Videos/Mo"] },
-      { feature: "Ad Cutdown Variations", values: [false, "3 Hook Cutdowns", "12 Ad Variants"] },
-      { feature: "Character & Seed Consistency", values: ["Standard", "High Precision", "Custom Cloned Avatar"] },
-      { feature: "Multilingual Voiceover", values: ["1 Language", "2 Languages", "5+ Languages with Lip-Sync"] },
-      { feature: "Multi-Format Aspect Ratios (9:16, 16:9)", values: ["1 Format", "All Formats (9:16, 16:9, 1:1)", "All Formats + Raw Clips"] },
-      { feature: "4K Super-Resolution Upscale", values: [true, true, true] },
-      { feature: "Sound Design & Licensed Music", values: [true, true, true] },
-      { feature: "Turnaround Time", values: ["3–5 Days", "5–7 Days", "Dedicated Weekly Cadence"] },
-      { feature: "Commercial Broadcast Rights", values: [true, true, true] },
-    ],
-  },
-
   faqs: [
     {
-      question: "How realistic do generative AI videos look?",
+      question: "How do you produce generative AI videos for different commercial purposes?",
       answer:
-        "With our state-of-the-art workflow combining Midjourney v6, Runway Gen-2, and custom neural post-processing, the visuals are cinematic, fluid, and photorealistic. We carefully curate and filter out any synthetic distortions before delivering your final assets.",
+        "We engineer custom prompt architectures, seed styling, and neural animations tailored to your exact campaign goals, whether you need futuristic product teasers, explainer animations, or localized social ads.",
     },
     {
-      question: "Can you create a custom AI avatar or spokesperson for our brand?",
+      question: "Can you provide voiceovers in multiple languages?",
       answer:
-        "Yes! In our Cinematic and Enterprise tiers, we can generate hyper-realistic digital brand avatars or clone your company founder's voice and likeness for consistent recurring video updates.",
-    },
-    {
-      question: "Can AI video commercials be used for paid advertising on Meta and YouTube?",
-      answer:
-        "Yes, absolutely. AI video ads frequently outperform standard static creatives by 200–400% in click-through rates due to their surreal, thumb-stopping visual hooks.",
+        "Yes! Using advanced neural audio models, we can synthesize human-like voiceovers in over 20+ languages with synchronized lip movements.",
     },
     {
       question: "Do I have full commercial ownership to use the videos anywhere?",

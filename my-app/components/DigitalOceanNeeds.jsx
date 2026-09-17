@@ -10,7 +10,8 @@ import {
   Radio,
   Navigation,
   TrendingUp,
-  ArrowDown,
+  Crosshair,
+  Sparkles,
 } from "lucide-react";
 import { digitalOceanNeeds } from "@/data/digitalOceanData";
 
@@ -30,7 +31,6 @@ const iconMap = {
 const DigitalOceanNeeds = () => {
   const sectionRef = useRef(null);
 
-  // Fix #12: Mouse-tracking glow handler
   const handleCardMouseMove = useCallback((e) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
@@ -47,7 +47,7 @@ const DigitalOceanNeeds = () => {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          stagger: 0.15,
+          stagger: 0.12,
           ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -56,17 +56,16 @@ const DigitalOceanNeeds = () => {
         },
       );
 
-      // Fix #5: Staggered scale-up from center for visual variety
       gsap.fromTo(
         ".ocean-pillar-card",
-        { opacity: 0, scale: 0.85, y: 20 },
+        { opacity: 0, scale: 0.9, y: 24 },
         {
           opacity: 1,
           scale: 1,
           y: 0,
           duration: 0.7,
-          stagger: 0.1,
-          ease: "back.out(1.4)",
+          stagger: 0.08,
+          ease: "back.out(1.3)",
           scrollTrigger: {
             trigger: ".ocean-pillars-grid",
             start: "top 80%",
@@ -82,106 +81,114 @@ const DigitalOceanNeeds = () => {
     <section
       id="digital-ocean"
       ref={sectionRef}
-      className="relative overflow-hidden bg-brand py-24 text-white md:py-32"
+      className="relative overflow-hidden bg-[#080b14] py-24 text-white md:py-32"
     >
-      {/* Background ambient lighting effects */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-brandnd/15 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-[100px]" />
+      {/* Nautical Digital Radar Circles in Background */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[750px] w-[750px] rounded-full border border-cyan-500/10 opacity-40 animate-pulse-glow" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full border border-indigo-500/15 opacity-60" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[260px] w-[260px] rounded-full border border-cyan-400/20 opacity-40" />
 
-      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+      {/* Ambient Lighting Orbs */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-indigo-600/15 blur-[140px]" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-[120px]" />
+
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Navigation Coordinates HUD Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="ocean-header-reveal inline-flex items-center gap-2 rounded-full border border-brandnd/40 bg-brandnd/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-brandnd">
-            <span className="h-1.5 w-1.5 rounded-full bg-brandnd animate-pulse" />
-            Phase 02 · Strategic Guidance
-          </span>
+          <div className="ocean-header-reveal inline-flex items-center gap-2.5 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300 backdrop-blur-md">
+            <Crosshair size={13} className="animate-spin text-cyan-400" />
+            <span>Digital Ocean Wayfinding System</span>
+          </div>
 
-          <h2 className="ocean-header-reveal mt-6 text-3xl font-black tracking-tight sm:text-4xl md:text-5xl lg:text-5xl">
+          <h2 className="ocean-header-reveal mt-6 text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl lg:text-5xl">
             {digitalOceanNeeds.title}
           </h2>
 
-          <p className="ocean-header-reveal mt-4 text-lg font-medium text-brandnd sm:text-xl">
+          <p className="ocean-header-reveal mt-3 text-lg font-medium text-cyan-300 sm:text-xl">
             {digitalOceanNeeds.subtitle}
           </p>
 
-          <p className="ocean-header-reveal mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
+          <p className="ocean-header-reveal mt-5 text-sm leading-relaxed text-gray-300 sm:text-base">
             {digitalOceanNeeds.intro}
           </p>
-
-          <div className="ocean-header-reveal mt-10 inline-block">
-            <div className="flex items-center justify-center gap-3">
-              <span className="h-px w-12 bg-white/20" />
-              <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-white/80">
-                {digitalOceanNeeds.heading}
-              </h3>
-              <span className="h-px w-12 bg-white/20" />
-            </div>
-          </div>
         </div>
 
-        {/* 6 Pillars Grid */}
-        <div className="ocean-pillars-grid mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {digitalOceanNeeds.pillars.map((pillar) => {
-            const Icon = iconMap[pillar.icon] || Compass;
+        {/* Pillars Subheading */}
+        <div className="ocean-header-reveal mt-16 text-center">
+          <span className="text-xs font-bold uppercase tracking-[0.25em] text-cyan-400">
+            The 6 Navigational Pillars
+          </span>
+          <h3 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
+            {digitalOceanNeeds.heading}
+          </h3>
+        </div>
+
+        {/* 6 Pillars Grid with Illuminated Glass Cards */}
+        <div className="ocean-pillars-grid mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {digitalOceanNeeds.pillars.map((pillar, idx) => {
+            const IconComponent = iconMap[pillar.icon] || Compass;
             return (
               <div
                 key={pillar.id}
                 onMouseMove={handleCardMouseMove}
-                className={`ocean-pillar-card group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.07] hover:shadow-2xl ${pillar.border}`}
+                className="ocean-pillar-card group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-7 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-400/60 hover:shadow-2xl hover:shadow-cyan-500/10"
+                style={{
+                  "--glow-x": "50%",
+                  "--glow-y": "50%",
+                }}
               >
-                {/* Fix #12: Mouse-tracking radial glow */}
+                {/* Dynamic Radial Glow following cursor */}
                 <div
-                  className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   style={{
-                    background:
-                      "radial-gradient(circle 200px at var(--glow-x, 50%) var(--glow-y, 50%), rgba(77,97,214,0.18), transparent 60%)",
+                    background: `radial-gradient(350px circle at var(--glow-x) var(--glow-y), rgba(6, 182, 212, 0.2), transparent 70%)`,
                   }}
                 />
-                {/* Subtle top gradient bar */}
-                <div
-                  className={`absolute left-0 top-0 h-1 w-full bg-gradient-to-r ${pillar.accent} opacity-40 transition-opacity duration-300 group-hover:opacity-100`}
-                />
 
-                <div>
+                {/* Tech Corner Coordinates Accents */}
+                <div className="absolute top-2.5 right-2.5 font-mono text-[9px] text-white/20 group-hover:text-cyan-400/60 transition-colors">
+                  P.0{idx + 1}
+                </div>
+
+                <div className="relative z-10">
+                  {/* Icon & Pillar Tag */}
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center rounded-lg border border-brandnd/30 bg-brandnd/10 px-3 py-1 text-xs font-semibold tracking-wide text-brandnd">
-                      {pillar.tag}
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-400/30 bg-cyan-950/50 text-cyan-400 shadow-inner transition-transform duration-300 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-gray-950">
+                      <IconComponent size={22} />
                     </span>
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-white/80 transition-all duration-300 group-hover:scale-110 group-hover:bg-brandnd group-hover:text-white">
-                      <Icon size={22} />
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold text-gray-300">
+                      {pillar.tag}
                     </span>
                   </div>
 
-                  <h4 className="mt-5 text-xl font-bold tracking-tight text-white group-hover:text-brandnd transition-colors duration-200">
+                  {/* Title & Description */}
+                  <h4 className="mt-6 text-xl font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors">
                     {pillar.title}
                   </h4>
 
-                  <p className="mt-3 text-sm leading-relaxed text-white/70">
+                  <p className="mt-2.5 text-xs leading-relaxed text-gray-400 sm:text-sm">
                     {pillar.description}
                   </p>
                 </div>
 
-                <div className="mt-6 flex items-center gap-2 pt-4 border-t border-white/5 text-[11px] font-medium text-white/40 uppercase tracking-wider">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brandnd/80" />
-                  Foundational Component
+                {/* Bottom subtle progress line */}
+                <div className="relative z-10 mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-500 group-hover:text-cyan-400/80 transition-colors">
+                  <span>NAVIGATIONAL STATUS</span>
+                  <span className="flex items-center gap-1">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                    ONLINE
+                  </span>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Outro Callout */}
-        <div className="ocean-header-reveal mt-16 mx-auto max-w-3xl rounded-2xl border border-brandnd/30 bg-gradient-to-r from-brandnd/15 via-white/[0.02] to-brandnd/15 p-8 text-center backdrop-blur-md">
-          <p className="text-base font-medium leading-relaxed text-white/90 sm:text-lg">
+        {/* Outro Callout with Glass Container */}
+        <div className="ocean-header-reveal mx-auto mt-16 max-w-3xl rounded-2xl border border-cyan-500/20 bg-gradient-to-r from-cyan-950/40 via-indigo-950/30 to-cyan-950/40 p-6 text-center backdrop-blur-md sm:p-8">
+          <p className="text-sm font-medium leading-relaxed text-cyan-100 sm:text-base">
             &ldquo;{digitalOceanNeeds.outro}&rdquo;
           </p>
-          <a
-            href="#how-we-navigate"
-            className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brandnd hover:text-white transition-colors"
-          >
-            Discover our navigation process
-            <ArrowDown size={16} className="animate-bounce" />
-          </a>
         </div>
       </div>
     </section>

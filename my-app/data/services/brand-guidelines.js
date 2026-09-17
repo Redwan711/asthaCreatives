@@ -7,10 +7,12 @@ const brandGuidelines = {
   heroTitle: "Comprehensive Brand Guidelines That Ensure Unshakeable Consistency",
   heroDescription:
     "Define the visual, verbal, and structural rules of your brand. We build authoritative Brand Books and design systems that preserve your identity across every digital, print, and physical medium.",
+  hasPackages: false,
   stats: [
     { label: "Standard Manual", value: "24–40 Pages" },
     { label: "Consistency Rate", value: "100% Unified" },
     { label: "Asset Handoff", value: "Figma + PDF" },
+    { label: "Color Science", value: "Pantone Verified" },
   ],
 
   strategicContext: {
@@ -24,6 +26,96 @@ const brandGuidelines = {
       "Exact color specifications for web, screen, and specialized industrial printing",
       "Clear voice, tone, and editorial principles for all copywriting and public messaging",
       "Standardized UI component token libraries ready for developer handoff",
+    ],
+  },
+
+  deepDivePillars: {
+    badge: "Identity Architecture",
+    heading: "The Pillars of Authoritative Brand Governance",
+    subheading:
+      "A complete brand guideline manual is more than a logo rulebook; it is the operational operating system for your brand's total market presence.",
+    pillars: [
+      {
+        tag: "Color Science",
+        title: "Spectral Color Calibration & Multi-Media Formulas",
+        description:
+          "Colors render radically differently on phone screens, newsprint, glossy brochures, and embroidered uniforms. We provide laboratory-calibrated formulations across Pantone Matching System (PMS), CMYK four-color process, sRGB, P3 wide gamut, and digital HEX codes.",
+        keyTakeaways: [
+          "Elimination of muddy or shifting colors across print and digital touchpoints",
+          "Delta-E color difference verification ensuring less than 2.0 optical variance",
+          "Explicit high-contrast accessibility pairings meeting WCAG 2.1 AAA compliance",
+        ],
+        stat: { label: "Color Fidelity", value: "100% Cross-Medium Parity" },
+      },
+      {
+        tag: "Typography",
+        title: "Typographic Hierarchy & Licensing Governance",
+        description:
+          "We establish clear typographic hierarchies: display headers, editorial body copy, micro-captions, and numeric tabular figures. We specify primary licensed commercial typefaces alongside open-source Google Font web alternatives for seamless developer integration.",
+        keyTakeaways: [
+          "Responsive font scaling curves for desktop, tablet, and mobile interfaces",
+          "Strict kerning, line-height (leading), and letter-spacing (tracking) specifications",
+          "Commercial licensing compliance guidelines preventing copyright infringement",
+        ],
+        stat: { label: "Typographic Hierarchy", value: "Complete Scale System" },
+      },
+      {
+        tag: "Verbal Identity",
+        title: "Brand Voice, Tone & Editorial Governance",
+        description:
+          "How your brand speaks is just as critical as how it looks. We formulate your brand's verbal personality: defining tone spectrums (e.g. authoritative yet empathetic, technical yet approachable), preferred vocabulary, and an explicit list of forbidden clichés.",
+        keyTakeaways: [
+          "Contextual tone shifts between promotional marketing, customer support, and PR",
+          "Actionable messaging matrices with 'Say This, Not That' side-by-side examples",
+          "Grammar rules, capitalization standards, and product naming conventions",
+        ],
+        stat: { label: "Voice Consistency", value: "Unified Global Tone" },
+      },
+      {
+        tag: "Digital Systems",
+        title: "Living Design Systems & Tokenized Handoff",
+        description:
+          "Static PDF manuals often sit forgotten on cloud drives. We provide living, cloud-connected design systems in Figma with reusable UI components, auto-layout cards, and design tokens ready to export directly into frontend CSS variables.",
+        keyTakeaways: [
+          "Zero friction developer handoff with ready-to-use CSS/Tailwind color tokens",
+          "Instant cloud synchronization when visual assets are updated or extended",
+          "Downloadable vector asset libraries organized for marketing and dev teams",
+        ],
+        stat: { label: "Handoff Efficiency", value: "50% Faster Dev Sprints" },
+      },
+    ],
+  },
+
+  industryUseCases: {
+    badge: "Governance Impact",
+    heading: "Where Brand Guidelines Protect Commercial Value",
+    subheading:
+      "Discover how authoritative identity manuals protect brand equity and streamline multi-team execution.",
+    cases: [
+      {
+        industry: "High-Growth Scaleups",
+        title: "Rapid Team Onboarding & Cohesion",
+        solution: "Enables new marketing hires, freelance designers, and external PR agencies to produce on-brand creative immediately.",
+        impact: "Saved 20+ Hours per Month in Creative Review Cycles",
+      },
+      {
+        industry: "Franchises & Retail Chains",
+        title: "Distributed Brand Protection",
+        solution: "Ensures dozens of regional branch locations adhere to uniform visual, promotional, and architectural standards.",
+        impact: "100% Brand Compliance Across 50+ Regional Outlets",
+      },
+      {
+        industry: "Mergers & Rebranding",
+        title: "Corporate Identity Unification",
+        solution: "Systematically retires legacy logos and consolidates acquired brand assets under a cohesive enterprise umbrella.",
+        impact: "Seamless Rebranding Rollout with Zero Customer Confusion",
+      },
+      {
+        industry: "Healthcare & FinTech",
+        title: "High-Trust Regulatory Visuals",
+        solution: "Strict governance ensuring marketing collateral meets compliance standards and conveys institutional credibility.",
+        impact: "Full Regulatory Compliance & Elevated Patient Trust",
+      },
     ],
   },
 
@@ -99,79 +191,6 @@ const brandGuidelines = {
     },
   ],
 
-  tiers: [
-    {
-      name: "Starter Brand Guide",
-      badge: "Core Standards",
-      description: "Essential governance for startups and growing businesses needing standardized logo, color, and font usage rules.",
-      features: [
-        "Core Brand Values & Mission Statement",
-        "Primary & Secondary Logo Rules",
-        "Minimum Sizing & Exclusion Zone Specifications",
-        "Primary Color Palette (HEX, RGB, CMYK)",
-        "Primary & Secondary Font Hierarchy",
-        "Basic Imagery & Iconography Guidelines",
-        "12–16 Page Master PDF Guide",
-        "Packaged Master Logo Assets Archive",
-      ],
-      ctaLabel: "Get Starter Quote",
-      ctaHref: "/contact?service=brand-guidelines&package=starter",
-    },
-    {
-      name: "Comprehensive Brand Book",
-      badge: "Most Popular",
-      highlighted: true,
-      description: "In-depth corporate guidelines covering full visual identity, voice and tone, stationery specs, and digital UI guidelines.",
-      features: [
-        "Everything in Starter Brand Guide",
-        "Extended Secondary & Accent Color Palette (with Pantone)",
-        "Complete Typography Hierarchy (Print, Web, Mobile)",
-        "Voice, Tone & Editorial Copywriting Framework",
-        "Social Media & Advertising Layout Templates",
-        "Corporate Stationery & Merchandising Specs",
-        "Full 'Do & Don't' Misuse Visual Matrix",
-        "28–36 Page Interactive Master Brand Book",
-        "Figma Cloud Style Library & Web Tokens",
-        "30-Minute Team Training & Handoff Session",
-      ],
-      ctaLabel: "Get Comprehensive Quote",
-      ctaHref: "/contact?service=brand-guidelines&package=comprehensive",
-    },
-    {
-      name: "Enterprise Design System",
-      badge: "Full Governance",
-      description: "For established corporations and multi-brand portfolios requiring living cloud documentation and enterprise UI tokens.",
-      features: [
-        "Comprehensive 50+ Page Multi-Channel Manual",
-        "Multi-Sub-brand Co-Branding & Architecture Rules",
-        "Complete Web & Mobile UI Component System in Figma",
-        "Living Web Hub (Zeroheight or Custom Notion Hub)",
-        "3D Asset, Video Motion & Sound Branding Guidelines",
-        "International Packaging & Global Print Production Specs",
-        "Executive Strategy & Brand Positioning Blueprint",
-        "Quarterly Guideline Update & Governance Reviews",
-        "Full Commercial & Global Copyright Transfer",
-      ],
-      ctaLabel: "Get Enterprise Quote",
-      ctaHref: "/contact?service=brand-guidelines&package=enterprise",
-    },
-  ],
-
-  comparison: {
-    rows: [
-      { feature: "Guideline Manual Length", values: ["12–16 Pages", "28–36 Pages", "50+ Pages"] },
-      { feature: "Logo Usage & Exclusion Rules", values: [true, true, true] },
-      { feature: "Color Specifications", values: ["HEX, RGB, CMYK", "HEX, RGB, CMYK, Pantone", "Full Spectral + Material"] },
-      { feature: "Typography Hierarchy", values: ["Basic Web/Print", "Extended Multi-Level", "Full Multi-Platform System"] },
-      { feature: "Voice, Tone & Copywriting Rules", values: [false, true, true] },
-      { feature: "Stationery & Packaging Specs", values: [false, true, true] },
-      { feature: "Digital UI Tokens (Figma Library)", values: [false, true, true] },
-      { feature: "Living Web-Hosted Hub (Zeroheight)", values: [false, false, true] },
-      { feature: "Motion & Sound Identity Rules", values: [false, false, true] },
-      { feature: "Team Handoff & Governance Session", values: [false, "30-Min Session", "Executive Workshop"] },
-    ],
-  },
-
   faqs: [
     {
       question: "Why does my business need a brand guideline document?",
@@ -179,19 +198,19 @@ const brandGuidelines = {
         "A brand guideline manual ensures that everyone who creates content, designs ads, or develops software for your business presents a unified, professional image. It prevents brand fragmentation, protects visual equity, and accelerates design turnaround times by up to 50%.",
     },
     {
-      question: "Can you create brand guidelines if we already have a logo?",
+      question: "Can you create brand guidelines if we already have an existing logo?",
       answer:
-        "Yes! Many of our clients have an existing logo but lack systematic rules for color usage, typography hierarchy, voice/tone, and application templates. We reverse-engineer and expand your existing assets into a world-class brand manual.",
+        "Yes! Many of our clients have an existing logo but lack systematic rules for color usage, typography hierarchy, voice/tone, and application templates. We expand your existing assets into an authoritative brand manual.",
     },
     {
-      question: "What is the difference between a PDF brand guide and a Figma design system?",
+      question: "What is included in the final brand guidelines delivery?",
       answer:
-        "A PDF brand guide is a comprehensive document for designers, marketers, and executives detailing all rules and philosophies. A Figma design system is an interactive component library containing actual reusable UI components, color variables, and typography styles for web and app developers.",
+        "You receive an interactive multi-page PDF master manual (typically 24 to 40 pages), vector asset packages in all formats, and an optional Figma cloud design token library ready for design and development teams.",
     },
     {
-      question: "How long does it take to develop a comprehensive brand book?",
+      question: "How do you help our internal team adopt the new guidelines?",
       answer:
-        "Our Starter Brand Guide typically takes 5–7 business days, while our Comprehensive Brand Book takes 10–14 business days, including stakeholder review cycles.",
+        "We provide a walkthrough video recording, a quick-reference one-page cheat sheet for non-designers, and a structured cloud asset folder so anyone on your team can find the right logo, color code, or template in under 10 seconds.",
     },
   ],
 

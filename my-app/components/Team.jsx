@@ -31,7 +31,6 @@ const Team = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Fix #5: Scale-up entrance animation for variety
       gsap.fromTo(
         ".team-card",
         { opacity: 0, scale: 0.9, y: 24 },
@@ -58,14 +57,14 @@ const Team = () => {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -8;
-    const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 8;
+    const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -9;
+    const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 9;
 
     gsap.to(card, {
       rotateX,
       rotateY,
-      transformPerspective: 800,
-      duration: 0.5,
+      transformPerspective: 900,
+      duration: 0.4,
       ease: "power2.out",
     });
   };
@@ -80,46 +79,51 @@ const Team = () => {
   };
 
   return (
-    <div ref={sectionRef} className="w-full py-20 md:py-28 bg-white">
-      <div className="container mx-auto px-4">
+    <section ref={sectionRef} className="w-full py-24 md:py-32 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <HeadNtext
           heading="Meet Our Team"
           text="As a team, we move forward with deep trust in our vision, believing that with focus, dedication, and heart, meaningful success is always within reach."
         />
 
-        <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {teamMembers.map((member) => (
             <div
               key={member.id}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="team-card group overflow-hidden rounded-xl md:rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow duration-300 will-change-transform hover:shadow-xl"
+              className="team-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-gray-200/80 bg-white shadow-xs transition-all duration-300 will-change-transform hover:border-brandnd/40 hover:shadow-2xl"
             >
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-100">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover grayscale transition-all duration-700 ease-out group-hover:scale-110 group-hover:grayscale-0"
+                  className="object-cover grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-40" />
+
+                {/* Team Tag */}
+                <div className="absolute top-3.5 left-3.5 rounded-full bg-black/40 px-3 py-1 text-[11px] font-bold text-white backdrop-blur-md">
+                  {member.role}
+                </div>
               </div>
 
-              <div className="p-5">
-                <h3 className="text-[16px] md:text-xl font-bold text-gray-900">
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-brand transition-colors">
                   {member.name}
                 </h3>
-                <p className="mt-1 text-[14px] md:text-sm font-medium text-brand">
-                  {member.role}
+                <p className="mt-1 text-xs font-semibold text-brandnd uppercase tracking-wider">
+                  Astha Core
                 </p>
-                <span className="mt-3 block h-0.5 w-8 rounded-full bg-brand transition-all duration-300 group-hover:w-14" />
+                <span className="mt-3 block h-0.5 w-8 rounded-full bg-brandnd transition-all duration-300 group-hover:w-16" />
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

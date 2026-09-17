@@ -6,17 +6,19 @@ const creativeDesign = {
   heroImage,
   heroTitle: "High-Impact Creative Design That Differentiates Your Brand",
   heroDescription:
-    "We engineer bespoke brand identities, high-converting digital assets, custom illustrations, and marketing collateral designed to establish instant authority in crowded markets.",
+    "We engineer bespoke brand identities, custom logos, print & digital banners, social media designs, and marketing collateral designed to establish instant authority in crowded markets.",
+  hasPackages: false,
   stats: [
     { label: "Turnaround Time", value: "48–72 Hrs" },
     { label: "Client Approval Rate", value: "98.8%" },
     { label: "Deliverables", value: "Vector & Source" },
+    { label: "Format Master", value: "Print + Digital" },
   ],
 
   strategicContext: {
     heading: "Visual Excellence as a Strategic Competitive Advantage",
     paragraph1:
-      "In the vast and noisy digital ocean, audiences make subconscious judgments about your brand's credibility within 50 milliseconds. Poor typography, inconsistent color palettes, or generic template designs dilute trust and drastically reduce conversion rates. Creative design is not merely decoration—it is the direct visual translation of your business value proposition.",
+      "In the vast and noisy digital ocean, audiences make subconscious judgments about your brand's credibility within 50 milliseconds. Poor typography, inconsistent color palettes, or generic template designs dilute trust and drastically reduce conversion rates. Creative design is not merely decoration: it is the direct visual translation of your business value proposition.",
     paragraph2:
       "At Astha Creatives, our design philosophy blends strategic color psychology, mathematical grid systems, and kinetic typography. We craft cohesive visual ecosystems across every consumer touchpoint, ensuring that every banner, social post, logo, and marketing deck reinforces a singular, authoritative market identity.",
     keyPoints: [
@@ -24,6 +26,96 @@ const creativeDesign = {
       "Human-centric design psychology tailored to high-intent buyer personas",
       "Mathematically balanced layouts, responsive vectors, and print-ready CMYK assets",
       "Full ownership of original Figma, AI, PSD, and SVG master source files",
+    ],
+  },
+
+  deepDivePillars: {
+    badge: "Creative Engineering",
+    heading: "The Pillars of High-Conversion Visual Design",
+    subheading:
+      "How we combine behavioral psychology with vector precision to engineer graphics that command audience attention and drive commercial action.",
+    pillars: [
+      {
+        tag: "Neuromarketing",
+        title: "Visual Hierarchy & Eye-Tracking Pacing",
+        description:
+          "We structure layouts using natural Z-pattern and F-pattern scanning behaviors, ensuring high-value conversion elements (value proposition, primary CTA, trust badges) receive immediate optical priority within the first 100 milliseconds.",
+        keyTakeaways: [
+          "Optimized focal points proven to elevate click-through rates by up to 34%",
+          "Strategic negative space that reduces cognitive fatigue and increases dwell time",
+          "High-contrast color accents scientifically chosen for maximum call-to-action visibility",
+        ],
+        stat: { label: "Attention Capture", value: "< 50ms Recognition" },
+      },
+      {
+        tag: "Mathematical Precision",
+        title: "Modular Grid Systems & Geometric Vectoring",
+        description:
+          "Every logo mark and graphic asset is constructed upon strict mathematical geometry, golden ratios, and 8-point modular grids. This guarantees flawless optical balance whether scaled to an Apple Watch screen or a 40-foot outdoor billboard.",
+        keyTakeaways: [
+          "Infinite resolution SVG and EPS vectors with zero pixelation at any scale",
+          "Pixel-grid alignment eliminating blurry rendering on high-DPI Retina screens",
+          "Balanced optical clear-space preventing visual crowding across diverse media",
+        ],
+        stat: { label: "Resolution Metric", value: "Infinite Vector Scale" },
+      },
+      {
+        tag: "Omnichannel Synergy",
+        title: "Cross-Platform Asset Production",
+        description:
+          "Digital advertising creatives require precise format tailoring. We produce adaptive asset suites optimized for Meta ads (1:1, 4:5, 9:16), Google Display Network banners, LinkedIn thought-leadership cards, and physical print collateral.",
+        keyTakeaways: [
+          "Native aspect-ratio adaptation preventing awkward cropping on mobile screens",
+          "Color profile calibration between digital sRGB, wide P3, and print CMYK/Pantone",
+          "Strict adherence to platform text-overlay guidelines for peak advertising reach",
+        ],
+        stat: { label: "Format Coverage", value: "100% Platform Parity" },
+      },
+      {
+        tag: "Commercial Sovereignty",
+        title: "Full Master Source Files & Complete Ownership",
+        description:
+          "We believe you should own your brand assets without arbitrary licensing locks. Upon project sign-off, you receive full commercial copyright ownership, clean Figma links, editable vector files (.AI, .EPS, .SVG), and high-res print masters.",
+        keyTakeaways: [
+          "Complete intellectual property transfer with unlimited commercial usage rights",
+          "Meticulously organized layer naming, component tokens, and style guides",
+          "Lifetime cloud backup archiving in our secure studio repository",
+        ],
+        stat: { label: "IP Ownership", value: "100% Client Ownership" },
+      },
+    ],
+  },
+
+  industryUseCases: {
+    badge: "Industry Impact",
+    heading: "Tailored Creative Deployments Across Sectors",
+    subheading:
+      "Explore how our specialized visual design frameworks elevate brands across diverse commercial environments.",
+    cases: [
+      {
+        industry: "DTC & Consumer Brands",
+        title: "High-Converting Ad Creatives & Packaging",
+        solution: "Scroll-stopping social advertising suites and premium unboxing packaging designs that double ROAS.",
+        impact: "+48% Click-Through Rate & +28% Average Order Value",
+      },
+      {
+        industry: "B2B SaaS & Tech Startups",
+        title: "Investor Decks & Brand Identity",
+        solution: "Clean, authoritative visual identities and pitch decks that articulate complex tech value propositions.",
+        impact: "Facilitated Multi-Million Dollar Seed & Series-A Rounds",
+      },
+      {
+        industry: "Professional Services",
+        title: "Corporate Identity & Collateral",
+        solution: "High-trust stationery, presentation templates, and digital brochures for consultancies and legal firms.",
+        impact: "Established Instant Enterprise Credibility",
+      },
+      {
+        industry: "Hospitality & Lifestyle",
+        title: "Experiential Menus & Signage",
+        solution: "Bespoke typography, tactile print finishes, and social media aesthetic frameworks for luxury venues.",
+        impact: "+65% Organic Social Tagging & Viral UGC Growth",
+      },
     ],
   },
 
@@ -99,90 +191,21 @@ const creativeDesign = {
     },
   ],
 
-  tiers: [
-    {
-      name: "Essential Brand Pack",
-      badge: "Foundational",
-      description: "Ideal for early-stage ventures and startups requiring a sharp, professional brand mark and essential digital assets.",
-      features: [
-        "Brand Style & Competitor Audit",
-        "Custom Logo Design (2 Distinct Concepts)",
-        "Curated 4-Color Brand Palette (HEX, RGB, CMYK)",
-        "Primary & Secondary Typography Pairing",
-        "5 High-Converting Social Media Templates",
-        "Double-Sided Business Card & Email Signature",
-        "2 Structured Revision Rounds",
-        "Full Vector & Web Exports (SVG, PNG, PDF)",
-      ],
-      ctaLabel: "Get Essential Quote",
-      ctaHref: "/contact?service=creative-design&package=essential",
-    },
-    {
-      name: "Growth Identity Suite",
-      badge: "Most Popular",
-      highlighted: true,
-      description: "For scaling businesses looking for a complete visual identity system and an extensive marketing collateral arsenal.",
-      features: [
-        "Everything in Essential Brand Pack",
-        "Custom Logo Design (4 Distinct Concepts)",
-        "Complete Brand Identity Quick Guide (12 Pages)",
-        "Full Stationery Kit (Letterhead, Envelope, Folder)",
-        "15 Multi-Platform Social Media Templates (Feed & Stories)",
-        "3 Promotional Marketing Materials (Flyer, Banner, Deck)",
-        "Custom Iconography & Graphic Pattern Set",
-        "Unlimited Revision Cycles during concept phase",
-        "Full Master Source Files (Figma / Adobe Illustrator)",
-        "Priority Support & Dedicated Art Lead",
-      ],
-      ctaLabel: "Get Growth Quote",
-      ctaHref: "/contact?service=creative-design&package=growth",
-    },
-    {
-      name: "Enterprise Brand Authority",
-      badge: "Full Ecosystem",
-      description: "For established enterprises requiring total visual market leadership, custom packaging, and continuous design retainer capacity.",
-      features: [
-        "Comprehensive 30+ Page Corporate Brand Manual",
-        "Unlimited Custom Logo Concept Explorations",
-        "Full Print, Digital & Event Marketing Asset Suite",
-        "Custom Packaging & Product Merchandise Design",
-        "3D Brand Elements & Isometric Illustration Pack",
-        "Design System Token Library in Figma",
-        "Dedicated Senior Art Director & Dedicated Slack Channel",
-        "24-Hour Express Turnaround Option for Urgencies",
-        "Full Commercial & Global Trademark Rights",
-      ],
-      ctaLabel: "Get Enterprise Quote",
-      ctaHref: "/contact?service=creative-design&package=enterprise",
-    },
-  ],
-
-  comparison: {
-    rows: [
-      { feature: "Logo Concepts", values: ["2 Concepts", "4 Concepts", "Unlimited"] },
-      { feature: "Social Media Templates", values: ["5 Templates", "15 Templates", "Unlimited"] },
-      { feature: "Brand Guideline Document", values: ["Basic Spec Sheet", "12-Page Guide", "30+ Page Brand Book"] },
-      { feature: "Stationery & Corporate Kit", values: [false, true, true] },
-      { feature: "Custom Iconography & Patterns", values: [false, true, true] },
-      { feature: "3D Assets & Custom Illustrations", values: [false, false, true] },
-      { feature: "Design System / Figma Tokens", values: [false, false, true] },
-      { feature: "Revision Rounds", values: ["2 Rounds", "Unlimited (Concept)", "Unlimited Priority"] },
-      { feature: "Turnaround Time", values: ["3–5 Days", "5–7 Days", "Express Available"] },
-      { feature: "Full Master Source Files", values: [true, true, true] },
-      { feature: "Commercial Rights Release", values: [true, true, true] },
-    ],
-  },
-
   faqs: [
+    {
+      question: "What individual designs do you offer under Creative Design?",
+      answer:
+        "We offer custom logo design, social media post designs, digital and print promotional banners, company brochures, business cards, email signatures, packaging assets, and custom vector illustrations.",
+    },
     {
       question: "What file formats will I receive upon project completion?",
       answer:
         "You will receive industry-standard master source files (Adobe Illustrator .AI, Photoshop .PSD, Figma links) as well as production-ready web and print formats: scalable vector SVGs, high-resolution transparent PNGs, JPEGs, and print-ready 300 DPI CMYK PDFs with bleed marks.",
     },
     {
-      question: "How many design revisions are included in the process?",
+      question: "How do revisions work for custom design requests?",
       answer:
-        "Our Essential tier includes 2 comprehensive revision rounds, while our Growth and Enterprise tiers offer iterative, unlimited refinements during the core concept exploration phase until full strategic alignment is achieved.",
+        "We collaborate closely through iterative feedback cycles until you are completely satisfied with the final deliverables before exporting master files.",
     },
     {
       question: "Do I retain full intellectual property and commercial copyright?",
@@ -190,14 +213,9 @@ const creativeDesign = {
         "Yes, 100%. Upon final project sign-off and payment completion, all intellectual property, copyright ownership, and commercial usage rights transfer entirely to your business.",
     },
     {
-      question: "Can Astha Creatives work with our existing brand guidelines?",
+      question: "Can you handle print production specifications directly with our printers?",
       answer:
-        "Absolutely. If you already have established brand identity rules, we will meticulously follow your typography, color tokens, and layout guidelines while elevating the overall creative execution.",
-    },
-    {
-      question: "How quickly can we begin after signing off on the proposal?",
-      answer:
-        "Once the project scope is confirmed and the discovery onboarding questionnaire is completed, your dedicated design team kicks off within 24 to 48 hours.",
+        "Yes. We prepare print-ready PDF/X files with customized bleed margins, trim marks, die-cut vectors, and spot-color Pantone separations, and can liaise directly with your commercial printing vendor to ensure zero production errors.",
     },
   ],
 

@@ -6,7 +6,8 @@ const socialMediaManagement = {
   heroImage,
   heroTitle: "End-to-End Social Media Management That Builds Loyal Communities",
   heroDescription:
-    "We handle your complete social media operations—from profile architecture, editorial planning, and daily content publishing to community moderation, trend integration, and organic growth.",
+    "We handle your complete social media operations, covering profile architecture, editorial planning, and daily content publishing to community moderation, trend integration, and organic growth.",
+  hasPackages: true,
   stats: [
     { label: "Publishing Consistency", value: "100% On-Time" },
     { label: "Avg Engagement Lift", value: "+140%" },
@@ -24,6 +25,96 @@ const socialMediaManagement = {
       "Strategic blend of educational, promotional, entertaining, and behind-the-scenes content",
       "Proactive community management, direct message triage, and comment moderation",
       "Monthly analytical reporting tracking reach, engagement rate, follower growth, and referral clicks",
+    ],
+  },
+
+  deepDivePillars: {
+    badge: "Omni-Channel Operations",
+    heading: "The Architecture of Scalable Social Media Growth",
+    subheading:
+      "Organic social media is not just about posting pretty pictures; it is an always-on operational engine of content distribution, community nurturing, and brand authority.",
+    pillars: [
+      {
+        tag: "Content Strategy",
+        title: "The 4-Pillar Balanced Content Matrix",
+        description:
+          "We structure your editorial calendar across four proven strategic pillars: Authority (educational insights and industry teardowns), Affinity (company culture and relatable storytelling), Conversion (clear commercial offers and case studies), and Virality (trending audio and cultural formats).",
+        keyTakeaways: [
+          "Elimination of repetitive, sales-heavy feeds that drive audience unfollows",
+          "Balanced cadence that nurtures cold followers into warm commercial prospects",
+          "Weekly performance adjustments based on real engagement data",
+        ],
+        stat: { label: "Engagement Lift", value: "+140% Average Boost" },
+      },
+      {
+        tag: "Active Community",
+        title: "Proactive Community Management & DM Triage",
+        description:
+          "Social algorithms heavily favor accounts with high comment response rates. Our dedicated community managers monitor your inboxes and comment sections daily, sparking genuine conversations, answering customer queries, and routing high-value leads directly to your sales team.",
+        keyTakeaways: [
+          "Under 2-hour response time SLA during active commercial business hours",
+          "Escalation protocols for sensitive customer support issues or PR inquiries",
+          "Proactive outbound engagement with industry peers, creators, and prospects",
+        ],
+        stat: { label: "Response SLA", value: "< 2 Hour Response Time" },
+      },
+      {
+        tag: "Algorithm Agility",
+        title: "Trend Jacking & Cultural Speed",
+        description:
+          "Social media trends expire in days. When an audio track, meme format, or industry news story surges on TikTok or Instagram, our creative team rapidly contextualizes it for your brand, capturing massive algorithmic reach waves before the trend saturates.",
+        keyTakeaways: [
+          "Rapid turnaround integration of trending sounds and visual formats",
+          "Tasteful brand adaptation that never compromises corporate professionalism",
+          "Proven driver of breakout organic reach and new follower acquisition",
+        ],
+        stat: { label: "Trend Response", value: "Within 24 Hours" },
+      },
+      {
+        tag: "Revenue Attribution",
+        title: "Full-Funnel Analytics & Conversion Tracking",
+        description:
+          "Vanity metrics like follower counts mean nothing if they do not drive business growth. We track custom UTM link parameters, bio click-through rates, lead form completions, and assisted conversion pathways in Google Analytics 4 to prove exact commercial ROI.",
+        keyTakeaways: [
+          "Monthly executive PDF reporting with actionable strategic takeaways",
+          "Clear breakdown of top-performing post types, peak hours, and audience demographics",
+          "Direct correlation between organic social activity and website revenue",
+        ],
+        stat: { label: "Transparency", value: "Monthly Executive Audits" },
+      },
+    ],
+  },
+
+  industryUseCases: {
+    badge: "Community Proof",
+    heading: "Where Managed Social Operations Drive Measurable Results",
+    subheading:
+      "See how end-to-end social media management builds loyal communities and powers commercial pipelines.",
+    cases: [
+      {
+        industry: "Direct-to-Consumer Brands",
+        title: "Community Building & Customer Love",
+        solution: "Daily aesthetic stories, UGC reposting, influencer gifting coordination, and rapid DM support.",
+        impact: "+180% Engagement Rate & 35% of Total Monthly Inbound Inquiries",
+      },
+      {
+        industry: "B2B Tech & SaaS Founders",
+        title: "Executive LinkedIn & Twitter Authority",
+        solution: "Ghostwritten thought leadership carousels, company milestone threads, and engineering culture showcases.",
+        impact: "Attracted 4 Enterprise Demo Requests per Week Directly from LinkedIn",
+      },
+      {
+        industry: "Hospitality & Culinary",
+        title: "Viral TikTok Food Culture & Reels",
+        solution: "Sensory food reels, behind-the-counter preparation videos, and local foodie creator collaborations.",
+        impact: "+300% Weekend Table Reservations Driven by Instagram Reels",
+      },
+      {
+        industry: "Real Estate & High-Ticket Sales",
+        title: "Exclusive Property Tours & Market Trends",
+        solution: "Cinematic vertical video tours, market analysis infographics, and neighborhood spotlight guides.",
+        impact: "Generated 12 Qualified High-Net-Worth Buyer Leads in First 60 Days",
+      },
     ],
   },
 
@@ -102,71 +193,46 @@ const socialMediaManagement = {
   tiers: [
     {
       name: "Standard Retainer",
-      badge: "Essential Presence",
-      description: "Designed for small businesses and founders seeking reliable, professional social media maintenance across 2 core platforms.",
+      badge: "Consistent Presence",
+      description: "Designed for small businesses seeking reliable, professional social media management across core channels.",
       features: [
-        "2 Primary Platforms Managed (e.g. Facebook & Instagram)",
-        "15 Custom Designed Posts per Month (Static & Carousels)",
-        "4 Interactive Stories per Month",
-        "Engaging Copywriting, Hashtags & Call-to-Actions",
-        "Strategic Content Scheduling & Publishing",
-        "Weekly Comment & Direct Message Moderation",
-        "Monthly Growth & Performance Analytics Report",
-        "Email & Chat Account Support",
+        "3 Platforms Managed (Facebook, Instagram, LinkedIn)",
+        "15 Posts Monthly Scheduling & Publishing",
+        "Community Moderation (Inbox & Comments)",
+        "Strategic Content Planning & Calendar Mapping",
+        "Brand Consistency Guarantee",
+        "Monthly Performance Insights Report",
       ],
-      ctaLabel: "Get Standard Retainer Quote",
-      ctaHref: "/contact?service=social-media-management&package=standard-retainer",
+      ctaLabel: "Get Quote",
+      ctaHref: "/contact?service=social-media-management&package=standard",
     },
     {
-      name: "Full-Scale Growth Retainer",
-      badge: "Most Popular",
+      name: "Full-Scale Retainer",
+      badge: "Omnichannel Growth (Recommended)",
       highlighted: true,
-      description: "For scaling brands looking to dominate feeds, build high-velocity engagement, and produce short-form video reels.",
+      description: "For scaling brands looking for omnichannel daily posting, active outreach, and trend-jacking agility.",
       features: [
-        "Up to 4 Platforms (Facebook, Instagram, LinkedIn, TikTok)",
-        "30 Custom Posts per Month (Daily Posting Cadence)",
-        "8 Custom Motion Graphics / Short-Form Reels",
-        "12 Interactive Stories & Polls per Month",
-        "Daily Active Community Moderation & Outreach",
-        "Trend Jacking & Real-Time Viral Opportunity Integration",
-        "Bi-Weekly Strategy & Content Alignment Calls",
-        "Comprehensive Monthly ROI & Funnel Attribution Report",
-        "Dedicated Social Media Account Manager",
+        "All Primary Brand Channels Managed",
+        "Daily Posting & Interactive Story Updates",
+        "Active Multi-Platform Community Engagement & Outreach",
+        "Trend Jacking & Dedicated Growth Lead",
+        "Bi-Weekly Strategy Alignment Calls",
+        "Comprehensive Monthly Performance & ROI Analytics",
       ],
-      ctaLabel: "Get Growth Retainer Quote",
-      ctaHref: "/contact?service=social-media-management&package=growth-retainer",
-    },
-    {
-      name: "Enterprise Omnichannel Retainer",
-      badge: "Market Dominance",
-      description: "Complete full-service social media department for established corporate enterprises and multi-channel international brands.",
-      features: [
-        "All Major Platforms (Meta, LinkedIn, TikTok, X, YouTube)",
-        "45+ Custom Creative Assets per Month",
-        "16 High-Impact Video Reels & Short-Form Edits",
-        "Daily Stories & Community Live Event Support",
-        "24/7 Priority Social Inbox Monitoring & Crisis Management",
-        "Influencer & Creator Collaboration Outreach Coordination",
-        "Paid Social Ads Management Synergy (Meta & TikTok Ads)",
-        "Dedicated Creative Director & Content Strategist Lead",
-        "Weekly Growth Strategy Syncs & Real-Time Dashboard",
-      ],
-      ctaLabel: "Get Enterprise Retainer Quote",
-      ctaHref: "/contact?service=social-media-management&package=enterprise-retainer",
+      ctaLabel: "Get Quote",
+      ctaHref: "/contact?service=social-media-management&package=full-scale",
     },
   ],
 
   comparison: {
     rows: [
-      { feature: "Platforms Managed", values: ["2 Platforms", "Up to 4 Platforms", "All Major Platforms"] },
-      { feature: "Monthly Posts Volume", values: ["15 Posts", "30 Posts (Daily)", "45+ Posts"] },
-      { feature: "Short-Form Video / Reels", values: [false, "8 Reels / Mo", "16 Reels / Mo"] },
-      { feature: "Stories & Interactive Polls", values: ["4 / Month", "12 / Month", "Daily Stories"] },
-      { feature: "Community & Inbox Moderation", values: ["Weekly Triage", "Daily Moderation", "24/7 Priority Monitoring"] },
-      { feature: "Trend Jacking & Viral Content", values: [false, true, true] },
-      { feature: "Strategic Sync Calls", values: ["Monthly", "Bi-Weekly", "Weekly Executive Sync"] },
-      { feature: "Dedicated Account Lead", values: [false, true, true] },
-      { feature: "Paid Ads Management Synergy", values: [false, "Optional Add-on", true] },
+      { feature: "Platforms Managed", values: ["3 Platforms", "All Primary Channels"] },
+      { feature: "Monthly Posts Volume", values: ["15 Posts Scheduled", "Daily Posting & Stories"] },
+      { feature: "Community Moderation", values: [true, true] },
+      { feature: "Trend Jacking & Growth Strategy", values: [false, true] },
+      { feature: "Strategy Alignment Calls", values: ["Monthly", "Bi-Weekly Calls"] },
+      { feature: "Dedicated Growth Lead", values: [false, true] },
+      { feature: "Monthly Performance Reporting", values: [true, true] },
     ],
   },
 
@@ -175,11 +241,6 @@ const socialMediaManagement = {
       question: "Do I have to approve the social media posts before they go live?",
       answer:
         "Yes! We construct the full monthly editorial calendar and all visual creatives in advance. You will review and approve every post, caption, and hashtag cluster before anything is scheduled.",
-    },
-    {
-      question: "Can Astha Creatives create short-form video reels for TikTok and Instagram?",
-      answer:
-        "Absolutely. Our Growth and Enterprise tiers include dedicated short-form video editing and motion graphics, optimized with trending audio hooks, kinetic subtitles, and high-retention editing.",
     },
     {
       question: "How do you handle customer inquiries or comments in our direct messages?",

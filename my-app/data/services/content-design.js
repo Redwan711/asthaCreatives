@@ -7,6 +7,7 @@ const contentDesign = {
   heroTitle: "High-Volume Content Design Packages Built for Engagement",
   heroDescription:
     "Predictable monthly visual content production blending thumb-stopping static designs, dynamic motion reels, and persuasive copy engineered specifically to drive reach, saves, and shares.",
+  hasPackages: true,
   stats: [
     { label: "Content Delivery", value: "Monthly Batches" },
     { label: "Format Support", value: "Static + Reels" },
@@ -24,6 +25,96 @@ const contentDesign = {
       "Perfect mix of static carousels, educational infographics, and short-form video reels",
       "Persuasive copywriting and engagement-driven captions with strategic hashtags included",
       "Ready-to-publish assets optimized for Instagram, Facebook, LinkedIn, and TikTok",
+    ],
+  },
+
+  deepDivePillars: {
+    badge: "Content Strategy",
+    heading: "The Engineering Behind High-Velocity Social Content",
+    subheading:
+      "Modern algorithms favor content that generates high dwell time, saves, and shares. Discover how our monthly content packages are engineered for organic reach.",
+    pillars: [
+      {
+        tag: "Conversion Copy",
+        title: "The Hook-Hold-Action Copywriting Formula",
+        description:
+          "Every caption and graphic headline utilizes psychological curiosity gaps and clear value promises that stop the thumb scroll within 1.5 seconds and guide the reader toward actionable comments and profile clicks.",
+        keyTakeaways: [
+          "Data-backed first-line hooks tailored to algorithm retention metrics",
+          "Scannable formatting with strategic whitespace and emoji bullet points",
+          "Low-friction calls to action that stimulate organic comments and direct messages",
+        ],
+        stat: { label: "First-Line Retention", value: "3.5x Dwell Time Lift" },
+      },
+      {
+        tag: "High-Value Format",
+        title: "Multi-Slide Educational Carousels",
+        description:
+          "Carousels are the #1 organic reach format on Instagram and LinkedIn. We design cohesive, seamless panoramic slides that break complex industry concepts into digestible visual steps that audiences naturally bookmark and save.",
+        keyTakeaways: [
+          "Seamless edge-to-edge slide design encouraging complete swipe-throughs",
+          "High bookmark/save ratios signaling top-tier authority to platform algorithms",
+          "Repurposable content assets that can be formatted across LinkedIn and Instagram",
+        ],
+        stat: { label: "Algorithm Signal", value: "Top Format for Saves" },
+      },
+      {
+        tag: "Motion Power",
+        title: "Kinetic Motion Graphics & Video Reels",
+        description:
+          "Included in every package tier, our short-form motion graphics and video reels inject dynamic movement into your feed. We engineer kinetic typography, animated data visualizers, and sound design to capture audio-on and audio-off viewers.",
+        keyTakeaways: [
+          "Dynamic animated captions ensuring 100% comprehension on silent autoplay",
+          "Trending audio synchronization and rhythmic visual cuts",
+          "High-definition 1080x1920 vertical format ready for Reels, Shorts, and TikTok",
+        ],
+        stat: { label: "Reach Multiplier", value: "Up to 5x Higher Reach" },
+      },
+      {
+        tag: "Predictable Cadence",
+        title: "Batch Production & Turnkey Handoff",
+        description:
+          "Never scramble for a last-minute post again. We deliver assets in organized monthly or bi-weekly batches with a centralized Notion review board, complete with pre-written copy, image attachments, and publishing schedule recommendations.",
+        keyTakeaways: [
+          "Complete monthly coverage preventing dead gaps in your brand visibility",
+          "Streamlined single-click feedback and approval dashboard",
+          "Ready-to-import CSV queues for scheduling tools (Buffer, Hootsuite, Later)",
+        ],
+        stat: { label: "Time Savings", value: "Save 30+ Hrs Every Month" },
+      },
+    ],
+  },
+
+  industryUseCases: {
+    badge: "Engagement Proof",
+    heading: "Tailored Content Packages Across Industries",
+    subheading:
+      "See how consistent, high-impact monthly content design powers diverse business verticals.",
+    cases: [
+      {
+        industry: "E-Commerce & DTC",
+        title: "Product Showcase & Seasonal Promotions",
+        solution: "Carousel styling tips, unboxing graphics, and flash sale reels that drive high-intent store visits.",
+        impact: "+55% Traffic from Instagram Link in Bio",
+      },
+      {
+        industry: "SaaS & Tech",
+        title: "Product Teasers & Feature Breakdowns",
+        solution: "Infographic carousels, UI sneak peeks, and thought-leadership graphics for LinkedIn and Twitter.",
+        impact: "+70% Growth in High-Value Enterprise Followers",
+      },
+      {
+        industry: "Professional Coaches & Creators",
+        title: "Authority Carousels & Viral Hooks",
+        solution: "High-retention bite-sized education and motion reels translating expertise into qualified leads.",
+        impact: "3x Increase in Direct Message Inbound Inquiries",
+      },
+      {
+        industry: "Local Services & Clinics",
+        title: "Community Trust & Testimonial Cards",
+        solution: "Before/after showcases, client reviews, and educational health tips that establish local leadership.",
+        impact: "Consistent 4x Weekly Presence with Zero In-House Overhead",
+      },
     ],
   },
 
@@ -101,73 +192,50 @@ const contentDesign = {
 
   tiers: [
     {
-      name: "Standard Content Package",
+      name: "Standard Package",
       badge: "Essential Consistency",
-      description: "The ideal foundation for businesses seeking predictable, high-quality monthly social content.",
+      description: "The ideal package for businesses seeking predictable, high-quality monthly social content.",
       features: [
-        "13 Bespoke Static Graphic Designs (Carousels & Posts)",
-        "2 Kinetic Motion Graphics / Short-Form Video Reels",
-        "15 Persuasive Captions with Researched Hashtags",
-        "Monthly Content Calendar Mapping in Notion / Sheets",
-        "Brand Color & Typography Consistency Guarantee",
-        "2 Iterative Revision Rounds on All Assets",
+        "13 Static Designs (Custom Posts & Carousels)",
+        "2 Motion Graphics / Video Reels",
+        "15 Caption Writings with Researched Hashtags",
+        "Monthly Content Calendar Mapping",
+        "Brand Color & Typography Consistency",
         "Lossless WebP, PNG, and MP4 Deliverables",
-        "Delivery in 2 Bi-Weekly Batch Drops",
+        "Delivery in Bi-Weekly Batch Drops",
       ],
-      ctaLabel: "Get Standard Package Quote",
+      ctaLabel: "Get Quote",
       ctaHref: "/contact?service=content-design&package=standard",
     },
     {
-      name: "Growth Content Package",
+      name: "Growth Package",
       badge: "High Velocity (Recommended)",
       highlighted: true,
-      description: "Our flagship high-velocity package designed to fuel daily publishing and rapid organic community expansion.",
+      description: "Our flagship high-velocity package designed to fuel daily publishing and rapid organic reach.",
       features: [
-        "25 Bespoke Static Graphic Designs (Carousels & Posts)",
-        "4 High-Impact Motion Graphics / Short-Form Video Reels",
-        "30 Engaging Captions, Story Hooks & Strategic CTAs",
-        "Comprehensive Monthly Content Calendar & Theme Mapping",
+        "25 Static Designs (Custom Posts & Carousels)",
+        "4 Motion Graphics / Video Reels",
+        "30 Caption Writings & Strategic CTAs",
+        "Comprehensive Monthly Content Calendar",
         "Trend Jacking & Viral Format Integration",
-        "Dedicated Content Scheduling & Queue Management",
-        "Unlimited Concept Revisions during production",
+        "Dedicated Content Scheduling & Queue",
         "Master Source Files (Figma / Adobe Cloud)",
-        "Priority Support & Dedicated Content Designer",
       ],
-      ctaLabel: "Get Growth Package Quote",
+      ctaLabel: "Get Quote",
       ctaHref: "/contact?service=content-design&package=growth",
-    },
-    {
-      name: "Dominance Content Package",
-      badge: "Omnichannel Scale",
-      description: "For established consumer brands requiring massive creative volume, dedicated video editors, and multi-format assets.",
-      features: [
-        "45+ Bespoke Static Graphic Designs",
-        "10 Cinematic Motion Graphics & Short-Form Reels",
-        "50+ Written Captions, Long-Form Thought Leadership Posts & Threads",
-        "Daily Instagram Stories & Poll Templates",
-        "Custom 3D Product Mockups & Illustrated Brand Assets",
-        "Dedicated Creative Director & Senior Motion Animator",
-        "24-Hour Express Turnaround on Urgent Campaign Graphics",
-        "Full Master Source Files & Commercial Rights Release",
-        "Weekly Content Performance Strategy Syncs",
-      ],
-      ctaLabel: "Get Dominance Quote",
-      ctaHref: "/contact?service=content-design&package=dominance",
     },
   ],
 
   comparison: {
     rows: [
-      { feature: "Static Graphic Designs", values: ["13 Designs", "25 Designs", "45+ Designs"] },
-      { feature: "Motion Graphics / Video Reels", values: ["2 Reels", "4 Reels", "10 Reels"] },
-      { feature: "Strategic Captions & Hashtags", values: ["15 Captions", "30 Captions (Daily)", "50+ Captions & Threads"] },
-      { feature: "Multi-Slide Carousels Included", values: [true, true, true] },
-      { feature: "Editorial Calendar Roadmap", values: [true, true, true] },
-      { feature: "Content Scheduling & Queue", values: [false, true, true] },
-      { feature: "Trend Jacking & Viral Hooks", values: [false, true, true] },
-      { feature: "Revision Rounds", values: ["2 Rounds", "Unlimited (Concept)", "Unlimited Priority"] },
-      { feature: "Delivery Cadence", values: ["Bi-Weekly Drops", "Weekly Batch Drops", "Continuous On-Demand"] },
-      { feature: "Master Source Files Included", values: [false, true, true] },
+      { feature: "Static Graphic Designs", values: ["13 Static Designs", "25 Static Designs"] },
+      { feature: "Motion Graphics / Video Reels", values: ["2 Reels", "4 Reels"] },
+      { feature: "Caption Writing & Copy", values: ["15 Captions", "30 Captions (Daily)"] },
+      { feature: "Multi-Slide Carousels", values: [true, true] },
+      { feature: "Editorial Calendar Roadmap", values: [true, true] },
+      { feature: "Content Scheduling & Queue", values: [false, true] },
+      { feature: "Trend Jacking Integration", values: [false, true] },
+      { feature: "Master Source Files Included", values: [false, true] },
     ],
   },
 

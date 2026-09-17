@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import HeadNtext from "./HeadNtext";
 import Image from "next/image";
-import { Heart, ChevronLeft, ChevronRight, Quote, Building2 } from "lucide-react";
+import { Heart, ChevronLeft, ChevronRight, Quote, Sparkles } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -13,8 +13,6 @@ import ovenFresh from "@/images/companies/oven-fresh.png";
 import cellRepair from "@/images/companies/cell-repair.png";
 import b2g from "@/images/companies/b2g.png";
 import xeniusoft from "@/images/companies/xeniusoft.png";
-import hasen from "@/images/companies/hasen.png";
-import joyBella from "@/images/companies/joy-bella.png";
 
 // Register GSAP hook
 gsap.registerPlugin(useGSAP);
@@ -107,7 +105,7 @@ const partners = [
   { id: 9, name: "Bssofthub", initials: "BS", image: null },
 ];
 
-const AUTOPLAY_MS = 4500;
+const AUTOPLAY_MS = 5000;
 
 const getVisibleCount = () => {
   if (typeof window === "undefined") return 3;
@@ -181,7 +179,6 @@ const Customers = () => {
   const pauseAutoplay = () => clearInterval(autoplayRef.current);
   const resumeAutoplay = () => startAutoplay();
 
-  // Fix #13: Touch/swipe support
   const handleTouchStart = useCallback((e) => {
     touchStartX.current = e.changedTouches[0].screenX;
     pauseAutoplay();
@@ -204,16 +201,50 @@ const Customers = () => {
   return (
     <section
       id="testimonials"
-      className="bg-mpure relative overflow-hidden py-20 md:py-28"
+      className="relative overflow-hidden bg-gray-50 py-24 md:py-32"
       aria-label="Client Feedback and Testimonials"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="mb-6 text-center text-gray-900">
+        <div className="mb-14 text-center text-gray-900">
           <HeadNtext
             heading="Our Clients Feedback"
             text="We partner closely with businesses to help them thrive in the digital world. Here is what leading founders and project directors say about navigating with Astha Creatives."
           />
+        </div>
+
+        {/* 9 Partner Brands Infinite Marquee Ribbon */}
+        <div className="mb-16 overflow-hidden rounded-2xl border border-gray-200/80 bg-white py-6 shadow-xs select-none">
+          <p className="mb-4 text-center text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400">
+            Trusted by Ambitious Brands Across Industries
+          </p>
+          <div className="animate-marquee-left flex items-center gap-6 px-4">
+            {[...partners, ...partners].map((partner, idx) => (
+              <div
+                key={idx}
+                className="group flex w-36 shrink-0 flex-col items-center justify-center rounded-xl border border-gray-100 bg-gray-50/50 p-3 text-center transition-all hover:border-brandnd/40 hover:bg-white hover:shadow-md"
+              >
+                {partner.image ? (
+                  <div className="relative h-8 w-24">
+                    <Image
+                      src={partner.image}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="object-contain grayscale opacity-60 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                      sizes="96px"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gray-200 text-xs font-bold text-gray-700 group-hover:bg-brand group-hover:text-white transition-colors">
+                    {partner.initials}
+                  </div>
+                )}
+                <span className="mt-2 text-[11px] font-bold text-gray-600 group-hover:text-brand transition-colors truncate max-w-full">
+                  {partner.name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Slider Section */}
@@ -223,7 +254,7 @@ const Customers = () => {
             onMouseLeave={resumeAutoplay}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
-            className="w-full overflow-hidden rounded-2xl py-4"
+            className="w-full overflow-hidden rounded-3xl py-4"
           >
             <div ref={trackRef} className="flex">
               {testimonials.map((test) => (
@@ -231,27 +262,27 @@ const Customers = () => {
                   key={test.id}
                   className="w-full shrink-0 px-3 sm:w-1/2 lg:w-1/3"
                 >
-                  <div className="flex h-full flex-col justify-between rounded-2xl border border-gray-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg md:p-7">
+                  <div className="flex h-full flex-col justify-between rounded-3xl border border-gray-200/80 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-brandnd/40 hover:shadow-xl md:p-8">
                     <div>
-                      <div className="mb-4 flex items-center justify-between">
+                      <div className="mb-5 flex items-center justify-between">
                         <Quote
-                          className="h-7 w-7 text-brandnd/30"
+                          className="h-8 w-8 text-brandnd/30"
                           strokeWidth={1.5}
                         />
                         <span className="inline-flex items-center gap-1 rounded-full bg-brand/5 px-2.5 py-1 text-[11px] font-semibold text-brand">
                           <Heart size={10} className="fill-current text-brand" />
-                          Verified Client
+                          Verified Partner
                         </span>
                       </div>
 
-                      <p className="line-clamp-6 text-sm leading-relaxed text-gray-600">
+                      <p className="text-xs leading-relaxed text-gray-600 sm:text-sm">
                         &ldquo;{test.review}&rdquo;
                       </p>
                     </div>
 
-                    <div className="mt-6 flex items-center gap-3 border-t border-gray-100 pt-4">
+                    <div className="mt-8 flex items-center gap-3.5 border-t border-gray-100 pt-5">
                       {test.image ? (
-                        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-gray-200 bg-white p-1">
+                        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-gray-200 bg-white p-1 shadow-xs">
                           <Image
                             src={test.image}
                             alt={`${test.name} logo`}
@@ -261,7 +292,7 @@ const Customers = () => {
                           />
                         </div>
                       ) : (
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white font-bold text-sm shadow-inner">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand to-brandnd text-white font-bold text-sm shadow-md">
                           {test.initials}
                         </div>
                       )}
@@ -281,11 +312,11 @@ const Customers = () => {
           </div>
 
           {/* Navigation Controls */}
-          <div className="mt-4 flex items-center justify-center gap-6">
+          <div className="mt-8 flex items-center justify-center gap-6">
             <button
               type="button"
               onClick={prevSlide}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors duration-200 hover:border-brand hover:bg-brand hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-200 hover:border-brand hover:bg-brand hover:text-white"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
@@ -311,45 +342,11 @@ const Customers = () => {
             <button
               type="button"
               onClick={nextSlide}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors duration-200 hover:border-brand hover:bg-brand hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-200 hover:border-brand hover:bg-brand hover:text-white"
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />
             </button>
-          </div>
-        </div>
-
-        {/* 9 Partner Brands Showcase Grid */}
-        <div className="mt-16 border-t border-gray-200/80 pt-12">
-          <p className="mb-6 text-center text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
-            Trusted by Ambitious Brands Across Industries
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5">
-            {partners.map((partner) => (
-              <div
-                key={partner.id}
-                className="group flex w-[calc(50%-0.5rem)] sm:w-28 md:w-32 flex-col items-center justify-center rounded-xl border border-gray-200 bg-white p-3 text-center shadow-xs transition-all hover:-translate-y-0.5 hover:border-brandnd/50 hover:shadow-md"
-              >
-                {partner.image ? (
-                  <div className="relative h-10 w-full">
-                    <Image
-                      src={partner.image}
-                      alt={`${partner.name} logo`}
-                      fill
-                      className="object-contain grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
-                      sizes="80px"
-                    />
-                  </div>
-                ) : (
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 font-bold text-xs text-gray-700 group-hover:bg-brand group-hover:text-white transition-colors">
-                    {partner.initials}
-                  </div>
-                )}
-                <span className="mt-2 text-[11px] font-semibold text-gray-700 group-hover:text-brand transition-colors truncate max-w-full">
-                  {partner.name}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
       </div>

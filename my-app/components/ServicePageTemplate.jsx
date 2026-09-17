@@ -16,10 +16,23 @@ import {
   HelpCircle,
   ArrowRight,
   ChevronRight,
-  Clock,
-  Star,
-  Award,
   Zap,
+  FileCheck,
+  Calendar,
+  Server,
+  Cpu,
+  Globe,
+  Lock,
+  Rocket,
+  Repeat,
+  Code2,
+  Database,
+  TrendingUp,
+  Gauge,
+  Workflow,
+  CheckCircle2,
+  XCircle,
+  AlertTriangle,
 } from "lucide-react";
 import Button from "@/components/Button";
 
@@ -99,19 +112,23 @@ const ServicePageTemplate = ({ service }) => {
     },
     areaServed: "Global",
     serviceType: service.eyebrow,
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: `${service.eyebrow} Packages`,
-      itemListElement: service.tiers?.map((tier, idx) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: tier.name,
-          description: tier.description,
-        },
-        position: idx + 1,
-      })),
-    },
+    ...(service.hasPackages && service.tiers?.length
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: `${service.eyebrow} Packages`,
+            itemListElement: service.tiers.map((tier, idx) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: tier.name,
+                description: tier.description,
+              },
+              position: idx + 1,
+            })),
+          },
+        }
+      : {}),
   };
 
   const jsonLdFaq = service.faqs?.length
@@ -173,7 +190,10 @@ const ServicePageTemplate = ({ service }) => {
       />
 
       {/* 1. Hero Section */}
-      <section className="relative flex min-h-[620px] w-full items-center justify-center overflow-hidden bg-gray-950 py-24 text-white md:py-32">
+      <section
+        data-theme="dark"
+        className="relative flex min-h-[620px] w-full items-center justify-center overflow-hidden bg-gray-950 py-24 text-white md:py-32"
+      >
         {service.heroImage && (
           <Image
             src={service.heroImage}
@@ -226,26 +246,35 @@ const ServicePageTemplate = ({ service }) => {
           <div className="service-hero-reveal mt-8 flex flex-wrap items-center gap-4">
             <Link href={`/contact?service=${service.slug}`}>
               <Button variant="primary" size="lg">
-                Request a Quote
+                Get a Quote
                 <ArrowRight size={16} />
               </Button>
             </Link>
-            <Link href="#packages">
-              <Button variant="outline" size="lg">
-                Explore Packages
-              </Button>
-            </Link>
+            {service.hasPackages ? (
+              <Link href="#packages">
+                <Button variant="outline" size="lg">
+                  Check Packages
+                </Button>
+              </Link>
+            ) : (
+              <Link href="/contact?subject=meeting">
+                <Button variant="outline" size="lg">
+                  <Calendar size={16} />
+                  Book a Meeting
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Trust Stats Badges */}
           {service.stats && service.stats.length > 0 && (
-            <div className="service-hero-reveal mt-12 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:grid-cols-3 md:max-w-2xl">
+            <div className="service-hero-reveal mt-12 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:flex sm:flex-row sm:flex-nowrap sm:items-start sm:gap-8 lg:gap-12 max-w-5xl">
               {service.stats.map((stat, i) => (
-                <div key={i} className="flex flex-col">
-                  <span className="text-xl font-black text-brandnd sm:text-2xl">
+                <div key={i} className="flex flex-col shrink-0">
+                  <span className="text-lg font-black text-brandnd sm:text-xl lg:text-2xl whitespace-nowrap tracking-tight">
                     {stat.value}
                   </span>
-                  <span className="mt-0.5 text-xs font-medium text-gray-400">
+                  <span className="mt-0.5 text-xs font-medium text-gray-400 whitespace-nowrap">
                     {stat.label}
                   </span>
                 </div>
@@ -255,9 +284,11 @@ const ServicePageTemplate = ({ service }) => {
         </div>
       </section>
 
-      {/* 2. Strategic Context / Problem & Value Thesis */}
-      {service.strategicContext && (
-        <section className="service-section-reveal relative w-full bg-white py-20 md:py-28">
+      {/* Content Body: Light Sections */}
+      <div data-theme="light">
+        {/* 2. Strategic Context / Problem & Value Thesis */}
+        {service.strategicContext && (
+          <section className="service-section-reveal relative w-full bg-white py-20 md:py-28">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
@@ -298,6 +329,249 @@ const ServicePageTemplate = ({ service }) => {
         </section>
       )}
 
+      {/* 2b. Architecture Comparison Matrix (NEW) */}
+      {service.architectureComparison && (
+        <section className="service-section-reveal relative w-full bg-slate-950 py-20 text-white md:py-28 overflow-hidden border-y border-slate-800">
+          <div className="pointer-events-none absolute -left-40 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-3xl" />
+          <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl" />
+
+          <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-400">
+                <Server size={14} />
+                {service.architectureComparison.badge || "Architecture Analysis"}
+              </span>
+              <h2 className="mt-3 text-2xl font-black text-white sm:text-3xl md:text-4xl">
+                {service.architectureComparison.heading}
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-gray-300 sm:text-base">
+                {service.architectureComparison.subheading}
+              </p>
+            </div>
+
+            <div className="stagger-card-group mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
+              {service.architectureComparison.cards.map((card, idx) => (
+                <div
+                  key={idx}
+                  className={`stagger-card flex flex-col justify-between rounded-3xl p-7 transition-all duration-300 ${
+                    card.highlighted
+                      ? "border-2 border-cyan-400/80 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 shadow-2xl shadow-cyan-500/10 lg:-translate-y-2 ring-1 ring-cyan-400/30"
+                      : "border border-slate-800/90 bg-slate-900/60 hover:border-slate-700"
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <span
+                        className={`rounded-full px-3 py-0.5 text-xs font-bold ${
+                          card.highlighted
+                            ? "bg-cyan-400 text-gray-950"
+                            : "bg-slate-800 text-gray-300"
+                        }`}
+                      >
+                        {card.badge}
+                      </span>
+                      {card.highlighted && (
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-cyan-300">
+                          <Sparkles size={12} /> The Golden Stack
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="mt-4 text-xl font-bold text-white">
+                      {card.title}
+                    </h3>
+                    <p className="mt-2 text-xs leading-relaxed text-gray-400">
+                      {card.description}
+                    </p>
+
+                    {/* Metrics Table */}
+                    <div className="mt-6 space-y-2.5 rounded-2xl bg-slate-950/80 p-4 border border-slate-800/80">
+                      {card.metrics.map((m, mIdx) => (
+                        <div
+                          key={mIdx}
+                          className="flex items-center justify-between border-b border-slate-800/50 pb-2 text-xs last:border-b-0 last:pb-0"
+                        >
+                          <span className="text-gray-400">{m.label}</span>
+                          <span
+                            className={`font-semibold ${
+                              card.highlighted ? "text-cyan-300" : "text-gray-200"
+                            }`}
+                          >
+                            {m.value}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Features list */}
+                    <div className="mt-6">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                        {card.featuresTitle || "Core Attributes:"}
+                      </span>
+                      <ul className="mt-3 space-y-2">
+                        {card.features.map((feat, fIdx) => (
+                          <li
+                            key={fIdx}
+                            className="flex items-start gap-2 text-xs text-gray-300"
+                          >
+                            {feat.type === "negative" ? (
+                              <XCircle size={14} className="mt-0.5 shrink-0 text-rose-400" />
+                            ) : feat.type === "warning" ? (
+                              <AlertTriangle size={14} className="mt-0.5 shrink-0 text-amber-400" />
+                            ) : (
+                              <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-emerald-400" />
+                            )}
+                            <span className="leading-tight">{feat.text}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {card.ctaText && (
+                    <div className="mt-8 pt-4 border-t border-slate-800">
+                      <Link href={card.ctaHref || `/contact?subject=${encodeURIComponent(card.title)}`}>
+                        <Button
+                          variant={card.highlighted ? "primary" : "outline"}
+                          size="sm"
+                          className="w-full justify-center text-xs"
+                        >
+                          {card.ctaText}
+                          <ArrowRight size={13} />
+                        </Button>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {service.architectureComparison.takeaway && (
+              <div className="mt-12 rounded-2xl border border-cyan-400/30 bg-cyan-400/5 p-6 text-center max-w-4xl mx-auto">
+                <p className="text-xs sm:text-sm text-cyan-200 leading-relaxed">
+                  <strong className="font-bold text-white">Engineering Takeaway: </strong>
+                  {service.architectureComparison.takeaway}
+                </p>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* 2c. Deep Dive Pillars / Limitless Capabilities (NEW) */}
+      {service.deepDivePillars && (
+        <section className="service-section-reveal relative w-full bg-white py-20 md:py-28 border-b border-gray-100">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-brand">
+                <Rocket size={14} />
+                {service.deepDivePillars.badge || "Limitless Capabilities"}
+              </span>
+              <h2 className="mt-2 text-2xl font-black text-gray-900 sm:text-3xl md:text-4xl">
+                {service.deepDivePillars.heading}
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-gray-500 sm:text-base">
+                {service.deepDivePillars.subheading}
+              </p>
+            </div>
+
+            <div className="stagger-card-group mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {service.deepDivePillars.pillars.map((pillar, idx) => (
+                <div
+                  key={idx}
+                  className="stagger-card group flex flex-col justify-between rounded-3xl border border-gray-200/90 bg-gray-50/50 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:bg-white hover:shadow-xl"
+                >
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-xs font-black tracking-wider text-brand">
+                        0{idx + 1}
+                      </span>
+                      <span className="rounded-full bg-brand/10 px-2.5 py-0.5 text-[10px] font-bold text-brand uppercase tracking-wider">
+                        {pillar.tag}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-4 text-lg font-bold text-gray-900 group-hover:text-brand transition-colors">
+                      {pillar.title}
+                    </h3>
+
+                    <p className="mt-2.5 text-xs leading-relaxed text-gray-600 sm:text-sm">
+                      {pillar.description}
+                    </p>
+
+                    {pillar.keyTakeaways && (
+                      <ul className="mt-4 space-y-2 border-t border-gray-200/60 pt-3.5">
+                        {pillar.keyTakeaways.map((t, tIdx) => (
+                          <li
+                            key={tIdx}
+                            className="flex items-start gap-2 text-xs font-medium text-gray-700"
+                          >
+                            <Check size={13} className="mt-0.5 shrink-0 text-emerald-500" />
+                            <span className="leading-tight">{t}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+
+                  {pillar.stat && (
+                    <div className="mt-6 pt-3.5 border-t border-gray-200/60 flex items-center justify-between text-xs">
+                      <span className="text-gray-400 font-medium">{pillar.stat.label}</span>
+                      <span className="font-bold text-brand font-mono">{pillar.stat.value}</span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 2d. Industry Use Cases (NEW) */}
+      {service.industryUseCases && (
+        <section className="service-section-reveal relative w-full bg-gray-50 py-20 md:py-28 border-b border-gray-100">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-brand">
+                <Workflow size={14} />
+                {service.industryUseCases.badge || "Industry Deployments"}
+              </span>
+              <h2 className="mt-2 text-2xl font-black text-gray-900 sm:text-3xl md:text-4xl">
+                {service.industryUseCases.heading}
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-gray-500 sm:text-base">
+                {service.industryUseCases.subheading}
+              </p>
+            </div>
+
+            <div className="stagger-card-group mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {service.industryUseCases.cases.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="stagger-card flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-xs transition-all duration-300 hover:border-brand/40 hover:shadow-lg"
+                >
+                  <div>
+                    <span className="rounded-full bg-brand/5 px-2.5 py-1 text-[11px] font-bold text-brand">
+                      {item.industry}
+                    </span>
+                    <h3 className="mt-3 text-base font-bold text-gray-900">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-xs leading-relaxed text-gray-500">
+                      {item.solution}
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-gray-100 text-[11px] font-semibold text-emerald-600 flex items-center gap-1">
+                    <TrendingUp size={13} />
+                    {item.impact}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 3. Tools & Technology Stack */}
       {service.toolsStack && service.toolsStack.length > 0 && (
         <section className="service-section-reveal relative w-full bg-gray-50 py-20 md:py-28 border-y border-gray-100">
@@ -311,7 +585,7 @@ const ServicePageTemplate = ({ service }) => {
                 Tools & Technologies We Use
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-gray-500 sm:text-base">
-                We leverage the world’s leading software, frameworks, and AI workflows to deliver uncompromising precision, scalability, and creative output.
+                We leverage the world’s leading software, frameworks, and workflows to deliver uncompromising precision, scalability, and creative output.
               </p>
             </div>
 
@@ -443,23 +717,29 @@ const ServicePageTemplate = ({ service }) => {
         </section>
       )}
 
-      {/* 6. Pricing Tiers / Packages */}
-      {service.tiers && service.tiers.length > 0 && (
+      {/* 6. Pricing Tiers / Packages (ONLY RENDERED IF hasPackages === true) */}
+      {service.hasPackages && service.tiers && service.tiers.length > 0 ? (
         <section id="packages" className="service-section-reveal relative w-full bg-gray-50 py-20 md:py-28">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <span className="text-xs font-bold uppercase tracking-widest text-brand">
-                Transparent Offerings
+                Package Options
               </span>
               <h2 className="mt-2 text-2xl font-black text-gray-900 sm:text-3xl md:text-4xl">
                 Packages & Pricing Breakdown
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-gray-500 sm:text-base">
-                Choose the service tier that matches your current growth trajectory, or request a tailored scope.
+                Select from our structured packages as specified in our service catalog.
               </p>
             </div>
 
-            <div className="stagger-card-group mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div
+              className={`stagger-card-group mt-14 grid grid-cols-1 gap-8 ${
+                service.tiers.length === 2
+                  ? "max-w-4xl mx-auto md:grid-cols-2"
+                  : "lg:grid-cols-3"
+              }`}
+            >
               {service.tiers.map((tier) => (
                 <div
                   key={tier.name}
@@ -517,10 +797,41 @@ const ServicePageTemplate = ({ service }) => {
             </div>
           </div>
         </section>
+      ) : (
+        /* If no packages, show clean Bespoke Quotation Box */
+        <section className="service-section-reveal relative w-full bg-gray-50 py-20 md:py-24 border-y border-gray-100">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-4xl rounded-2xl border border-gray-200 bg-white p-8 sm:p-12 shadow-sm">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div>
+                  <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-brand">
+                    <FileCheck size={14} />
+                    Custom Project Quotation
+                  </span>
+                  <h3 className="mt-2 text-2xl font-black text-gray-900 sm:text-3xl">
+                    Tailored Scope for Your Specific Needs
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-gray-600 max-w-xl">
+                    Every brand journey has distinct requirements. We build bespoke project scopes tailored to your exact deliverables, timelines, and commercial goals.
+                  </p>
+                </div>
+
+                <div className="shrink-0 w-full md:w-auto">
+                  <Link href={`/contact?service=${service.slug}`}>
+                    <Button variant="primary" size="lg" className="w-full md:w-auto">
+                      Get a Custom Quote
+                      <ArrowRight size={16} />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       )}
 
-      {/* 7. Comparison Table */}
-      {service.comparison && service.comparison.rows && (
+      {/* 7. Comparison Table (ONLY RENDERED IF hasPackages === true) */}
+      {service.hasPackages && service.comparison && service.comparison.rows && (
         <section className="service-section-reveal relative w-full bg-white py-20 md:py-28 border-t border-gray-100">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
@@ -528,12 +839,12 @@ const ServicePageTemplate = ({ service }) => {
                 Side-by-Side Package Comparison
               </h2>
               <p className="mt-3 text-sm text-gray-500">
-                Detailed feature matrix across all tiers.
+                Detailed feature matrix across packages.
               </p>
             </div>
 
-            <div className="mt-12 overflow-x-auto rounded-2xl border border-gray-200 shadow-xs">
-              <table className="w-full min-w-[640px] border-collapse text-left">
+            <div className="mt-12 overflow-x-auto rounded-2xl border border-gray-200 shadow-xs max-w-4xl mx-auto">
+              <table className="w-full min-w-[600px] border-collapse text-left">
                 <thead>
                   <tr className="border-b border-gray-200 bg-gray-50">
                     <th className="p-4 text-sm font-bold text-gray-900">
@@ -632,10 +943,14 @@ const ServicePageTemplate = ({ service }) => {
           </div>
         </section>
       )}
+      </div>
 
       {/* 9. Closing High-Conversion CTA */}
       {service.closingCta && (
-        <section className="service-section-reveal relative w-full bg-brand py-20 text-white md:py-28 overflow-hidden">
+        <section
+          data-theme="dark"
+          className="service-section-reveal relative w-full bg-brand py-20 text-white md:py-28 overflow-hidden"
+        >
           <div className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-black/20 blur-3xl" />
 

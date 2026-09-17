@@ -7,6 +7,7 @@ const dataAnalytics = {
   heroTitle: "Business Data Analytics & Custom Dashboards That Unlock Revenue",
   heroDescription:
     "We transform fragmented marketing, sales, and operational data into crystal-clear executive BI dashboards and deep-dive analytical intelligence reports that drive profitable decisions.",
+  hasPackages: true,
   stats: [
     { label: "Reporting Clarity", value: "Real-Time BI" },
     { label: "Data Pipeline", value: "Automated ETL" },
@@ -24,6 +25,96 @@ const dataAnalytics = {
       "Automated ETL data connectors eliminating hundreds of hours of manual spreadsheet reporting",
       "Forensic finding reports identifying hidden conversion bottlenecks and ad-spend waste",
       "Action-oriented executive summaries translating complex analytics into clear strategic steps",
+    ],
+  },
+
+  deepDivePillars: {
+    badge: "Business Intelligence",
+    heading: "The Architecture of Modern Revenue Analytics",
+    subheading:
+      "Data is only valuable when it produces clarity, eliminates wasted capital, and points directly to the next revenue breakthrough.",
+    pillars: [
+      {
+        tag: "Attribution Modeling",
+        title: "Multi-Touch Marketing Attribution",
+        description:
+          "Traditional 'last-click' attribution gives all credit to the final search or ad, hiding the top-of-funnel touchpoints that originally sparked the sale. We implement data-driven multi-touch attribution models that reveal the true customer journey across Meta, Google, Organic, and Email.",
+        keyTakeaways: [
+          "Accurate blended ROAS and true Customer Acquisition Cost (CAC) calculations",
+          "Reallocation of ad spend from bleeding campaigns into high-converting channels",
+          "Elimination of double-counting between Meta and Google ad pixel conversions",
+        ],
+        stat: { label: "Ad Spend Efficiency", value: "Up to 30% Waste Eliminated" },
+      },
+      {
+        tag: "Automated Data",
+        title: "Automated ETL Pipelines & Zero-Spreadsheet Reporting",
+        description:
+          "Stop paying analysts to copy-paste numbers from 10 different dashboards into fragile Excel files. We build automated Extract-Transform-Load (ETL) pipelines using Google BigQuery, Fivetran, and Looker Studio that refresh your financial, marketing, and sales numbers automatically every morning.",
+        keyTakeaways: [
+          "Single pane of glass dashboard accessible on desktop, tablet, and mobile",
+          "Zero human error in manual spreadsheet data compilation and formula bugs",
+          "Saves your leadership team 15+ hours of manual reporting every single week",
+        ],
+        stat: { label: "Time Savings", value: "15+ Hours Saved Weekly" },
+      },
+      {
+        tag: "Customer Economics",
+        title: "Cohort Retention & Customer LTV Modeling",
+        description:
+          "Sustainable profit comes from customer repeat purchases and long retention. We run deep cohort analyses tracking 30, 60, 90, and 365-day retention curves, pinpointing exactly where customers drop off and which acquisition cohorts deliver the highest lifetime customer value (LTV).",
+        keyTakeaways: [
+          "Identification of high-churn triggers across product categories and onboarding steps",
+          "Accurate predictive payback period calculations for aggressive scaling",
+          "Granular customer segmentation for targeted VIP retention marketing",
+        ],
+        stat: { label: "LTV Optimization", value: "+22% Customer Retention" },
+      },
+      {
+        tag: "Actionable Insights",
+        title: "Forensic Findings & Executive Action Blueprints",
+        description:
+          "Dashboards tell you what happened; our findings reports tell you why it happened and what to do next. Included in our analytics packages, our senior strategists analyze anomalies, spot emerging growth opportunities, and provide a clear prioritized executive action checklist.",
+        keyTakeaways: [
+          "Direct answers to 'Which product line should we double down on next month?'",
+          "Detection of hidden checkout drop-offs, mobile UI bugs, and conversion leaks",
+          "Quarterly strategic reviews aligning analytical data with board-level goals",
+        ],
+        stat: { label: "Executive Clarity", value: "100% Action-Oriented" },
+      },
+    ],
+  },
+
+  industryUseCases: {
+    badge: "Analytics Impact",
+    heading: "Where Business Intelligence Drives Measurable Profit",
+    subheading:
+      "Discover how real-time BI dashboards and forensic analytical audits unlock hidden revenue across sectors.",
+    cases: [
+      {
+        industry: "E-Commerce & DTC",
+        title: "Omnichannel Profit & Inventory Dashboard",
+        solution: "Combined Shopify, Stripe, Meta Ads, and Google Ads into one live dashboard calculating net profit after ad spend and COGS.",
+        impact: "Discovered $18,000/Month in Unprofitable Ad Spend on Dead SKUs",
+      },
+      {
+        industry: "Subscription SaaS",
+        title: "Cohort Churn & MRR Analytics",
+        solution: "Segmented customer churn by acquisition channel, plan type, and feature usage milestones in Power BI.",
+        impact: "Cut Monthly Churn from 4.8% to 2.9% Within 90 Days",
+      },
+      {
+        industry: "B2B Sales Organizations",
+        title: "Pipeline Velocity & Deal Bottleneck Tracking",
+        solution: "Mapped sales rep activities, stage conversion rates, and sales cycle velocity from HubSpot CRM.",
+        impact: "Shortened Average Deal Closing Cycle by 14 Business Days",
+      },
+      {
+        industry: "Multi-Location Franchises",
+        title: "Branch Performance Benchmarking",
+        solution: "Consolidated POS and labor cost data across 25 regional outlets into a comparative ranking dashboard.",
+        impact: "Standardized Top-Performing Store Practices, Boosting Low-Tier Revenue by 24%",
+      },
     ],
   },
 
@@ -101,72 +192,47 @@ const dataAnalytics = {
 
   tiers: [
     {
-      name: "Dashboard Creation Package",
+      name: "Dashboard Creation",
       badge: "Real-Time Tracking",
-      description: "Designed for businesses needing custom, real-time Business Intelligence dashboards to visualize marketing and sales performance.",
+      description: "Setup and configuration of custom, real-time Business Intelligence dashboards to visualize marketing and operational performance.",
       features: [
-        "Setup of 1 Unified Interactive BI Dashboard (Looker Studio or Power BI)",
-        "Integration of up to 4 Core Data Sources (e.g. GA4, Meta Ads, Google Ads, CRM)",
-        "Custom KPI Cards (CAC, ROAS, Revenue, Conversion Rates)",
-        "Automated Scheduled Daily Data Refreshes",
-        "Mobile-Friendly Executive Summary View",
-        "Filtering by Date Range, Campaign, and Region",
-        "45-Minute Live Team Walkthrough & Training Session",
-        "14 Days of Post-Setup Data Calibration Support",
+        "Interactive BI Dashboard Setup (Looker Studio or Power BI)",
+        "Data Source Integration (GA4, Meta Ads, Google Ads, CRM)",
+        "Custom KPI Cards & Live Conversion Metrics",
+        "Automated Scheduled Data Refreshes",
+        "Filtering by Date Range, Channels, and Regions",
+        "Team Walkthrough & Training Session Recording",
       ],
-      ctaLabel: "Get Dashboard Quote",
-      ctaHref: "/contact?service=data-analytics&package=dashboard-creation",
+      ctaLabel: "Get Quote",
+      ctaHref: "/contact?service=data-analytics&package=dashboard",
     },
     {
-      name: "Findings & Reporting Package",
-      badge: "Deep Intelligence (Recommended)",
+      name: "Findings & Reporting",
+      badge: "Strategic Intelligence (Recommended)",
       highlighted: true,
-      description: "For companies requiring deep-dive forensic audits, revenue bottleneck detection, and recurring strategic intelligence reports.",
+      description: "Deep-dive analytical audit and specific findings report revealing exact conversion bottlenecks and growth opportunities.",
       features: [
-        "Everything in Dashboard Creation Package",
-        "In-Depth Forensic Performance & Funnel Drop-off Audit",
-        "Customer Lifetime Value (LTV) & Cohort Retention Analysis",
-        "Marketing Attribution & Multi-Touch ROI Breakdown",
-        "Specific Anomaly Detection & Ad-Waste Identification",
-        "Comprehensive 15-Page Executive Action-Item Report",
-        "Concrete Strategic Recommendations for Revenue Growth",
-        "Monthly Retainer Maintenance & Data Pipeline Monitoring",
-        "Dedicated Data Analytics Consultant Lead",
+        "Deep-Dive Performance & Conversion Funnel Audit",
+        "Specific Findings & Anomaly Detection Report",
+        "Ad-Spend ROI & Customer Acquisition Analysis",
+        "Comprehensive Executive Action-Item Report",
+        "Strategic Growth Recommendations & Roadmap",
+        "Strategic Consultation & Presentation Session",
       ],
-      ctaLabel: "Get Findings & Reporting Quote",
-      ctaHref: "/contact?service=data-analytics&package=findings-reporting",
-    },
-    {
-      name: "Enterprise BI & Data Warehousing",
-      badge: "Full Custom Data Stack",
-      description: "For established corporations and multi-brand platforms requiring custom BigQuery / Snowflake data warehousing and predictive AI models.",
-      features: [
-        "Custom Cloud Data Warehouse Setup (BigQuery / Snowflake)",
-        "Unlimited Data Source Connectors & Custom Python/SQL ETL",
-        "Multi-Department Executive Dashboard Suite (Finance, Ops, Sales)",
-        "Predictive Machine Learning Models (Churn Prediction, LTV)",
-        "Automated Anomaly & Threshold Alerts via Slack/Email",
-        "Server-Side Tagging & Advanced First-Party Tracking",
-        "Weekly Executive Analytical Briefings",
-        "Dedicated Senior Analytics Engineer & 24/7 Pipeline SLA",
-      ],
-      ctaLabel: "Get Enterprise Data Quote",
-      ctaHref: "/contact?service=data-analytics&package=enterprise-bi",
+      ctaLabel: "Get Quote",
+      ctaHref: "/contact?service=data-analytics&package=reporting",
     },
   ],
 
   comparison: {
     rows: [
-      { feature: "Interactive BI Dashboard Setup", values: [true, true, true] },
-      { feature: "Connected Data Sources", values: ["Up to 4 Sources", "Up to 8 Sources", "Unlimited Enterprise Sources"] },
-      { feature: "Automated Data Refreshes", values: ["Daily Automated", "Hourly / Real-Time", "Continuous Real-Time ETL"] },
-      { feature: "Deep-Dive Forensic Findings Report", values: [false, true, true] },
-      { feature: "Cohort & LTV Retention Analysis", values: [false, true, true] },
-      { feature: "Ad-Spend Waste Identification", values: [false, true, true] },
-      { feature: "Cloud Data Warehouse (BigQuery)", values: [false, "Optional Add-on", true] },
-      { feature: "Custom SQL / Python Modeling", values: [false, false, true] },
-      { feature: "Team Training & Handoff", values: ["45-Min Session", "Full Workshop", "Ongoing Dedicated Training"] },
-      { feature: "Ongoing Pipeline Monitoring", values: ["14 Days", "Monthly Retainer", "Dedicated 24/7 SLA"] },
+      { feature: "Interactive BI Dashboard Setup", values: [true, true] },
+      { feature: "Data Source Integration (GA4, Ads, CRM)", values: [true, true] },
+      { feature: "Automated Data Refreshes", values: [true, true] },
+      { feature: "Deep-Dive Performance & Funnel Audit", values: [false, true] },
+      { feature: "Specific Findings & Anomaly Report", values: [false, true] },
+      { feature: "Executive Strategic Recommendations", values: [false, true] },
+      { feature: "Team Walkthrough & Training", values: [true, true] },
     ],
   },
 
@@ -179,12 +245,7 @@ const dataAnalytics = {
     {
       question: "What is the difference between Dashboard Creation and Findings & Reporting?",
       answer:
-        "Dashboard Creation provides you with the interactive tool and automated pipeline to view your data continuously in real time. Findings & Reporting adds our expert human data analysis on top: we dive deep into your historical data to uncover hidden revenue leaks, identify exact audience segments generating the highest profit, and deliver an executive roadmap of strategic actions.",
-    },
-    {
-      question: "Will our team know how to use the dashboard after launch?",
-      answer:
-        "Yes! Every analytics package includes a dedicated live training session and a recorded video walkthrough so your team can confidently filter, export, and utilize the dashboard on day one.",
+        "Dashboard Creation gives you an automated, interactive visual tool to track your live data continuously. Findings & Reporting is our forensic analytical service where we evaluate your data to identify revenue bottlenecks, ad waste, and concrete growth opportunities.",
     },
     {
       question: "Is our business data kept confidential and secure?",

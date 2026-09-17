@@ -7,6 +7,7 @@ const videoEditing = {
   heroTitle: "Professional Video Editing & Kinetic Motion Graphics That Hook Audiences",
   heroDescription:
     "We transform raw footage into high-retention social reels, dynamic 2D/3D motion graphics, commercial brand films, and YouTube narratives optimized for watch-time and conversions.",
+  hasPackages: false,
   stats: [
     { label: "Retention Rate Lift", value: "+85% Avg" },
     { label: "Color Grading", value: "Cinema DaVinci" },
@@ -24,6 +25,96 @@ const videoEditing = {
       "Broadcast-grade color grading and Hollywood-inspired LUT mastering",
       "Layered spatial sound design including whooshes, risers, impacts, and Foley effects",
       "Dynamic kinetic subtitles with animated emoji integration for 85%+ sound-off viewers",
+    ],
+  },
+
+  deepDivePillars: {
+    badge: "Post-Production Science",
+    heading: "The Engineering Behind High-Retention Video",
+    subheading:
+      "Creating viral video is a precise science of visual pacing, neuro-linguistic hooks, and psychoacoustic sound engineering. Here is how we maximize viewer watch time.",
+    pillars: [
+      {
+        tag: "Attention Science",
+        title: "Micro-Pacing & Retention Curve Architecture",
+        description:
+          "Viewers decide whether to stay or swipe within 1.5 seconds. We cut ruthlessly to eliminate vocal fillers, dead pauses, and visual monotony, introducing fresh camera zooms, B-roll cutaways, or motion graphics every 2.5 to 4 seconds to continually reset the brain's attention dopamine loop.",
+        keyTakeaways: [
+          "Proven average retention lift of +85% compared to raw unedited cuts",
+          "Hook-First editing formula placing the peak dramatic moment in the first 2 seconds",
+          "Seamless pattern interrupts that prevent the dreaded mid-video drop-off cliff",
+        ],
+        stat: { label: "Average Watch Time", value: "+85% Retention Lift" },
+      },
+      {
+        tag: "Cinema Grading",
+        title: "Hollywood-Grade DaVinci Resolve Color Science",
+        description:
+          "Amateur video looks flat, desaturated, and unpolished. Using DaVinci Resolve Studio and ACES color management workflows, we transform raw camera profiles (Sony S-Log3, Canon Log, Apple ProRes LOG) into rich, cinematic imagery with natural skin tones and rich contrast.",
+        keyTakeaways: [
+          "Studio skin tone isolation and dynamic range optimization",
+          "Bespoke film-emulation color grading tailored to your brand moodboard",
+          "Full Rec.709 and DCI-P3 color gamut calibration for high-end OLED displays",
+        ],
+        stat: { label: "Color Grading", value: "Cinema DaVinci Standard" },
+      },
+      {
+        tag: "Acoustic Engineering",
+        title: "Layered Foley & Spatial Sound Design",
+        description:
+          "Audio constitutes 50% of the human perception of video quality. We strip away room echo and background hiss, optimize vocal EQ for crisp clarity, and layer bespoke sound effects (whooshes, UI pops, cinematic risers, and sub-bass hits) that make every visual transition hit with tactile impact.",
+        keyTakeaways: [
+          "Vocal frequency mastering ensuring speech cuts through loud mobile speakers",
+          "Multi-layered ambient textures and tempo-matched background music tracks",
+          "Commercially licensed royalty-free music library with zero copyright strikes",
+        ],
+        stat: { label: "Audio Polish", value: "Studio Voice Mastering" },
+      },
+      {
+        tag: "Mobile Accessibility",
+        title: "Kinetic Animated Subtitles for Silent Autoplay",
+        description:
+          "Over 80% of social media feeds are scrolled with sound muted. We craft vibrant, kinetic word-by-word animated captions with custom highlighting, emojis, and brand typography, ensuring 100% message comprehension even when the viewer has volume turned off.",
+        keyTakeaways: [
+          "Word-level kinetic bounce animations synchronized to spoken dialogue",
+          "High-contrast text bounding boxes ensuring legibility over any background",
+          "100% adherence to platform safe zones avoiding UI button clipping",
+        ],
+        stat: { label: "Sound-Off Comprehension", value: "100% Message Delivery" },
+      },
+    ],
+  },
+
+  industryUseCases: {
+    badge: "Production Impact",
+    heading: "Tailored Post-Production Across Creators & Brands",
+    subheading:
+      "Explore how our specialized editing and motion pipelines transform content across diverse channels.",
+    cases: [
+      {
+        industry: "YouTube Creators & Documentaries",
+        title: "Long-Form Storytelling & Essay Videos",
+        solution: "Multi-track pacing, archival footage B-roll research, motion infographic maps, and chapter structures.",
+        impact: "Drove 100k+ Subscriber Milestones with 55%+ Average Percentage Viewed",
+      },
+      {
+        industry: "Personal Brands & Founders",
+        title: "Viral Short-Form Reels & TikTok Series",
+        solution: "High-retention talking head editing, visual punch-ins, kinetic captions, and sound design.",
+        impact: "Generated 3.8M+ Organic Impressions & Established Thought Leadership",
+      },
+      {
+        industry: "B2B SaaS & Tech Products",
+        title: "Animated UI Product Demos & Feature Walkthroughs",
+        solution: "Sleek 2D/3D cursor zooms, interface highlights, and kinetic explainer graphics.",
+        impact: "+40% Free Trial Signups Directly from Video Landing Pages",
+      },
+      {
+        industry: "Commercial Advertising",
+        title: "Direct-Response Meta & TikTok Paid Ads",
+        solution: "Fast-paced UGC mashups, hook variations for A/B split testing, and high-contrast CTA end-cards.",
+        impact: "Cut Cost Per Acquisition (CPA) by 32% on High-Volume Ad Spend",
+      },
     ],
   },
 
@@ -99,91 +190,21 @@ const videoEditing = {
     },
   ],
 
-  tiers: [
-    {
-      name: "Short-Form Creator Pack",
-      badge: "High-Retention Reels",
-      description: "Perfect for influencers, coaches, and founders wanting viral short-form video editing for TikTok, Reels, and Shorts.",
-      features: [
-        "Pack of 8 High-Retention Short-Form Videos (< 60s Each)",
-        "Viral Hook Structuring & Dead Air Elimination",
-        "Kinetic Subtitles with Highlight Animations",
-        "Relevant B-Roll Overlay Footage & GIFs",
-        "Layered Sound Effects (Pops, Swooshes, Hits)",
-        "Color Correction & Contrast Enhancement",
-        "Fast 48-Hour Turnaround per Video",
-        "2 Revision Cycles Included",
-      ],
-      ctaLabel: "Get Short-Form Pack Quote",
-      ctaHref: "/contact?service=video-editing&package=short-form",
-    },
-    {
-      name: "Commercial & YouTube Suite",
-      badge: "Most Popular",
-      highlighted: true,
-      description: "Complete post-production for long-form YouTube episodes, corporate brand films, webinars, and promotional commercials.",
-      features: [
-        "Up to 4 Long-Form Videos (Up to 15 Mins Each) OR 16 Short Reels",
-        "Full Multi-Cam Synchronization & Audio Cleanup",
-        "Custom 2D/3D Motion Graphics & Lower Thirds",
-        "DaVinci Resolve Cinema Color Grading",
-        "Full Hollywood-Grade Sound Design & SFX Mixing",
-        "High-Clickthrough YouTube Thumbnail Design Included",
-        "2 Short-Form Hook Cutdowns per Long-Form Video",
-        "Unlimited Revisions during rough-cut phase",
-        "Master 4K Video Exports & Project Files",
-      ],
-      ctaLabel: "Get Commercial Suite Quote",
-      ctaHref: "/contact?service=video-editing&package=commercial-suite",
-    },
-    {
-      name: "Dedicated Monthly Video Studio",
-      badge: "Unlimited Scale",
-      description: "For established media brands and agencies requiring an agile, full-time video editing and motion graphics department.",
-      features: [
-        "Unlimited Video Editing Requests & Revisions (Queued)",
-        "Daily Video Turnaround (24–48 Hours)",
-        "3D Logo Idents, Kinetic Typography & Explainer Animations",
-        "Podcasts, Commercials, Course Modules & YouTube Shows",
-        "Dedicated Senior Video Editor & Motion Lead",
-        "Dedicated Slack Channel for Instant Feedback",
-        "Full Cloud Storage Shared Project Workspace",
-        "Source Premiere / After Effects Project Archive Delivery",
-      ],
-      ctaLabel: "Get Video Studio Quote",
-      ctaHref: "/contact?service=video-editing&package=dedicated-studio",
-    },
-  ],
-
-  comparison: {
-    rows: [
-      { feature: "Video Formats Covered", values: ["Reels / Shorts (9:16)", "YouTube & Commercials (16:9 + 9:16)", "All Video & Motion Formats"] },
-      { feature: "Kinetic Subtitles & Styling", values: [true, true, true] },
-      { feature: "Sound Design & Audio Mastering", values: ["Standard SFX", "Advanced Hollywood Mix", "Custom Sound Design"] },
-      { feature: "Color Grading Quality", values: ["Color Balanced", "Cinema DaVinci LUTs", "High-End Custom Grade"] },
-      { feature: "Custom Motion Graphics & 3D", values: [false, true, true] },
-      { feature: "Custom Thumbnail Included", values: [false, true, true] },
-      { feature: "Turnaround Time", values: ["48 Hours", "3–4 Days", "Daily 24-Hour Queue"] },
-      { feature: "Revision Policy", values: ["2 Rounds", "Unlimited (Draft Phase)", "Unlimited Priority"] },
-      { feature: "Master Project Files Included", values: [false, true, true] },
-    ],
-  },
-
   faqs: [
+    {
+      question: "What types of video editing and motion graphics projects do you handle?",
+      answer:
+        "We edit short-form social reels (TikTok, Instagram, Shorts), long-form YouTube episodes, corporate brand films, commercial advertisements, webinars, and produce custom 2D/3D kinetic motion graphics and logo animations.",
+    },
     {
       question: "How do we send our raw video footage to your team?",
       answer:
         "You can upload your raw footage directly to a dedicated Google Drive, Dropbox, or Frame.io folder that we provide upon project kickoff. We support all camera codecs (MP4, MOV, ProRes, Sony S-Log, BRAW, etc.).",
     },
     {
-      question: "Can you create motion graphics for our logo and video intros?",
-      answer:
-        "Yes! Our motion designers build bespoke 2D/3D kinetic logo idents, intro stings, lower thirds, and animated explainer graphics tailored to your brand identity.",
-    },
-    {
       question: "What is the average turnaround time for an edited video?",
       answer:
-        "For short-form reels and TikToks, turnaround is typically 24–48 hours. For long-form YouTube episodes and corporate commercials, the first cut is delivered within 3–5 business days.",
+        "For short-form reels, turnaround is typically 24–48 hours. For long-form YouTube episodes and corporate commercials, the first cut is delivered within 3–5 business days.",
     },
     {
       question: "How do we provide revision notes on video cuts?",

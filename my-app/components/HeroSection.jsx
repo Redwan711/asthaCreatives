@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SubHeading from "@/components/SubHeading";
 import Button from "@/components/Button";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -22,6 +22,7 @@ const HeroSection = () => {
   const buttonsRef = useRef(null);
   const scrollIndicatorRef = useRef(null);
   const bgRef = useRef(null);
+  const magneticBtnRef = useRef(null);
 
   useEffect(() => {
     const words = headingRef.current.querySelectorAll(".word-inner");
@@ -32,24 +33,22 @@ const HeroSection = () => {
     tl.set(words, { yPercent: 110 })
       .fromTo(
         subheadingRef.current,
-        { opacity: 0, y: -12 },
-        { opacity: 1, y: 0, duration: 0.6 },
+        { opacity: 0, y: -16 },
+        { opacity: 1, y: 0, duration: 0.7 },
       )
-      .to(words, { yPercent: 0, duration: 1, stagger: 0.07 }, "-=0.2")
+      .to(words, { yPercent: 0, duration: 1.1, stagger: 0.06 }, "-=0.3")
       .fromTo(
         paragraphRef.current,
-        { opacity: 0, y: 16 },
+        { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.7 },
         "-=0.5",
       )
-      // Fix #1: Animate buttons into view as part of the choreography
       .fromTo(
         buttonsRef.current,
-        { opacity: 0, y: 20 },
+        { opacity: 0, y: 24 },
         { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
         "-=0.3",
       )
-      // Fix #2: Fade in scroll indicator last
       .fromTo(
         scrollIndicatorRef.current,
         { opacity: 0 },
@@ -57,17 +56,17 @@ const HeroSection = () => {
         "-=0.1",
       );
 
-    // Fix #2: Infinite bounce on scroll indicator
+    // Infinite gentle bounce on scroll indicator
     gsap.to(scrollIndicatorRef.current, {
       y: 8,
       repeat: -1,
       yoyo: true,
-      duration: 1.2,
+      duration: 1.4,
       ease: "power1.inOut",
       delay: 2,
     });
 
-    // Fix #10: Subtle parallax on hero background
+    // Parallax on hero background
     gsap.to(bgRef.current, {
       yPercent: 12,
       ease: "none",
@@ -80,41 +79,84 @@ const HeroSection = () => {
     });
   }, []);
 
+  // Magnetic button physics
+  const handleMouseMove = (e) => {
+    if (!magneticBtnRef.current) return;
+    const rect = magneticBtnRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    gsap.to(magneticBtnRef.current, {
+      x: x * 0.25,
+      y: y * 0.25,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+  };
+
+  const handleMouseLeave = () => {
+    if (!magneticBtnRef.current) return;
+    gsap.to(magneticBtnRef.current, {
+      x: 0,
+      y: 0,
+      duration: 0.5,
+      ease: "elastic.out(1.2, 0.4)",
+    });
+  };
+
   return (
-    <div className="hero-section relative h-[100dvh] min-h-[600px] w-full overflow-hidden">
+    <section className="hero-section relative h-[100dvh] min-h-[620px] w-full overflow-hidden bg-[#080b14]">
+      {/* Ambient floating luminous gradient orbs */}
+      <div className="pointer-events-none absolute -left-20 top-1/4 h-96 w-96 rounded-full bg-cyan-500/15 blur-[120px] animate-pulse-glow" />
+      <div className="pointer-events-none absolute right-10 top-1/3 h-[450px] w-[450px] rounded-full bg-indigo-600/20 blur-[140px] animate-float" />
+      <div className="pointer-events-none absolute bottom-10 left-1/3 h-80 w-80 rounded-full bg-teal-500/10 blur-[100px]" />
+
       {/* Parallax background layer */}
       <div
         ref={bgRef}
-        className="absolute inset-0 -top-[5%] h-[115%] w-full bg-[url(/smoke-bg-astha-hero.png)] bg-cover bg-center bg-no-repeat will-change-transform"
+        className="absolute inset-0 -top-[5%] h-[115%] w-full bg-[url(/smoke-bg-astha-hero.png)] bg-cover bg-center bg-no-repeat opacity-40 will-change-transform mix-blend-screen"
       />
 
-      {/* Dark overlay */}
-      <div className="absolute left-0 top-0 z-10 size-full bg-black/50">
-        <div className="textSec container mx-auto flex h-full flex-col items-start justify-center px-4 text-left sm:px-6 lg:px-8">
-          <div ref={subheadingRef} style={{ opacity: 0 }}>
-            <SubHeading className="text-white">
+      {/* Overlay with subtle vignette */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#080b14]/60 via-[#080b14]/40 to-[#080b14]" />
+
+      {/* Main Content */}
+      <div className="relative z-20 container mx-auto flex h-full flex-col items-start justify-center px-4 text-left sm:px-6 lg:px-8">
+        <div className="textSec max-w-4xl">
+          {/* Eyebrow & Status Pill */}
+          <div
+            ref={subheadingRef}
+            style={{ opacity: 0 }}
+            className="flex flex-wrap items-center gap-3"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/40 px-3.5 py-1 text-xs font-semibold text-cyan-300 backdrop-blur-md">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
               Social Media Management & Web Development Firm
-            </SubHeading>
+            </span>
           </div>
 
+          {/* Masked H1 Display Headline */}
           <h1
             ref={headingRef}
-            className="mt-4 max-w-3xl text-[2rem] font-bold leading-[1.2] text-white sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4.2rem]"
+            className="mt-5 text-[2.15rem] font-black leading-[1.12] tracking-tight text-white sm:text-[3rem] md:text-[3.8rem] lg:text-[4.6rem]"
           >
             {headingWords.map((word, i) => (
               <span
                 key={i}
-                className="mr-[0.3em] inline-block overflow-hidden pb-1 align-top"
+                className="mr-[0.28em] inline-block overflow-hidden pb-1 align-top"
               >
-                <span className="word-inner inline-block">{word}</span>
+                <span className={`word-inner inline-block ${i >= 5 ? "text-gradient-ocean" : ""}`}>
+                  {word}
+                </span>
               </span>
             ))}
           </h1>
 
+          {/* Subtitle / Intro Narrative */}
           <p
             ref={paragraphRef}
             style={{ opacity: 0 }}
-            className="mt-4 max-w-3xl text-[1rem] font-normal leading-[1.6] text-white/90 sm:text-[1.15rem] md:text-[1.25rem] lg:text-[1.35rem]"
+            className="mt-6 max-w-2xl text-[1rem] font-normal leading-relaxed text-gray-300 sm:text-[1.15rem] md:text-[1.25rem]"
           >
             Mainly we bring your business into the digital world. From your
             first digital footprint to long-term growth, we connect creative
@@ -122,32 +164,49 @@ const HeroSection = () => {
             one purposeful journey.
           </p>
 
-          {/* Fix #1: Buttons wrapper with ref for GSAP */}
-          <div ref={buttonsRef} style={{ opacity: 0 }} className="mt-8 flex flex-wrap items-center gap-4">
-            <Link href="/contact?subject=meeting">
-              <Button variant="primary">Book A Meeting</Button>
-            </Link>
+          {/* Dual Action CTAs with Magnetic Effect */}
+          <div
+            ref={buttonsRef}
+            style={{ opacity: 0 }}
+            className="mt-8 flex flex-wrap items-center gap-4"
+          >
+            <div
+              ref={magneticBtnRef}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              className="inline-block transition-transform duration-100"
+            >
+              <Link href="/contact?subject=meeting">
+                <Button variant="primary" size="lg" className="shadow-xl shadow-brandnd/30">
+                  <span>Book A Meeting</span>
+                  <ArrowRight size={16} />
+                </Button>
+              </Link>
+            </div>
+
             <Link href="#offerings">
-              <Button variant="outline">Explore Offerings</Button>
+              <Button variant="outline" size="lg" className="border-white/20 bg-white/5 hover:bg-white/10 hover:border-cyan-400/60 backdrop-blur-md">
+                Explore Offerings
+              </Button>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Fix #2: Scroll-down indicator */}
+      {/* Floating Scroll-down indicator */}
       <div
         ref={scrollIndicatorRef}
         style={{ opacity: 0 }}
-        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
       >
-        <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/60">
-          Scroll
+        <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">
+          Scroll Down
         </span>
-        <div className="flex h-10 w-6 items-start justify-center rounded-full border border-white/30 p-1.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
+        <div className="flex h-9 w-5 items-start justify-center rounded-full border border-white/25 p-1 backdrop-blur-sm">
+          <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

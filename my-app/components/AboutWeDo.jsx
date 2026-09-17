@@ -66,8 +66,11 @@ const About = () => {
 
   return (
     <div ref={rootRef} className="relative">
-      {/* Panel 1 — Who Are We */}
-      <section className="stack-panel sticky top-0 z-10 flex h-screen w-full items-center overflow-hidden bg-brand text-white">
+      {/* Panel 1: Who Are We */}
+      <section
+        data-theme="dark"
+        className="stack-panel sticky top-0 z-10 flex h-screen w-full items-center overflow-hidden bg-brand text-white"
+      >
         <span className="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none text-[20rem] font-black leading-none text-white/5 md:text-[28rem] lg:text-[34rem]">
           {/* A */}
           <Image
@@ -81,7 +84,7 @@ const About = () => {
         <div className="container relative mx-auto px-4">
           <div className="max-w-2xl">
             <span className="reveal mb-4 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-white/50">
-              01 — Who Are We
+              01. Who Are We
             </span>
             <h2 className="reveal text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               Astha Creatives
@@ -99,13 +102,16 @@ const About = () => {
         </div>
       </section>
 
-      {/* Panel 2 — Our Mission */}
-      <section className="stack-panel sticky top-0 z-20 flex h-screen w-full items-center overflow-hidden rounded-t-[2.5rem] bg-white text-gray-900 shadow-[0_-20px_60px_rgba(0,0,0,0.15)] md:rounded-t-[4rem]">
+      {/* Panel 2: Our Mission */}
+      <section
+        data-theme="light"
+        className="stack-panel sticky top-0 z-20 flex h-screen w-full items-center overflow-hidden rounded-t-[2.5rem] bg-white text-gray-900 shadow-[0_-20px_60px_rgba(0,0,0,0.15)] md:rounded-t-[4rem]"
+      >
         <div className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-brand/10 blur-3xl md:h-96 md:w-96" />
         <div className="container relative mx-auto px-4">
           <div className="ml-auto max-w-2xl md:pr-8 md:text-right">
             <span className="reveal mb-4 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-brand/60">
-              02 — Our Mission
+              02. Our Mission
             </span>
             <h2 className="reveal text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               Our Mission
@@ -123,11 +129,14 @@ const About = () => {
         </div>
       </section>
 
-      {/* Panel 3 — What We Do */}
-      <section className="stack-panel sticky top-0 z-30 flex min-h-screen w-full flex-col justify-center overflow-hidden rounded-t-[2.5rem] bg-gray-950 py-20 text-white shadow-[0_-20px_60px_rgba(0,0,0,0.35)] md:rounded-t-[4rem] md:py-0">
+      {/* Panel 3: What We Do */}
+      <section
+        data-theme="dark"
+        className="stack-panel sticky top-0 z-30 flex min-h-screen w-full flex-col justify-center overflow-hidden rounded-t-[2.5rem] bg-gray-950 py-20 text-white shadow-[0_-20px_60px_rgba(0,0,0,0.35)] md:rounded-t-[4rem] md:py-0"
+      >
         <div className="container relative mx-auto px-4">
           <span className="reveal mb-4 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-white/40">
-            03 — What We Do
+            03. What We Do
           </span>
           <h2 className="reveal text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
             What We Do

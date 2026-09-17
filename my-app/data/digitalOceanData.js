@@ -117,7 +117,7 @@ export const digitalOceanProcess = {
       number: "03",
       stepName: "We Establish Your Digital Port",
       title: "Website & Digital Identity Creation",
-      hook: "Your website is your brand's home port—the place where your audience arrives to discover, understand, and trust your business.",
+      hook: "Your website is your brand's home port, the place where your audience arrives to discover, understand, and trust your business.",
       description:
         "A strong digital home gives your brand credibility, structure, and discoverability.",
       points: [

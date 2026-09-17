@@ -1,24 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --brand-color: #0f111d;
+  --brand-color: #080b14;
   --brand-color-sec: #4d61d6;
-  --mid-pure: #ebf2f9;
+  --color-cyan-glow: #00f5d4;
+  --color-indigo-glow: #6366f1;
+  --mid-pure: #f3f7fb;
 }
 
-/* Fix #15: Smooth scroll for anchor links */
+/* Smooth scroll for anchor links */
 html {
   scroll-behavior: smooth;
 }
 
-/* Fix #6: Scroll progress bar */
+/* Scroll progress bar */
 .scroll-progress-bar {
   position: fixed;
   top: 0;
   left: 0;
   height: 3px;
   width: 100%;
-  background: var(--brand-color-sec);
+  background: linear-gradient(90deg, #4d61d6 0%, #00f5d4 50%, #6366f1 100%);
   transform-origin: left;
   transform: scaleX(0);
   z-index: 9999;
@@ -35,9 +37,114 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --brand-color: #0f111d;
+    --brand-color: #080b14;
     --foreground: #ffffff;
   }
+}
+
+/* Keyframe animations for continuous marquees */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.03);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.08);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 32s linear infinite;
+}
+
+.animate-marquee-left:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 32s linear infinite;
+}
+
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+.animate-float {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 6s ease-in-out infinite;
+}
+
+/* Dynamic Radial Mouse Spotlight Card Utility */
+.spotlight-card {
+  position: relative;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(99, 102, 241, 0.25),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Gradient Text Presets */
+.text-gradient-ocean {
+  background: linear-gradient(135deg, #ffffff 0%, #a5f3fc 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media (max-height: 780px) {

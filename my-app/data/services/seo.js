@@ -7,6 +7,7 @@ const seo = {
   heroTitle: "Strategic SEO That Dominates Search Rankings and Drives High-Intent Revenue",
   heroDescription:
     "We engineer data-backed on-page, technical, and authority SEO strategies to position your business in front of customers actively searching for your services on Google.",
+  hasPackages: true,
   stats: [
     { label: "Organic Traffic Growth", value: "+210% Avg" },
     { label: "Technical Audit Score", value: "98% Clean" },
@@ -24,6 +25,96 @@ const seo = {
       "Comprehensive technical audits eliminating crawl traps, slow speeds, and indexation errors",
       "Semantic on-page optimization, content cluster architecture, and JSON-LD schema markup",
       "Transparent monthly reporting tracking real keyword ranking jumps and organic revenue conversions",
+    ],
+  },
+
+  deepDivePillars: {
+    badge: "Organic Search Science",
+    heading: "The Engineering Behind Dominant Google Rankings",
+    subheading:
+      "Modern search dominance is won at the intersection of technical crawlability, semantic topic depth, and authentic domain authority. Here is our organic growth framework.",
+    pillars: [
+      {
+        tag: "Topic Dominance",
+        title: "Topical Authority Clustering (Hub & Spoke)",
+        description:
+          "Google's Helpful Content algorithms no longer reward isolated keywords. We engineer comprehensive 'Hub and Spoke' topic clusters by linking high-level pillar guides to specialized deep-dive articles, proving to Google that your brand possesses exhaustive topical expertise across your entire industry niche.",
+        keyTakeaways: [
+          "Complete coverage of informational, commercial, and transactional search intents",
+          "Internal anchor text link equity distribution passing page rank to money pages",
+          "Elimination of keyword cannibalization where competing pages cannibalize rankings",
+        ],
+        stat: { label: "Indexation Signal", value: "Topical Authority Dominance" },
+      },
+      {
+        tag: "Technical Architecture",
+        title: "Forensic Technical SEO & Core Web Vitals",
+        description:
+          "Even the best content will fail to rank if Googlebot encounters crawl errors, redirect chains, or slow load speeds. We eliminate indexation roadblocks, optimize XML sitemaps, compress server TTFB, and inject structured JSON-LD schemas that trigger Google Rich Results.",
+        keyTakeaways: [
+          "100% clean Google Search Console index coverage with zero crawl errors",
+          "Implementation of Rich Snippet Schemas (Service, FAQPage, Organization, Review)",
+          "Maximization of Googlebot crawl budget through streamlined site architecture",
+        ],
+        stat: { label: "Technical Health", value: "98%+ Health Score" },
+      },
+      {
+        tag: "Domain Authority",
+        title: "Digital PR & Editorial Authority Backlinks",
+        description:
+          "Backlinks remain one of Google's top foundational ranking algorithms. We execute white-hat digital PR and high-authority editorial outreach, earning contextual backlinks from real, high-traffic industry publications rather than toxic link farms.",
+        keyTakeaways: [
+          "100% white-hat link acquisition safe from algorithmic Google penalties",
+          "High Domain Rating (DR 50+) contextual placements that pass massive ranking power",
+          "Diversified anchor text distribution mirroring natural organic link profiles",
+        ],
+        stat: { label: "Link Quality", value: "Strict Editorial Standards" },
+      },
+      {
+        tag: "Local Dominance",
+        title: "Local SEO & Google Business Profile Mastery",
+        description:
+          "For regional and service-area businesses, the Google Local 3-Pack is the ultimate source of high-converting phone calls and direction requests. We optimize your Google Business Profile, synchronize NAP citations, and build geotargeted local landing pages.",
+        keyTakeaways: [
+          "Top 3 map placement for high-intent 'near me' and city-specific commercial searches",
+          "Automated review collection workflows elevating your star rating and review count",
+          "Consistent NAP (Name, Address, Phone) citations across 50+ business directories",
+        ],
+        stat: { label: "Local Pack", value: "Top 3 Google Maps Placement" },
+      },
+    ],
+  },
+
+  industryUseCases: {
+    badge: "Organic Results",
+    heading: "Where Strategic SEO Generates Recurring Revenue",
+    subheading:
+      "Explore how our organic search architectures generate consistent, compounding inbound demand.",
+    cases: [
+      {
+        industry: "B2B Professional Services",
+        title: "Bottom-of-Funnel Commercial Keyword Rankings",
+        solution: "Ranked legal and financial consultancies for high-value search terms worth $25+ cost-per-click in Google Ads.",
+        impact: "+210% Organic Leads & Saved $8,500/Month in Ad Spend",
+      },
+      {
+        industry: "Healthcare & Specialized Clinics",
+        title: "Local Map Pack & Service Treatment Dominance",
+        solution: "Optimized 5 regional clinic locations for specialized surgical and therapeutic search queries.",
+        impact: "Became #1 Ranked Provider in Metro Area with +140% Appointment Bookings",
+      },
+      {
+        industry: "E-Commerce Stores",
+        title: "Category Page Optimization & Product Schemas",
+        solution: "Technical schema markup, faceted navigation cleanup, and high-volume product category ranking.",
+        impact: "+185% Year-Over-Year Organic Revenue Growth",
+      },
+      {
+        industry: "SaaS & Cloud Platforms",
+        title: "Programmatic Comparison & Alternative Pages",
+        solution: "Built targeted 'Competitor A vs Competitor B' search hubs capturing prospects ready to switch vendors.",
+        impact: "Captured 35% of Total Market Search Volume for Competitor Terms",
+      },
     ],
   },
 
@@ -101,71 +192,52 @@ const seo = {
 
   tiers: [
     {
-      name: "Foundation SEO Package",
+      name: "Foundation SEO",
       badge: "Local & Technical",
       description: "Ideal for local businesses and growing websites needing a solid technical base and targeted local keyword rankings.",
       features: [
-        "Complete 120-Point Technical SEO Audit & Fixes",
-        "Keyword Research (15 Core High-Intent Keywords)",
-        "On-Page Optimization for up to 5 Key Service Pages",
-        "Google Business Profile Setup & Local Optimization",
+        "Complete Technical Site Audit & Fixes",
+        "Keyword Research (15 Core Terms)",
+        "On-Page Title & Meta Optimization",
+        "Google Business Profile Setup & Local SEO",
         "XML Sitemap & Robots.txt Configuration",
-        "Google Search Console & GA4 Setup with Goals",
-        "JSON-LD LocalBusiness & Service Schema Markup",
-        "Monthly Ranking & Organic Performance Report",
+        "Google Search Console & GA4 Setup",
+        "JSON-LD Schema Markup",
+        "Monthly Ranking & Traffic Reports",
       ],
-      ctaLabel: "Get Foundation SEO Quote",
+      ctaLabel: "Get Quote",
       ctaHref: "/contact?service=seo&package=foundation",
     },
     {
-      name: "Growth SEO Package",
-      badge: "National Ranking (Recommended)",
+      name: "Growth SEO",
+      badge: "National & Ranking (Recommended)",
       highlighted: true,
-      description: "Our comprehensive national search engine optimization package for businesses targeting competitive industry keywords.",
+      description: "Our comprehensive search engine optimization package for businesses targeting competitive industry keywords.",
       features: [
-        "Everything in Foundation SEO Package",
-        "In-Depth Keyword Research (35+ Primary & Long-Tail Terms)",
-        "On-Page Optimization for up to 15 Pages",
-        "Comprehensive Content Cluster & Pillar Strategy",
-        "2 Long-Form SEO-Optimized Articles per Month",
+        "Comprehensive Content Strategy & Topical Map",
         "High-Authority Backlink Acquisition & Digital PR",
-        "Core Web Vitals & PageSpeed Performance Tuning",
-        "Advanced FAQ & Product Schema Deployment",
-        "Bi-Weekly SEO Strategy Syncs & Real-Time Dashboard",
+        "Advanced Schema & PageSpeed Speed Optimization",
+        "In-Depth Keyword Research (35+ Primary & Long-Tail Terms)",
+        "On-Page Optimization for up to 15 Core Pages",
+        "2 Long-Form SEO-Optimized Articles per Month",
+        "Core Web Vitals Performance Tuning",
+        "Monthly Ranking & Organic Traffic Reports",
       ],
-      ctaLabel: "Get Growth SEO Quote",
+      ctaLabel: "Get Quote",
       ctaHref: "/contact?service=seo&package=growth",
-    },
-    {
-      name: "Enterprise Market Dominance",
-      badge: "Full Organic Scale",
-      description: "For established enterprise corporations and e-commerce platforms requiring aggressive multi-region search dominance.",
-      features: [
-        "Comprehensive Multi-Site & Enterprise Technical SEO",
-        "Uncapped Keyword Research & Topical Map Building",
-        "4 Long-Form High-Authority Articles / Case Studies per Month",
-        "Aggressive White-Hat Tier-1 Backlink Acquisition",
-        "International / Multi-Language Hreflang SEO Architecture",
-        "E-Commerce Product & Category Page Schema Optimization",
-        "Dedicated Senior SEO Strategist & Technical Developer",
-        "Weekly Strategy Reviews & Real-Time Looker Studio Dashboard",
-      ],
-      ctaLabel: "Get Enterprise SEO Quote",
-      ctaHref: "/contact?service=seo&package=enterprise",
     },
   ],
 
   comparison: {
     rows: [
-      { feature: "Keywords Tracked", values: ["15 Core Terms", "35+ Terms", "Unlimited Enterprise Terms"] },
-      { feature: "Technical Audit & Code Remediation", values: [true, true, true] },
-      { feature: "On-Page Optimized Pages", values: ["Up to 5 Pages", "Up to 15 Pages", "All Website Pages"] },
-      { feature: "SEO Content Creation Included", values: [false, "2 Articles / Month", "4 Articles / Month"] },
-      { feature: "White-Hat Backlink Acquisition", values: [false, "High-Authority Tier", "Aggressive Tier-1 Outreach"] },
-      { feature: "JSON-LD Structured Data Schema", values: ["Basic Local Schema", "Advanced FAQ & Service", "Full Enterprise Graph"] },
-      { feature: "Google Analytics 4 & Search Console", values: [true, true, true] },
-      { feature: "Monthly Strategy Syncs", values: ["Monthly Report", "Bi-Weekly Calls", "Weekly Executive Sync"] },
-      { feature: "Real-Time Tracking Dashboard", values: [false, true, true] },
+      { feature: "Technical Site Audit & Fixes", values: [true, true] },
+      { feature: "Keywords Researched & Tracked", values: ["15 Core Terms", "35+ Terms"] },
+      { feature: "On-Page Title & Meta Optimization", values: [true, true] },
+      { feature: "Google Business Profile Setup", values: [true, true] },
+      { feature: "High-Authority Backlink Acquisition", values: [false, true] },
+      { feature: "SEO Content Creation (Articles/Mo)", values: [false, "2 Articles / Month"] },
+      { feature: "Core Web Vitals & Speed Tuning", values: [false, true] },
+      { feature: "Monthly Ranking & Traffic Reports", values: [true, true] },
     ],
   },
 
@@ -174,11 +246,6 @@ const seo = {
       question: "How long does it take to see real results from SEO?",
       answer:
         "Technical fixes and on-page improvements often yield positive indexing changes within 2 to 4 weeks. Meaningful keyword ranking jumps and sustained organic traffic growth typically compound over 3 to 6 months as domain authority builds.",
-    },
-    {
-      question: "Do you guarantee #1 ranking on Google?",
-      answer:
-        "No ethical SEO agency can guarantee a specific #1 rank because Google's algorithms are proprietary and evolve constantly. What we do guarantee is strict adherence to white-hat best practices, transparent data reporting, and a methodology that has consistently driven top-3 rankings across diverse industries.",
     },
     {
       question: "What is the difference between Foundation SEO and Growth SEO?",

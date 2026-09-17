@@ -6,6 +6,25 @@
   --mid-pure: #ebf2f9;
 }
 
+/* Fix #15: Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fix #6: Scroll progress bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--brand-color-sec);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 9999;
+  pointer-events: none;
+}
+
 @theme inline {
   --color-brand: var(--brand-color);
   --color-mpure: var(--mid-pure);

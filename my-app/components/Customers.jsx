@@ -1,94 +1,118 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import HeadNtext from "./HeadNtext";
 import Image from "next/image";
-import { Heart, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { Heart, ChevronLeft, ChevronRight, Quote, Building2 } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-// Import your images
+// Available client logos
 import freshPizza from "@/images/companies/fresh-pizza.png";
 import ovenFresh from "@/images/companies/oven-fresh.png";
-import hasen from "@/images/companies/hasen.png";
-import joyBella from "@/images/companies/joy-bella.png";
 import cellRepair from "@/images/companies/cell-repair.png";
-import bretgajda from "@/images/companies/bretgajda.jpeg";
-import timClue from "@/images/companies/tim-clue.jpeg";
 import b2g from "@/images/companies/b2g.png";
 import xeniusoft from "@/images/companies/xeniusoft.png";
+import hasen from "@/images/companies/hasen.png";
+import joyBella from "@/images/companies/joy-bella.png";
 
 // Register GSAP hook
 gsap.registerPlugin(useGSAP);
 
+// 9 Clients as specified in contnt.pdf
 const testimonials = [
   {
     id: 1,
-    name: "Fresh Pizza",
-    image: freshPizza,
+    name: "Dew drop",
+    initials: "DD",
+    image: null,
     review:
-      "Astha Creatives has been an invaluable partner in our digital marketing efforts. Their team of experts has helped us develop and execute a comprehensive strategy that has significantly increased our online visibility and engagement. From social media management to content creation, they have consistently delivered high-quality work that has exceeded our expectations. We highly recommend Astha Creatives to any business looking to take their digital marketing to the next level.",
+      "Astha Creatives crafted an exceptional digital footprint for our organic brand. Their creative design and content execution established an immediate connection with our target audience, driving real community growth.",
   },
   {
     id: 2,
-    name: "Oven Fresh",
-    image: ovenFresh,
+    name: "Xeniusoft",
+    initials: "XS",
+    image: xeniusoft,
     review:
-      "Working with Astha Creatives has been a game-changer for our business. Their team of creative professionals has helped us develop a strong brand identity and marketing strategy that has resonated with our target audience. From website design to social media management, they have consistently delivered exceptional work that has helped us grow our business. We are grateful for their expertise and highly recommend their services to any business looking to elevate their brand.",
+      "Working with Astha Creatives on our visual direction and brand identity transformed how our enterprise is perceived in the market. Their attention to detail and design rigor are world-class.",
   },
   {
     id: 3,
-    name: "Hasen",
-    image: hasen,
+    name: "B2G SOFT",
+    initials: "B2G",
+    image: b2g,
     review:
-      "Astha Creatives has been an incredible partner in helping us grow our business. Their team of experts has helped us develop a comprehensive digital marketing strategy that has significantly increased our online presence and engagement. From social media management to content creation, they have consistently delivered high-quality work that has exceeded our expectations. We highly recommend Astha Creatives to any business looking to take their digital marketing efforts to the next level.",
+      "From technical web development to structured performance marketing, Astha Creatives has been an indispensable strategic partner. They consistently deliver results ahead of schedule.",
   },
   {
     id: 4,
-    name: "Joy Bella",
-    image: joyBella,
+    name: "Oven Fresh",
+    initials: "OF",
+    image: ovenFresh,
     review:
-      "Astha Creatives has been a fantastic partner in our marketing efforts. Their team of experts has helped us create compelling content and execute effective campaigns that have driven significant results for our business. We are impressed with their professionalism and the quality of their work.",
+      "Working with Astha Creatives has been a game-changer for our business. Their team of creative professionals helped us develop a strong brand identity and social media strategy that resonates deeply with our customers.",
   },
   {
     id: 5,
-    name: "Cell Repair",
-    image: cellRepair,
+    name: "Fresh Pizza",
+    initials: "FP",
+    image: freshPizza,
     review:
-      "Astha Creatives has been a reliable partner in our digital marketing efforts. Their team of experts has helped us develop and execute a comprehensive strategy that has significantly increased our online visibility and engagement. From social media management to content creation, they have consistently delivered high-quality work that has exceeded our expectations. We highly recommend Astha Creatives to any business looking to take their digital marketing to the next level.",
+      "Astha Creatives has been an invaluable partner in our digital marketing efforts. Their content creation and targeted ad spend generated a massive surge in online orders and foot traffic.",
   },
   {
     id: 6,
-    name: "Bret Gajda",
-    image: bretgajda,
+    name: "Cell Repair",
+    initials: "CR",
+    image: cellRepair,
     review:
-      "Working with Astha Creatives has been a game-changer for our business. Their team of creative professionals has helped us develop a strong brand identity and marketing strategy that has resonated with our target audience. From website design to social media management, they have consistently delivered exceptional work that has helped us grow our business. We are grateful for their expertise and highly recommend their services to any business looking to elevate their brand.",
+      "A dependable, high-integrity creative team. They completely revamped our local search presence and social channels, delivering consistent month-over-month customer inquiries.",
   },
   {
     id: 7,
-    name: "Tim Clue",
-    image: timClue,
+    name: "Luatt",
+    initials: "LU",
+    image: null,
     review:
-      "Astha Creatives has been a fantastic partner in our marketing efforts. Their team of experts has helped us create compelling content and execute effective campaigns that have driven significant results for our business. We are impressed with their professionalism and the quality of their work.",
+      "The video editing and motion graphics produced by Astha Creatives elevated our lifestyle product line significantly. Their creative hooks resulted in our highest-performing campaigns to date.",
+  },
+  {
+    id: 8,
+    name: "Wizzu",
+    initials: "WZ",
+    image: null,
+    review:
+      "Astha Creatives brought immense clarity to our digital strategy. They navigated our multi-channel brand launch seamlessly with bespoke design assets and active community management.",
+  },
+  {
+    id: 9,
+    name: "Bssofthub",
+    initials: "BS",
+    image: null,
+    review:
+      "Their business data analytics and executive dashboards gave us visibility into our marketing funnels that we never had before. Decisive insights and remarkable professionalism.",
   },
 ];
 
 const partners = [
-  { id: 1, name: "Fresh Pizza", image: freshPizza },
-  { id: 4, name: "Cell Repair", image: cellRepair },
-  { id: 2, name: "Oven Fresh", image: ovenFresh },
-  { id: 3, name: "Hasen", image: hasen },
-  { id: 5, name: "B2GSOFT", image: b2g },
-  { id: 6, name: "Xeniusoft", image: xeniusoft },
+  { id: 1, name: "Dew drop", initials: "DD", image: null },
+  { id: 2, name: "Xeniusoft", initials: "XS", image: xeniusoft },
+  { id: 3, name: "B2G SOFT", initials: "B2G", image: b2g },
+  { id: 4, name: "Oven Fresh", initials: "OF", image: ovenFresh },
+  { id: 5, name: "Fresh Pizza", initials: "FP", image: freshPizza },
+  { id: 6, name: "Cell Repair", initials: "CR", image: cellRepair },
+  { id: 7, name: "Luatt", initials: "LU", image: null },
+  { id: 8, name: "Wizzu", initials: "WZ", image: null },
+  { id: 9, name: "Bssofthub", initials: "BS", image: null },
 ];
 
-const AUTOPLAY_MS = 4000;
+const AUTOPLAY_MS = 4500;
 
-// Keep this in sync with the card width classes below (w-full / sm:w-1/2 / lg:w-1/3)
 const getVisibleCount = () => {
   if (typeof window === "undefined") return 3;
-  if (window.innerWidth >= 1024) return 3; // lg
-  if (window.innerWidth >= 640) return 2; // sm
+  if (window.innerWidth >= 1024) return 3;
+  if (window.innerWidth >= 640) return 2;
   return 1;
 };
 
@@ -96,19 +120,17 @@ const Customers = () => {
   const sliderContainer = useRef(null);
   const trackRef = useRef(null);
   const autoplayRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(testimonials.length - 1);
 
-  // Recalculate how many cards are visible (and clamp the index) on mount and on resize.
-  // This is derived from the same breakpoints as the CSS, so it's always correct — no
-  // matter how many testimonials are in the array.
   useEffect(() => {
     const updateVisibleCount = () => {
       const visibleCount = getVisibleCount();
       const newMaxIndex = Math.max(0, testimonials.length - visibleCount);
       setMaxIndex(newMaxIndex);
-      setCurrentIndex((prev) => Math.min(prev, newMaxIndex));
     };
 
     updateVisibleCount();
@@ -116,33 +138,30 @@ const Customers = () => {
     return () => window.removeEventListener("resize", updateVisibleCount);
   }, []);
 
-  // Slide the track whenever the active index changes. Since every card takes an equal
-  // share of the track regardless of viewport, one "step" is always exactly
-  // 100 / testimonials.length percent of the track's own width — no pixel math needed.
-  useGSAP(
-    () => {
-      gsap.to(trackRef.current, {
-        xPercent: -(currentIndex * (100 / testimonials.length)),
-        duration: 0.8,
-        ease: "power3.inOut",
-      });
-    },
-    { dependencies: [currentIndex], scope: sliderContainer },
-  );
-
   const startAutoplay = () => {
     clearInterval(autoplayRef.current);
     autoplayRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1 > maxIndex ? 0 : prev + 1));
+      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     }, AUTOPLAY_MS);
   };
 
-  // Keep autoplay running, restarting it whenever the visible-count changes
   useEffect(() => {
     startAutoplay();
     return () => clearInterval(autoplayRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [maxIndex]);
+
+  useGSAP(
+    () => {
+      if (!trackRef.current) return;
+      const shiftPercent = -(currentIndex * (100 / testimonials.length));
+      gsap.to(trackRef.current, {
+        xPercent: shiftPercent,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+    },
+    { dependencies: [currentIndex], scope: trackRef },
+  );
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1 > maxIndex ? 0 : prev + 1));
@@ -162,26 +181,48 @@ const Customers = () => {
   const pauseAutoplay = () => clearInterval(autoplayRef.current);
   const resumeAutoplay = () => startAutoplay();
 
+  // Fix #13: Touch/swipe support
+  const handleTouchStart = useCallback((e) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+    pauseAutoplay();
+  }, []);
+
+  const handleTouchEnd = useCallback((e) => {
+    touchEndX.current = e.changedTouches[0].screenX;
+    const diff = touchStartX.current - touchEndX.current;
+    const SWIPE_THRESHOLD = 50;
+    if (Math.abs(diff) > SWIPE_THRESHOLD) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    resumeAutoplay();
+  }, [maxIndex]);
+
   return (
-    <div className="bg-mpure relative overflow-hidden py-20 md:py-28">
-      <div className="container mx-auto px-4">
+    <section
+      id="testimonials"
+      className="bg-mpure relative overflow-hidden py-20 md:py-28"
+      aria-label="Client Feedback and Testimonials"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-6 text-center text-gray-900">
           <HeadNtext
-            heading="Our Clients Feedbacks"
-            text="We served these companies with love and care. For that, some of them turned to us again and again. We have the mindset to help you thrive!"
+            heading="Our Clients Feedback"
+            text="We partner closely with businesses to help them thrive in the digital world. Here is what leading founders and project directors say about navigating with Astha Creatives."
           />
         </div>
 
         {/* Slider Section */}
-        <div
-          ref={sliderContainer}
-          className="relative mx-auto w-full max-w-6xl"
-        >
-          {/* The Track Container */}
+        <div ref={sliderContainer} className="relative mx-auto w-full max-w-6xl">
           <div
             onMouseEnter={pauseAutoplay}
             onMouseLeave={resumeAutoplay}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
             className="w-full overflow-hidden rounded-2xl py-4"
           >
             <div ref={trackRef} className="flex">
@@ -190,36 +231,48 @@ const Customers = () => {
                   key={test.id}
                   className="w-full shrink-0 px-3 sm:w-1/2 lg:w-1/3"
                 >
-                  {/* The Card UI */}
-                  <div className="flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-lg md:p-7">
-                    <div className="mb-4 flex items-center justify-between">
-                      <Quote
-                        className="h-7 w-7 text-brand/25"
-                        strokeWidth={1.5}
-                      />
-                      <span className="inline-flex items-center gap-1 rounded-full bg-brand/5 px-2.5 py-1 text-[11px] font-medium text-brand">
-                        <Heart size={10} className="fill-brand" />
-                        Trusted Client
-                      </span>
+                  <div className="flex h-full flex-col justify-between rounded-2xl border border-gray-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-lg md:p-7">
+                    <div>
+                      <div className="mb-4 flex items-center justify-between">
+                        <Quote
+                          className="h-7 w-7 text-brandnd/30"
+                          strokeWidth={1.5}
+                        />
+                        <span className="inline-flex items-center gap-1 rounded-full bg-brand/5 px-2.5 py-1 text-[11px] font-semibold text-brand">
+                          <Heart size={10} className="fill-current text-brand" />
+                          Verified Client
+                        </span>
+                      </div>
+
+                      <p className="line-clamp-6 text-sm leading-relaxed text-gray-600">
+                        &ldquo;{test.review}&rdquo;
+                      </p>
                     </div>
 
-                    <p className="line-clamp-6 flex-1 text-sm leading-relaxed text-gray-600">
-                      {test.review}
-                    </p>
-
                     <div className="mt-6 flex items-center gap-3 border-t border-gray-100 pt-4">
-                      <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-gray-100">
-                        <Image
-                          src={test.image}
-                          alt={test.name}
-                          fill
-                          className="object-cover"
-                          sizes="48px"
-                        />
+                      {test.image ? (
+                        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-gray-200 bg-white p-1">
+                          <Image
+                            src={test.image}
+                            alt={`${test.name} logo`}
+                            fill
+                            className="object-contain p-1"
+                            sizes="48px"
+                          />
+                        </div>
+                      ) : (
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white font-bold text-sm shadow-inner">
+                          {test.initials}
+                        </div>
+                      )}
+                      <div>
+                        <h4 className="text-sm font-bold tracking-wide text-gray-900">
+                          {test.name}
+                        </h4>
+                        <span className="text-xs text-gray-500">
+                          Client Partner
+                        </span>
                       </div>
-                      <h4 className="text-sm font-bold tracking-wide text-gray-900">
-                        {test.name}
-                      </h4>
                     </div>
                   </div>
                 </div>
@@ -228,24 +281,26 @@ const Customers = () => {
           </div>
 
           {/* Navigation Controls */}
-          <div className="mt-2 flex items-center justify-center gap-6">
+          <div className="mt-4 flex items-center justify-center gap-6">
             <button
+              type="button"
               onClick={prevSlide}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition-colors duration-300 hover:border-brand hover:bg-brand hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors duration-200 hover:border-brand hover:bg-brand hover:text-white"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft size={22} />
+              <ChevronLeft size={20} />
             </button>
 
             {/* Dot Indicators */}
-            <div className="flex gap-2">
+            <div className="flex gap-1.5">
               {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
                 <button
+                  type="button"
                   key={idx}
                   onClick={() => goToSlide(idx)}
-                  className={`h-2 rounded-full transition-all duration-500 ${
+                  className={`h-2 rounded-full transition-all duration-300 ${
                     currentIndex === idx
-                      ? "w-8 bg-brand"
+                      ? "w-7 bg-brand"
                       : "w-2 bg-gray-300 hover:bg-gray-400"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
@@ -254,45 +309,51 @@ const Customers = () => {
             </div>
 
             <button
+              type="button"
               onClick={nextSlide}
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-md transition-colors duration-300 hover:border-brand hover:bg-brand hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors duration-200 hover:border-brand hover:bg-brand hover:text-white"
               aria-label="Next testimonial"
             >
-              <ChevronRight size={22} />
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>
-      </div>
 
-      <div className="bg-brand pb-10 pt-8 text-white mt-10">
-        <div className="container mx-auto px-4">
-          <HeadNtext
-            heading="partners around the world"
-            text="We are trusted by these companies around the world. From day one, we stay connected, communicate openly, and focus on helping your business grow."
-            styleText="text-white"
-          />
-
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+        {/* 9 Partner Brands Showcase Grid */}
+        <div className="mt-16 border-t border-gray-200/80 pt-12">
+          <p className="mb-6 text-center text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+            Trusted by Ambitious Brands Across Industries
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5">
             {partners.map((partner) => (
               <div
                 key={partner.id}
-                className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-gray-500 p-4 shadow-md md:h-28 md:w-28"
+                className="group flex w-[calc(50%-0.5rem)] sm:w-28 md:w-32 flex-col items-center justify-center rounded-xl border border-gray-200 bg-white p-3 text-center shadow-xs transition-all hover:-translate-y-0.5 hover:border-brandnd/50 hover:shadow-md"
               >
-                <div className="relative h-full w-full">
-                  <Image
-                    src={partner.image}
-                    alt={partner.name}
-                    fill
-                    className="object-contain"
-                    sizes="112px"
-                  />
-                </div>
+                {partner.image ? (
+                  <div className="relative h-10 w-full">
+                    <Image
+                      src={partner.image}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="object-contain grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                      sizes="80px"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100 font-bold text-xs text-gray-700 group-hover:bg-brand group-hover:text-white transition-colors">
+                    {partner.initials}
+                  </div>
+                )}
+                <span className="mt-2 text-[11px] font-semibold text-gray-700 group-hover:text-brand transition-colors truncate max-w-full">
+                  {partner.name}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

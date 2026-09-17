@@ -31,11 +31,13 @@ const Team = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Fix #5: Scale-up entrance animation for variety
       gsap.fromTo(
         ".team-card",
-        { opacity: 0, y: 48 },
+        { opacity: 0, scale: 0.9, y: 24 },
         {
           opacity: 1,
+          scale: 1,
           y: 0,
           duration: 0.7,
           ease: "power3.out",
@@ -78,7 +80,7 @@ const Team = () => {
   };
 
   return (
-    <div ref={sectionRef} className="w-full py-20 md:py-28 bg-mpure">
+    <div ref={sectionRef} className="w-full py-20 md:py-28 bg-white">
       <div className="container mx-auto px-4">
         <HeadNtext
           heading="Meet Our Team"

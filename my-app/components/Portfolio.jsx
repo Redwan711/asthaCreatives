@@ -1,178 +1,242 @@
 "use client";
 
-import { useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeadNtext from "./HeadNtext";
 import Image from "next/image";
 import texture from "@/images/bg/texture.jpg";
 import designImg from "@/images/other/design.jpg";
 import marketingImg from "@/images/other/brand-creation.jpg";
 import webImg from "@/images/other/web.jpg";
-import data from "@/images/other/data.jpg";
+import dataImg from "@/images/other/data.jpg";
+import smHeroImg from "@/images/other/social-media-management-hero.jpg";
+import whyImg from "@/images/other/why-choose-us.jpg";
 import Link from "next/link";
+import { ExternalLink, Sparkles, FolderKanban } from "lucide-react";
 
-const portfolioItems = [
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const portfolioProjects = [
   {
     id: 1,
-    name: "Our Design Work",
+    service: "Creative Design",
+    title: "Bespoke Brand Identity & Collaterals",
+    client: "Fresh Pizza Co.",
     src: designImg,
-    alt: "Portfolio design work",
-    link: "/",
+    alt: "Creative Design Showcase",
+    link: "/services/creative-design",
+    description:
+      "Full branding collateral suite, packaging assets, and conversion-focused print and digital creatives.",
   },
   {
     id: 2,
-    name: "Brand Identity Creation",
+    service: "Brand Guidelines",
+    title: "Corporate Visual Identity Manual",
+    client: "Xeniusoft Tech",
     src: marketingImg,
-    alt: "Portfolio Brand Identity",
-    link: "/",
+    alt: "Brand Guideline Development Showcase",
+    link: "/services/creative-design",
+    description:
+      "A complete brand system detailing typography standards, color governance, and unified visual hierarchy.",
   },
   {
     id: 3,
-    name: "Web Development",
+    service: "Website Design",
+    title: "Modern Company Portal & Portfolio",
+    client: "B2G SOFT",
     src: webImg,
-    alt: "Portfolio Web Development",
-    link: "/",
+    alt: "Website Design Showcase",
+    link: "/services/website-development",
+    description:
+      "Ultra-fast, responsive web portal built with modern web frameworks, dynamic animations, and SEO excellence.",
   },
   {
     id: 4,
-    name: "Data Analysis",
-    src: data,
-    alt: "Portfolio data analysis",
-    link: "/",
+    service: "Social Media Account Creation",
+    title: "Omnichannel Brand Channel Launch",
+    client: "Dew Drop Organics",
+    src: smHeroImg,
+    alt: "Social Media Account Creation Showcase",
+    link: "/services/social-media-management",
+    description:
+      "Cohesive profile architecture, vanity setups, branded covers, and optimized bio conversion funnels.",
+  },
+  {
+    id: 5,
+    service: "Content Design",
+    title: "High-Engagement Visuals & Reels Series",
+    client: "Oven Fresh Bakery",
+    src: designImg,
+    alt: "Content Design Showcase",
+    link: "/services/social-media-management",
+    description:
+      "Monthly package delivering 25 static creatives, 4 motion reels, and viral caption storytelling.",
+  },
+  {
+    id: 6,
+    service: "AI Video Creation",
+    title: "Cinematic Generative Product Teasers",
+    client: "Cell Repair Global",
+    src: smHeroImg,
+    alt: "AI Video Creation Showcase",
+    link: "/services/ai-video-creation",
+    description:
+      "Futuristic generative visuals and synthetic voiceover campaigns delivering 3x engagement benchmarks.",
+  },
+  {
+    id: 7,
+    service: "Motion Graphics Design",
+    title: "Kinetic Logo Idents & Explainer Motion",
+    client: "Wizzu Digital",
+    src: whyImg,
+    alt: "Motion Graphics Design Showcase",
+    link: "/services/video-editing",
+    description:
+      "Dynamic 2D/3D motion graphics built to captivate audiences across social feeds and corporate keynotes.",
+  },
+  {
+    id: 8,
+    service: "Video Editing",
+    title: "Commercial Post-Production & Color Grade",
+    client: "Luatt Apparel",
+    src: whyImg,
+    alt: "Video Editing Showcase",
+    link: "/services/video-editing",
+    description:
+      "Pacing, audio mastering, dynamic caption overlays, and color grading for high-retention social videos.",
+  },
+  {
+    id: 9,
+    service: "Business Data Analytics",
+    title: "Executive BI Dashboard & Growth Reports",
+    client: "Bssofthub",
+    src: dataImg,
+    alt: "Business Data Analytics Showcase",
+    link: "/services/data-analytics",
+    description:
+      "Interactive real-time reporting dashboards integrating ad-spend, traffic metrics, and customer lifetime value.",
   },
 ];
 
-const DEFAULT_ACTIVE_INDEX = 0;
-
 const Portfolio = () => {
+  const [filter, setFilter] = useState("All");
   const containerRef = useRef(null);
 
-  const handleEnter = (e) => {
-    const panels = containerRef.current.querySelectorAll(".portfolio-panel");
-    panels.forEach((panel) => {
-      const isActive = panel === e.currentTarget;
-      gsap.to(panel, {
-        flexGrow: isActive ? 5 : 1,
-        duration: 0.7,
-        ease: "power3.out",
-      });
-      gsap.to(panel.querySelector(".portfolio-overlay"), {
-        opacity: isActive ? 1 : 0,
-        duration: 0.5,
-      });
-      gsap.to(panel.querySelector(".portfolio-title"), {
-        opacity: isActive ? 1 : 0,
-        y: isActive ? 0 : -16,
-        duration: 0.5,
-        ease: "power2.out",
-      });
-    });
-  };
+  const filteredItems =
+    filter === "All"
+      ? portfolioProjects
+      : portfolioProjects.filter((p) => p.service === filter);
 
-  const handleLeave = () => {
-    const panels = Array.from(
-      containerRef.current.querySelectorAll(".portfolio-panel"),
-    );
-    panels.forEach((panel, index) => {
-      const isDefault = index === DEFAULT_ACTIVE_INDEX;
-      gsap.to(panel, {
-        flexGrow: isDefault ? 5 : 1,
-        duration: 0.7,
-        ease: "power3.out",
-      });
-      gsap.to(panel.querySelector(".portfolio-overlay"), {
-        opacity: isDefault ? 1 : 0,
-        duration: 0.4,
-      });
-      gsap.to(panel.querySelector(".portfolio-title"), {
-        opacity: isDefault ? 1 : 0,
-        y: isDefault ? 0 : -16,
-        duration: 0.4,
-      });
-    });
-  };
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Fix #5: Clip-path reveal animation for visual variety
+      gsap.fromTo(
+        ".portfolio-item-card",
+        { clipPath: "inset(100% 0 0 0)", opacity: 0 },
+        {
+          clipPath: "inset(0% 0 0 0)",
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 75%",
+          },
+        },
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [filter]);
 
   return (
-    <div className="bg-mpure relative py-20 md:py-28">
-      <section className="container relative mx-auto px-4 z-20">
+    <section
+      id="portfolio"
+      ref={containerRef}
+      className="bg-gray-950 relative py-20 md:py-28"
+      aria-label="Our Portfolio Showcase"
+    >
+      <div className="container relative mx-auto px-4 z-20 sm:px-6 lg:px-8">
         <HeadNtext
-          heading="Portfolio"
-          text="We believe great work is the foundation of a great partnership. Each project we deliver is a testament of attentiveness, creative thinking and thoughtful execution. We don't stop until it's perfect, providing multiple revisions to ensure the final result exceeds your expectations. Take a look at what we've been building in the sections below."
+          heading="Our Portfolio"
+          text="We believe great work is the foundation of an enduring partnership. Explore 9 curated showcase projects spanning our 9 individual services—each crafted with meticulous attentiveness, creative vision, and performance rigor."
+          styleText="text-white"
         />
 
-        {/* Mobile / tablet: simple stacked cards (hover-expand doesn't translate to touch) */}
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:hidden">
-          {portfolioItems.map((item) => (
-            <Link
+        {/* 9 Projects Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredItems.map((item) => (
+            <div
               key={item.id}
-              href={item.link}
-              className="group relative block aspect-[4/3] overflow-hidden rounded-xl shadow-lg border-6 border-white"
+              className="portfolio-item-card group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brandnd/40 hover:bg-white/[0.08] hover:shadow-xl"
             >
-              <Image
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                src={item.src}
-                alt={item.alt}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <h3 className="absolute bottom-4 left-4 right-4 text-lg font-bold text-white">
-                {item.name}
-              </h3>
-            </Link>
+              {/* Media Thumbnail */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-80 transition-opacity group-hover:opacity-60" />
+
+                {/* Service Tag */}
+                <span className="absolute top-3 left-3 rounded-full bg-brand/80 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-md">
+                  {item.service}
+                </span>
+
+                {/* Client badge */}
+                <span className="absolute bottom-3 left-3 text-xs font-semibold text-white/90">
+                  Client: {item.client}
+                </span>
+              </div>
+
+              {/* Body */}
+              <div className="flex flex-1 flex-col justify-between p-6">
+                <div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-brandnd transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-gray-400 sm:text-sm">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
+                  <Link
+                    href={item.link}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-brandnd hover:text-white transition-colors"
+                  >
+                    View Related Service
+                    <ExternalLink size={13} />
+                  </Link>
+
+                  <Link
+                    href="/contact?subject=portfolio-inquiry"
+                    className="text-xs font-semibold text-gray-500 hover:text-white"
+                  >
+                    Discuss Project
+                  </Link>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
+      </div>
 
-        {/* Desktop: expanding fan gallery */}
-        <div
-          ref={containerRef}
-          onMouseLeave={handleLeave}
-          className="mt-12 hidden h-[460px] gap-2 md:flex lg:h-[560px] lg:gap-3"
-        >
-          {portfolioItems.map((item, index) => (
-            <Link
-              key={item.id}
-              href={item.link}
-              onMouseEnter={handleEnter}
-              className="portfolio-panel relative h-full overflow-hidden rounded-xl"
-              style={{
-                flexGrow: index === DEFAULT_ACTIVE_INDEX ? 5 : 1,
-                flexBasis: 0,
-                flexShrink: 1,
-              }}
-            >
-              <Image
-                className="object-cover"
-                src={item.src}
-                alt={item.alt}
-                fill
-                sizes="25vw"
-              />
-              <div
-                className={`portfolio-overlay absolute inset-0 bg-gradient-to-b from-black/70 via-black/10 to-transparent ${
-                  index === DEFAULT_ACTIVE_INDEX ? "opacity-100" : "opacity-0"
-                }`}
-              />
-              <h3
-                className={`portfolio-title absolute left-6 top-6 whitespace-nowrap text-xl font-bold text-white lg:text-2xl ${
-                  index === DEFAULT_ACTIVE_INDEX ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                {item.name}
-              </h3>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <div className="absolute left-0 top-0 z-10 size-full bg-black/20"></div>
+      <div className="absolute left-0 top-0 z-10 size-full bg-black/5 pointer-events-none" />
       <Image
-        className="pointer-events-none absolute left-0 top-0 h-full w-full object-cover opacity-20 z-25 mix-blend-overlay"
+        className="pointer-events-none absolute left-0 top-0 h-full w-full object-cover opacity-10 z-15 mix-blend-overlay"
         src={texture}
-        alt="Portfolio background texture"
+        alt="Portfolio texture background"
         fill
       />
-    </div>
+    </section>
   );
 };
 

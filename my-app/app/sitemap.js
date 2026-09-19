@@ -34,6 +34,8 @@ export default function sitemap() {
     },
     { url: "/services/seo", changefreq: "monthly", priority: 0.8 },
     { url: "/services/data-analytics", changefreq: "monthly", priority: 0.8 },
+    { url: "/privacy", changefreq: "yearly", priority: 0.5 },
+    { url: "/terms", changefreq: "yearly", priority: 0.5 },
   ];
 
   return routes.map((route) => ({

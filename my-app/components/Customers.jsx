@@ -119,84 +119,95 @@ const Customers = () => {
   const trackRef = useRef(null);
   const autoplayRef = useRef(null);
   const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+  const touchStartY = useRef(0);
 
+  const [visibleCount, setVisibleCount] = useState(3);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [maxIndex, setMaxIndex] = useState(testimonials.length - 1);
+  const [maxIndex, setMaxIndex] = useState(testimonials.length - 3);
+  const maxIndexRef = useRef(testimonials.length - 3);
+
+  const updateVisibleCount = useCallback(() => {
+    const count = getVisibleCount();
+    setVisibleCount(count);
+    const newMaxIndex = Math.max(0, testimonials.length - count);
+    setMaxIndex(newMaxIndex);
+    maxIndexRef.current = newMaxIndex;
+    setCurrentIndex((prev) => Math.min(prev, newMaxIndex));
+  }, []);
 
   useEffect(() => {
-    const updateVisibleCount = () => {
-      const visibleCount = getVisibleCount();
-      const newMaxIndex = Math.max(0, testimonials.length - visibleCount);
-      setMaxIndex(newMaxIndex);
-    };
-
     updateVisibleCount();
     window.addEventListener("resize", updateVisibleCount);
     return () => window.removeEventListener("resize", updateVisibleCount);
-  }, []);
+  }, [updateVisibleCount]);
 
-  const startAutoplay = () => {
+  const startAutoplay = useCallback(() => {
     clearInterval(autoplayRef.current);
     autoplayRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+      setCurrentIndex((prev) => (prev >= maxIndexRef.current ? 0 : prev + 1));
     }, AUTOPLAY_MS);
-  };
+  }, []);
 
   useEffect(() => {
     startAutoplay();
     return () => clearInterval(autoplayRef.current);
-  }, [maxIndex]);
+  }, [startAutoplay]);
 
   useGSAP(
     () => {
       if (!trackRef.current) return;
-      const shiftPercent = -(currentIndex * (100 / testimonials.length));
+      const cardPercent = 100 / visibleCount;
+      const shiftPercent = -(currentIndex * cardPercent);
       gsap.to(trackRef.current, {
         xPercent: shiftPercent,
-        duration: 0.6,
+        duration: 0.5,
         ease: "power2.out",
       });
     },
-    { dependencies: [currentIndex], scope: trackRef },
+    { dependencies: [currentIndex, visibleCount], scope: trackRef },
   );
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1 > maxIndex ? 0 : prev + 1));
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev >= maxIndexRef.current ? 0 : prev + 1));
     startAutoplay();
-  };
+  }, [startAutoplay]);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 < 0 ? maxIndex : prev - 1));
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndexRef.current : prev - 1));
     startAutoplay();
-  };
+  }, [startAutoplay]);
 
-  const goToSlide = (i) => {
-    setCurrentIndex(Math.min(i, maxIndex));
+  const goToSlide = useCallback((i) => {
+    setCurrentIndex(Math.min(i, maxIndexRef.current));
     startAutoplay();
-  };
+  }, [startAutoplay]);
 
   const pauseAutoplay = () => clearInterval(autoplayRef.current);
   const resumeAutoplay = () => startAutoplay();
 
-  const handleTouchStart = useCallback((e) => {
-    touchStartX.current = e.changedTouches[0].screenX;
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
     pauseAutoplay();
-  }, []);
+  };
 
-  const handleTouchEnd = useCallback((e) => {
-    touchEndX.current = e.changedTouches[0].screenX;
-    const diff = touchStartX.current - touchEndX.current;
-    const SWIPE_THRESHOLD = 50;
-    if (Math.abs(diff) > SWIPE_THRESHOLD) {
-      if (diff > 0) {
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const diffX = touchStartX.current - touchEndX;
+    const diffY = touchStartY.current - touchEndY;
+    const SWIPE_THRESHOLD = 40;
+
+    // Only swipe if horizontal motion was dominant
+    if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 0) {
         nextSlide();
       } else {
         prevSlide();
       }
     }
     resumeAutoplay();
-  }, [maxIndex]);
+  };
 
   return (
     <section
@@ -256,7 +267,7 @@ const Customers = () => {
             onTouchEnd={handleTouchEnd}
             className="w-full overflow-hidden rounded-3xl py-4"
           >
-            <div ref={trackRef} className="flex">
+            <div ref={trackRef} className="flex w-full will-change-transform">
               {testimonials.map((test) => (
                 <div
                   key={test.id}
@@ -316,20 +327,20 @@ const Customers = () => {
             <button
               type="button"
               onClick={prevSlide}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-200 hover:border-brand hover:bg-brand hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-200 hover:border-brand hover:bg-brand hover:text-white cursor-pointer active:scale-90"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
             </button>
 
             {/* Dot Indicators */}
-            <div className="flex gap-1.5">
+            <div className="flex gap-1.5 flex-wrap justify-center max-w-[280px]">
               {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
                 <button
                   type="button"
                   key={idx}
                   onClick={() => goToSlide(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                     currentIndex === idx
                       ? "w-7 bg-brand"
                       : "w-2 bg-gray-300 hover:bg-gray-400"
@@ -342,7 +353,7 @@ const Customers = () => {
             <button
               type="button"
               onClick={nextSlide}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-200 hover:border-brand hover:bg-brand hover:text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition-all duration-200 hover:border-brand hover:bg-brand hover:text-white cursor-pointer active:scale-90"
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />

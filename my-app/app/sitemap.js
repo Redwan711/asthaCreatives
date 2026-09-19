@@ -4,6 +4,9 @@ export default function sitemap() {
 
   const routes = [
     { url: "", changefreq: "daily", priority: 1.0 },
+    { url: "/portfolio", changefreq: "weekly", priority: 0.9 },
+    { url: "/portfolio/gesha-coffee", changefreq: "monthly", priority: 0.85 },
+    { url: "/portfolio/alpha-health-farma", changefreq: "monthly", priority: 0.85 },
     { url: "/about", changefreq: "monthly", priority: 0.8 },
     { url: "/contact", changefreq: "monthly", priority: 0.8 },
     { url: "/services/creative-design", changefreq: "monthly", priority: 0.8 },

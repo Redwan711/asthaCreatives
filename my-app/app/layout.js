@@ -12,6 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://www.asthacreatives.com"),
   title:
     "Astha Creatives | Creative Design, AI Videos & Web Development Agency",
   description:

@@ -238,6 +238,12 @@ const Header = () => {
               </li>
 
               <li>
+                <Link href="/portfolio" className={linkClasses}>
+                  Portfolio
+                </Link>
+              </li>
+
+              <li>
                 <Link href="/about" className={linkClasses}>
                   About
                 </Link>
@@ -352,6 +358,18 @@ const Header = () => {
                 ))}
               </ul>
             )}
+          </li>
+
+          <li>
+            <Link
+              href="/portfolio"
+              className={`block py-2 transition-colors ${
+                isDarkSection ? "text-gray-200 hover:text-cyan-300" : "text-gray-800 hover:text-brandnd"
+              }`}
+              onClick={closeMobileMenu}
+            >
+              Portfolio
+            </Link>
           </li>
 
           <li>

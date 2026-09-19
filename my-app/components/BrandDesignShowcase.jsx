@@ -52,6 +52,7 @@ export const brandDesignProjects = [
     ],
     impact: "+140% retail packaging recognition & 45% increase in takeaway repeat orders.",
   },
+  /*
   {
     id: "ekome-furniture",
     businessType: "REAL ESTATE",
@@ -83,6 +84,7 @@ export const brandDesignProjects = [
     ],
     impact: "3.2x surge in residential inbound inquiries driven by moving fleet impressions.",
   },
+  */
   {
     id: "alpha-health-farma",
     businessType: "MEDICAL EQUIPMENT",
@@ -164,8 +166,14 @@ const BrandDesignShowcase = () => {
           </p>
         </div>
 
-        {/* 3 Brand Design Cards Grid (Tailored directly to match the design language) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Brand Design Cards Grid (Tailored directly to match the design language) */}
+        <div
+          className={`grid grid-cols-1 gap-8 ${
+            brandDesignProjects.length === 2
+              ? "md:grid-cols-2 max-w-5xl mx-auto"
+              : "md:grid-cols-2 lg:grid-cols-3"
+          }`}
+        >
           {brandDesignProjects.map((project) => {
             const Icon = project.icon;
             return (

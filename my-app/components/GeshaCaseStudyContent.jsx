@@ -757,24 +757,24 @@ export default function GeshaCaseStudyContent() {
           </div>
 
           {/* Next Case Study Navigation Card */}
-          <div className="mt-16 rounded-3xl border border-white/15 bg-gradient-to-r from-emerald-500/10 via-brandnd/10 to-transparent p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="mt-16 rounded-3xl border border-white/15 bg-gradient-to-r from-cyan-500/10 via-brandnd/10 to-transparent p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+              <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
                 Explore More Case Studies
               </span>
               <h3 className="mt-1 text-xl sm:text-2xl font-black text-white">
-                Next: Ekome Furniture & Living (Real Estate)
+                Next: Alpha Health Farma (Medical Equipment)
               </h3>
               <p className="mt-1 text-xs text-gray-400">
-                Fleet logistics graphics & &lsquo;From Our Floor to Your Door&rsquo; identity campaign.
+                Clinical brand architecture, certified pharmaceutical packaging, and medical device systems.
               </p>
             </div>
 
             <Link
-              href="/portfolio"
+              href="/portfolio/alpha-health-farma"
               className="inline-flex items-center gap-2 rounded-full bg-white text-gray-950 px-6 py-3 text-xs font-bold shadow-lg hover:bg-cyan-400 hover:text-black transition-all hover:scale-105 shrink-0"
             >
-              <span>Back to All Case Studies</span>
+              <span>View AHF Case Study</span>
               <ArrowRight size={14} />
             </Link>
           </div>

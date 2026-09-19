@@ -25,62 +25,79 @@ const HeroSection = () => {
   const magneticBtnRef = useRef(null);
 
   useEffect(() => {
-    const words = headingRef.current.querySelectorAll(".word-inner");
+    const ctx = gsap.context(() => {
+      const words = headingRef.current?.querySelectorAll(".word-inner");
 
-    // Main entrance timeline
-    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+      // Main entrance timeline
+      const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-    tl.set(words, { yPercent: 110 })
-      .fromTo(
+      if (words && words.length > 0) {
+        tl.set(words, { yPercent: 110 });
+      }
+
+      tl.fromTo(
         subheadingRef.current,
         { opacity: 0, y: -16 },
         { opacity: 1, y: 0, duration: 0.7 },
-      )
-      .to(words, { yPercent: 0, duration: 1.1, stagger: 0.06 }, "-=0.3")
-      .fromTo(
+      );
+
+      if (words && words.length > 0) {
+        tl.to(words, { yPercent: 0, duration: 1.1, stagger: 0.06 }, "-=0.3");
+      }
+
+      tl.fromTo(
         paragraphRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.7 },
         "-=0.5",
       )
-      .fromTo(
-        buttonsRef.current,
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-        "-=0.3",
-      )
-      .fromTo(
-        scrollIndicatorRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.5 },
-        "-=0.1",
-      );
+        .fromTo(
+          buttonsRef.current,
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
+          "-=0.3",
+        )
+        .fromTo(
+          scrollIndicatorRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.5 },
+          "-=0.1",
+        );
 
-    // Infinite gentle bounce on scroll indicator
-    gsap.to(scrollIndicatorRef.current, {
-      y: 8,
-      repeat: -1,
-      yoyo: true,
-      duration: 1.4,
-      ease: "power1.inOut",
-      delay: 2,
+      // Infinite gentle bounce on scroll indicator
+      gsap.to(scrollIndicatorRef.current, {
+        y: 8,
+        repeat: -1,
+        yoyo: true,
+        duration: 1.4,
+        ease: "power1.inOut",
+        delay: 2,
+      });
+
+      // Parallax on hero background only on desktop (disabled on mobile phones to prevent touch scroll jitter)
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 768px)", () => {
+        if (bgRef.current) {
+          gsap.to(bgRef.current, {
+            yPercent: 12,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".hero-section",
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+        }
+      });
     });
 
-    // Parallax on hero background
-    gsap.to(bgRef.current, {
-      yPercent: 12,
-      ease: "none",
-      scrollTrigger: {
-        trigger: bgRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
+    return () => ctx.revert();
   }, []);
 
   // Magnetic button physics
   const handleMouseMove = (e) => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) return;
     if (!magneticBtnRef.current) return;
     const rect = magneticBtnRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;

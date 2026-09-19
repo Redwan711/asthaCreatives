@@ -71,8 +71,9 @@ const HeroStats = ({ className = "" }) => {
   const containerRef = useRef(null);
 
   const handleMouseMove = (e) => {
-    const cards = containerRef.current?.querySelectorAll(".bento-card");
-    if (!cards) return;
+    if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) return;
+    if (!containerRef.current) return;
+    const cards = containerRef.current.querySelectorAll(".spotlight-card");
     cards.forEach((card) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -86,16 +87,18 @@ const HeroStats = ({ className = "" }) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".bento-card",
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 25 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
-          stagger: 0.1,
+          duration: 0.6,
+          stagger: 0.08,
           ease: "power3.out",
+          clearProps: "all",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 80%",
+            start: "top 85%",
+            once: true,
           },
         },
       );
@@ -121,11 +124,11 @@ const HeroStats = ({ className = "" }) => {
         const obj = { val: 0 };
         gsap.to(obj, {
           val: targetVal,
-          duration: 1.8,
+          duration: 1.6,
           ease: "power2.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 85%",
+            start: "top 90%",
             once: true,
           },
           onUpdate: () => {
@@ -143,7 +146,7 @@ const HeroStats = ({ className = "" }) => {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       aria-label="Key Performance Indicators"
-      className={`relative z-20 w-full bg-[#080b14] py-16 md:py-24 ${className}`}
+      className={`relative z-20 w-full bg-[#080b14] py-16 md:py-24 overflow-hidden ${className}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Subtle section kicker */}

@@ -67,13 +67,14 @@ const ServicePageTemplate = ({ service }) => {
       gsap.utils.toArray(".service-section-reveal").forEach((el) => {
         gsap.fromTo(
           el,
-          { opacity: 0, y: 35 },
+          { opacity: 0, y: 25 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.7,
+            duration: 0.6,
             ease: "power3.out",
-            scrollTrigger: { trigger: el, start: "top 85%" },
+            clearProps: "all",
+            scrollTrigger: { trigger: el, start: "top 88%", once: true },
           },
         );
       });
@@ -83,14 +84,15 @@ const ServicePageTemplate = ({ service }) => {
         const cards = group.querySelectorAll(".stagger-card");
         gsap.fromTo(
           cards,
-          { opacity: 0, y: 30 },
+          { opacity: 0, y: 20 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.6,
-            stagger: 0.1,
+            duration: 0.5,
+            stagger: 0.08,
             ease: "power3.out",
-            scrollTrigger: { trigger: group, start: "top 85%" },
+            clearProps: "all",
+            scrollTrigger: { trigger: group, start: "top 88%", once: true },
           },
         );
       });

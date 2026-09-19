@@ -70,16 +70,18 @@ const OfferingsSection = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".offering-card",
-        { opacity: 0, y: 35 },
+        { opacity: 0, y: 25 },
         {
           opacity: 1,
           y: 0,
           duration: 0.6,
-          stagger: 0.07,
+          stagger: 0.06,
           ease: "power2.out",
+          clearProps: "all",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 75%",
+            start: "top 85%",
+            once: true,
           },
         },
       );
@@ -96,6 +98,7 @@ const OfferingsSection = () => {
       const cards = cardsGridRef.current?.querySelectorAll(".offering-card");
       if (!cards || cards.length === 0) {
         setSelectedCategory(newCat);
+        setTimeout(() => ScrollTrigger.refresh(), 100);
         return;
       }
 
@@ -120,6 +123,7 @@ const OfferingsSection = () => {
       const cards = cardsGridRef.current?.querySelectorAll(".offering-card");
       if (!cards || cards.length === 0) {
         setTypeFilter(newType);
+        setTimeout(() => ScrollTrigger.refresh(), 100);
         return;
       }
 
@@ -137,7 +141,7 @@ const OfferingsSection = () => {
     [typeFilter],
   );
 
-  // After state update -> animate new cards in
+  // After state update -> animate new cards in and refresh scroll triggers
   useEffect(() => {
     if (isFirstMount.current) {
       isFirstMount.current = false;
@@ -146,7 +150,10 @@ const OfferingsSection = () => {
 
     requestAnimationFrame(() => {
       const newCards = cardsGridRef.current?.querySelectorAll(".offering-card");
-      if (!newCards || newCards.length === 0) return;
+      if (!newCards || newCards.length === 0) {
+        ScrollTrigger.refresh();
+        return;
+      }
 
       gsap.fromTo(
         newCards,
@@ -157,6 +164,10 @@ const OfferingsSection = () => {
           duration: 0.45,
           stagger: 0.04,
           ease: "power2.out",
+          clearProps: "all",
+          onComplete: () => {
+            ScrollTrigger.refresh();
+          },
         },
       );
     });

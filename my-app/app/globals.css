@@ -8,9 +8,12 @@
   --mid-pure: #f3f7fb;
 }
 
-/* Smooth scroll for anchor links */
-html {
-  scroll-behavior: smooth;
+/* Mobile overflow prevention & GSAP ScrollTrigger stability */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
 }
 
 /* Scroll progress bar */

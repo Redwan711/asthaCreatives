@@ -162,7 +162,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold">Get In Touch</h3>
             <ul className="mt-5 flex flex-col gap-3 text-sm text-white/70">
-              <li>Road 13, Sector 14, Uttara, Dhaka</li>
+              <li>Road 12, Sector 03, Uttara, Dhaka</li>
               <li>
                 <a
                   href="mailto:contact@redmun.com"

@@ -136,16 +136,29 @@ export default function ContactUs() {
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm text-gray-400 pl-1">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    name="userPhone" // Added name attribute
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all"
-                    placeholder="+880 1XXX XXXXXX"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm text-gray-400 pl-1">
+                      Organization Name
+                    </label>
+                    <input
+                      type="text"
+                      name="userOrganization"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all"
+                      placeholder="Your Company / Organization"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm text-gray-400 pl-1">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      name="userPhone" // Added name attribute
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent transition-all"
+                      placeholder="+880 1XXX XXXXXX"
+                    />
+                  </div>
                 </div>
 
                 <div className="space-y-2">
@@ -203,7 +216,7 @@ export default function ContactUs() {
                 <div>
                   <p className="text-sm text-gray-400 mb-1">Reach Us</p>
                   <p className="text-gray-200">
-                    Road 13, Sector 14, Uttara, Dhaka
+                    Road 12, Sector 03, Uttara, Dhaka
                   </p>
                 </div>
               </div>

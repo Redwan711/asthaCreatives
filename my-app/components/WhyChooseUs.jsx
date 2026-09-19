@@ -56,47 +56,55 @@ const WhyChooseUs = () => {
       // Entrance animation for the text side
       gsap.fromTo(
         ".faq-reveal",
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 24 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.1,
+          duration: 0.7,
+          stagger: 0.08,
           ease: "power3.out",
+          clearProps: "all",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 70%",
+            start: "top 80%",
+            once: true,
           },
         },
       );
 
-      // Subtle scale effect on the image
-      gsap.fromTo(
-        ".sticky-image",
-        { scale: 1.05, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 75%",
+      // Subtle scale effect on the image (only on desktop where image is rendered)
+      const stickyImg = containerRef.current?.querySelector(".sticky-image");
+      if (stickyImg) {
+        gsap.fromTo(
+          stickyImg,
+          { scale: 1.05, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 1.0,
+            ease: "power2.out",
+            clearProps: "all",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top 80%",
+              once: true,
+            },
           },
-        },
-      );
+        );
+      }
     },
     { scope: containerRef },
   );
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);
+    setTimeout(() => ScrollTrigger.refresh(), 100);
   };
 
   return (
     <section
       ref={containerRef}
-      className="bg-gray-950 py-24 text-white relative"
+      className="bg-gray-950 py-24 text-white relative overflow-hidden"
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">

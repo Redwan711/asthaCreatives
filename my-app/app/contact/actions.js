@@ -7,6 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendContactEmail(formData) {
   const name = formData.get("userName");
   const email = formData.get("userEmail");
+  const organization = formData.get("userOrganization");
   const phone = formData.get("userPhone");
   const message = formData.get("userMessage");
 
@@ -22,12 +23,13 @@ export async function sendContactEmail(formData) {
     const data = await resend.emails.send({
       from: "Astha Creatives <no-reply@mail.asthacreatives.com>",
       to: ["murtaza@redmun.com", "shahidul1920shakil@gmail.com"],
-      subject: `New Lead: ${name}`,
+      subject: `New Lead: ${name}${organization ? ` (${organization})` : ""}`,
       reply_to: email,
       html: `
         <h2>New Contact Request</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Organization:</strong> ${organization || "Not provided"}</p>
         <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
         <p><strong>Message:</strong><br/>${message}</p>
       `,

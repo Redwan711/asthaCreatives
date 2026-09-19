@@ -52,15 +52,17 @@ const ServicesSection = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headingRef.current,
-        { opacity: 0, y: 24 },
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
+          duration: 0.6,
           ease: "power3.out",
+          clearProps: "all",
           scrollTrigger: {
             trigger: headingRef.current,
-            start: "top 80%",
+            start: "top 85%",
+            once: true,
           },
         },
       );
@@ -68,16 +70,18 @@ const ServicesSection = () => {
       const cards = gsap.utils.toArray(".service-card");
       gsap.fromTo(
         cards,
-        { opacity: 0, y: 48 },
+        { opacity: 0, y: 24 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
+          duration: 0.6,
           ease: "power3.out",
-          stagger: 0.12,
+          stagger: 0.08,
+          clearProps: "all",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 70%",
+            start: "top 85%",
+            once: true,
           },
         },
       );

@@ -44,17 +44,18 @@ const About = () => {
       gsap.utils.toArray(".stack-panel").forEach((panel) => {
         gsap.fromTo(
           panel.querySelectorAll(".reveal"),
-          { opacity: 0, y: 40 },
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.9,
+            duration: 0.7,
             ease: "power3.out",
             stagger: 0.08,
+            clearProps: "all",
             scrollTrigger: {
               trigger: panel,
-              start: "top top+=80",
-              toggleActions: "play none none reverse",
+              start: "top 85%",
+              once: true,
             },
           },
         );

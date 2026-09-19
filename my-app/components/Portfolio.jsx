@@ -180,16 +180,18 @@ const Portfolio = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".portfolio-item-card",
-        { y: 30, opacity: 0 },
+        { y: 24, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.7,
-          stagger: 0.08,
+          duration: 0.6,
+          stagger: 0.06,
           ease: "power3.out",
+          clearProps: "all",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 75%",
+            start: "top 85%",
+            once: true,
           },
         },
       );

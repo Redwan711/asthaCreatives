@@ -35,17 +35,19 @@ const Team = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".team-card",
-        { opacity: 0, scale: 0.9, y: 24 },
+        { opacity: 0, scale: 0.95, y: 20 },
         {
           opacity: 1,
           scale: 1,
           y: 0,
-          duration: 0.7,
+          duration: 0.6,
           ease: "power3.out",
-          stagger: 0.12,
+          stagger: 0.1,
+          clearProps: "all",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 75%",
+            start: "top 85%",
+            once: true,
           },
         },
       );
@@ -55,6 +57,7 @@ const Team = () => {
   }, []);
 
   const handleMouseMove = (e) => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) return;
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -72,6 +75,7 @@ const Team = () => {
   };
 
   const handleMouseLeave = (e) => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) return;
     gsap.to(e.currentTarget, {
       rotateX: 0,
       rotateY: 0,
@@ -81,7 +85,7 @@ const Team = () => {
   };
 
   return (
-    <section ref={sectionRef} className="w-full py-24 md:py-32 bg-white">
+    <section ref={sectionRef} className="w-full py-24 md:py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <HeadNtext
           heading="Meet Our Team"

@@ -32,6 +32,7 @@ const DigitalOceanNeeds = () => {
   const sectionRef = useRef(null);
 
   const handleCardMouseMove = useCallback((e) => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) return;
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
     card.style.setProperty("--glow-x", `${e.clientX - rect.left}px`);
@@ -42,33 +43,37 @@ const DigitalOceanNeeds = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".ocean-header-reveal",
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 24 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.12,
+          duration: 0.7,
+          stagger: 0.1,
           ease: "power3.out",
+          clearProps: "all",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 80%",
+            start: "top 85%",
+            once: true,
           },
         },
       );
 
       gsap.fromTo(
         ".ocean-pillar-card",
-        { opacity: 0, scale: 0.9, y: 24 },
+        { opacity: 0, scale: 0.95, y: 20 },
         {
           opacity: 1,
           scale: 1,
           y: 0,
-          duration: 0.7,
-          stagger: 0.08,
-          ease: "back.out(1.3)",
+          duration: 0.6,
+          stagger: 0.07,
+          ease: "power2.out",
+          clearProps: "all",
           scrollTrigger: {
             trigger: ".ocean-pillars-grid",
-            start: "top 80%",
+            start: "top 85%",
+            once: true,
           },
         },
       );

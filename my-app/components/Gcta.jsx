@@ -19,15 +19,17 @@ const Gcta = (props) => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         sectionRef.current,
-        { opacity: 0, y: 35 },
+        { opacity: 0, y: 25 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.6,
           ease: "power3.out",
+          clearProps: "all",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 85%",
+            once: true,
           },
         },
       );
@@ -37,6 +39,7 @@ const Gcta = (props) => {
   }, []);
 
   const handleMouseMove = (e) => {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: none)").matches) return;
     if (!magneticBtnRef.current) return;
     const rect = magneticBtnRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;

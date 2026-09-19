@@ -7,8 +7,9 @@ import HeadNtext from "./HeadNtext";
 import Image from "next/image";
 import Redwan from "@/images/teams/redwan.jpeg";
 import Murtaza from "@/images/teams/murtaza.jpeg";
+import Arif from "@/images/teams/arif.jpeg";
 import Shahidul from "@/images/teams/shahidul.jpeg";
-import Emon from "@/images/teams/shahidul.jpeg";
+import Jahidul from "@/images/teams/jahidul.jpeg";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -22,8 +23,9 @@ const teamMembers = [
     role: "Project Manager",
     image: Murtaza,
   },
-  { id: 3, name: "Shahidul Shakil", role: "Lead Developer", image: Shahidul },
-  { id: 4, name: "Jahidul Islam", role: "Lead Designer", image: Emon },
+  { id: 3, name: "Arif Hossain", role: "Project Lead", image: Arif },
+  { id: 4, name: "Shahidul Shakil", role: "Lead Developer", image: Shahidul },
+  { id: 5, name: "Jahidul Islam", role: "Lead Designer", image: Jahidul },
 ];
 
 const Team = () => {
@@ -86,7 +88,7 @@ const Team = () => {
           text="As a team, we move forward with deep trust in our vision, believing that with focus, dedication, and heart, meaningful success is always within reach."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {teamMembers.map((member) => (
             <div
               key={member.id}
@@ -100,7 +102,7 @@ const Team = () => {
                   alt={member.name}
                   fill
                   className="object-cover grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-40" />
 
@@ -110,8 +112,8 @@ const Team = () => {
                 </div>
               </div>
 
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-brand transition-colors">
+              <div className="p-5">
+                <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-brand transition-colors">
                   {member.name}
                 </h3>
                 <p className="mt-1 text-xs font-semibold text-brandnd uppercase tracking-wider">

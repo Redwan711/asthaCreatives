@@ -19,10 +19,30 @@ export const metadata = {
     "Astha Creatives is a premium digital agency specializing in Creative Design, AI Video Creation, Video Editing, Website Development, and Data Analytics. Empower your brand with custom high-performance solutions.",
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Astha Creatives",
+  url: "https://www.asthacreatives.com",
+  sameAs: [
+    "https://www.facebook.com/asthacreative",
+    "https://www.instagram.com/asthacreatives",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+8801711994608",
+    contactType: "customer service",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${poppins.variable} h-full antialiased`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <ScrollProgress />
         <div className="header">
           <Header />

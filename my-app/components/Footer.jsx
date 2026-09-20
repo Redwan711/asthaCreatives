@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -11,10 +11,7 @@ import {
   ArrowUp,
   ArrowUpRight,
   Sparkles,
-  CheckCircle2,
   Globe2,
-  Send,
-  Lock,
   Compass,
   Layers,
   Zap,
@@ -117,15 +114,6 @@ const socialLinks = [
 ];
 
 const Footer = () => {
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [isSubscribed, setIsSubscribed] = useState(false);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (!newsletterEmail || !newsletterEmail.includes("@")) return;
-    setIsSubscribed(true);
-    setNewsletterEmail("");
-  };
 
   const scrollToTop = () => {
     if (typeof window !== "undefined") {
@@ -249,58 +237,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* ============================================================ */}
-        {/* 4. NEWSLETTER & AGENCY STRATEGY BRIEFING                    */}
-        {/* ============================================================ */}
-        <div className="mb-16 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-6 sm:p-8">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            <div className="max-w-xl">
-              <h4 className="text-lg font-bold text-white flex items-center gap-2">
-                <Compass size={18} className="text-cyan-400" />
-                Subscribe to The Astha Creatives Growth Brief
-              </h4>
-              <p className="mt-1 text-xs sm:text-sm text-gray-400 leading-relaxed">
-                Bi-weekly executive breakdowns on brand identity strategy, high-conversion landing page design, AI video workflows, and performance ad scaling.
-              </p>
-            </div>
 
-            <div className="w-full lg:w-auto shrink-0">
-              {isSubscribed ? (
-                <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-5 py-2.5 text-xs font-semibold text-emerald-300">
-                  <CheckCircle2 size={16} className="text-emerald-400" />
-                  <span>You're on the briefing list! Check your inbox soon.</span>
-                </div>
-              ) : (
-                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
-                  <input
-                    type="email"
-                    value={newsletterEmail}
-                    onChange={(e) => setNewsletterEmail(e.target.value)}
-                    placeholder="Enter your work email address"
-                    required
-                    className="w-full sm:w-72 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:border-cyan-400 focus:outline-hidden focus:ring-1 focus:ring-cyan-400 transition-all"
-                  />
-                  <button
-                    type="submit"
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full bg-cyan-400 px-5 py-2.5 text-xs font-bold text-black hover:bg-cyan-300 hover:scale-105 transition-all shadow-md shadow-cyan-400/20 cursor-pointer"
-                  >
-                    <span>Subscribe</span>
-                    <Send size={13} />
-                  </button>
-                </form>
-              )}
-              <div className="mt-2 flex items-center gap-3 text-[11px] text-gray-500">
-                <span className="flex items-center gap-1">
-                  <Lock size={11} className="text-gray-500" /> Zero spam
-                </span>
-                <span>•</span>
-                <span>Unsubscribe anytime</span>
-                <span>•</span>
-                <span>Curated by agency directors</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* ============================================================ */}
         {/* 5. MAIN 5-COLUMN NAVIGATION MATRIX                           */}

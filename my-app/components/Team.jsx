@@ -9,7 +9,6 @@ import Redwan from "@/images/teams/redwan.jpeg";
 import Murtaza from "@/images/teams/murtaza.jpeg";
 import Arif from "@/images/teams/arif.jpeg";
 import Shahidul from "@/images/teams/shahidul.jpeg";
-import Jahidul from "@/images/teams/jahidul.jpeg";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -25,7 +24,6 @@ const teamMembers = [
   },
   { id: 3, name: "Arif Hossain", role: "Project Lead", image: Arif },
   { id: 4, name: "Shahidul Shakil", role: "Lead Developer", image: Shahidul },
-  { id: 5, name: "Jahidul Islam", role: "Lead Designer", image: Jahidul },
 ];
 
 const Team = () => {
@@ -35,14 +33,13 @@ const Team = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".team-card",
-        { opacity: 0, scale: 0.95, y: 20 },
+        { opacity: 0, y: 24 },
         {
           opacity: 1,
-          scale: 1,
           y: 0,
           duration: 0.6,
           ease: "power3.out",
-          stagger: 0.1,
+          stagger: 0.08,
           clearProps: "all",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -69,8 +66,9 @@ const Team = () => {
       rotateX,
       rotateY,
       transformPerspective: 900,
-      duration: 0.4,
+      duration: 0.3,
       ease: "power2.out",
+      overwrite: "auto",
     });
   };
 
@@ -79,8 +77,12 @@ const Team = () => {
     gsap.to(e.currentTarget, {
       rotateX: 0,
       rotateY: 0,
-      duration: 0.6,
-      ease: "power3.out",
+      scale: 1,
+      y: 0,
+      clearProps: "transform",
+      duration: 0.5,
+      ease: "power2.out",
+      overwrite: "auto",
     });
   };
 
@@ -92,13 +94,13 @@ const Team = () => {
           text="As a team, we move forward with deep trust in our vision, believing that with focus, dedication, and heart, meaningful success is always within reach."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
           {teamMembers.map((member) => (
             <div
               key={member.id}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="team-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-gray-200/80 bg-white shadow-xs transition-all duration-300 will-change-transform hover:border-brandnd/40 hover:shadow-2xl"
+              className="team-card group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-gray-200/80 bg-white shadow-xs transition-[border-color,box-shadow] duration-300 will-change-transform hover:border-brandnd/40 hover:shadow-2xl"
             >
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-100">
                 <Image
@@ -106,7 +108,7 @@ const Team = () => {
                   alt={member.name}
                   fill
                   className="object-cover grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-40" />
 
